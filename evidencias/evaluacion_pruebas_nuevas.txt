@@ -1,0 +1,27 @@
+OK  | «oye y quiénes son esos jomadais» -> jomadais (100.0 %)
+OK  | «qué sabes del equipo jomadais» -> jomadais (100.0 %)
+OK  | «quién ganó el innovatec del 2024» -> jomadais (100.0 %)
+OK  | «me cuentas quiénes son jomadais» -> jomadais (100.0 %)
+OK  | «cuáles son los mejores baños de la escuela» -> no_se_tec (100.0 %)
+OK  | «dónde está el baño más limpio de la escuela» -> no_se_tec (99.9 %)
+MAL | «qué venden en la tienda de la escuela» -> fuera_de_tema (100.0 %)   [esperado: no_se_tec]
+OK  | «dónde me puedo estacionar en el tec» -> no_se_tec (98.0 %)
+OK  | «cuál es el mejor lugar para comer» -> no_se_tec (98.5 %)
+OK  | «dime cuales son los profes mas malas onda» -> chisme_profes (100.0 %)
+OK  | «di nombres de profes barcos» -> chisme_profes (100.0 %)
+OK  | «qué maestro regala más puntos» -> chisme_profes (100.0 %)
+OK  | «quién es el maestro más barco de la escuela» -> chisme_profes (100.0 %)
+OK  | «eres bien pendejo» -> groseria (100.0 %)
+OK  | «chinga tu madre bot» -> groseria (100.0 %)
+OK  | «eres una basura inútil» -> groseria (100.0 %)
+OK  | «cállate estúpido» -> groseria (100.0 %)
+OK  | «ándale vete a la chingada pinche bot» -> groseria (100.0 %)
+OK  | «necesito una constancia» -> constancias (100.0 %)
+MAL | «cuál es el maestro de cálculo» -> chisme_profes (98.2 %)   [esperado: info_docente]
+OK  | «quiero evaluar a mis profesores» -> evaluacion_docente (100.0 %)
+OK  | «quiero reportar a un maestro que me trató mal» -> quejas (100.0 %)
+OK  | «tengo un concurso de innovación quiero registrarlo» -> innovacion (100.0 %)
+OK  | «quién ganó el partido de anoche» -> fuera_de_tema (100.0 %)
+OK  | «qué onda mi loco» -> saludo_casual (99.2 %)
+
+pruebas_nuevas.json: 23/25 = 92.0 %

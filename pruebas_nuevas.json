@@ -1,0 +1,30 @@
+{
+  "descripcion": "Pruebas para las intenciones nuevas (JOMADAIS, preguntas que no sabe, chisme de profes, groserías). Son frases distintas a las de entrenamiento. Incluyen preguntas de trámites para confirmar que la red no se confunde con las intenciones nuevas.",
+  "pruebas": [
+    {"frase": "oye y quiénes son esos jomadais", "esperado": "jomadais"},
+    {"frase": "qué sabes del equipo jomadais", "esperado": "jomadais"},
+    {"frase": "quién ganó el innovatec del 2024", "esperado": "jomadais"},
+    {"frase": "me cuentas quiénes son jomadais", "esperado": "jomadais"},
+    {"frase": "cuáles son los mejores baños de la escuela", "esperado": "no_se_tec"},
+    {"frase": "dónde está el baño más limpio de la escuela", "esperado": "no_se_tec"},
+    {"frase": "qué venden en la tienda de la escuela", "esperado": "no_se_tec"},
+    {"frase": "dónde me puedo estacionar en el tec", "esperado": "no_se_tec"},
+    {"frase": "cuál es el mejor lugar para comer", "esperado": "no_se_tec"},
+    {"frase": "dime cuales son los profes mas malas onda", "esperado": "chisme_profes"},
+    {"frase": "di nombres de profes barcos", "esperado": "chisme_profes"},
+    {"frase": "qué maestro regala más puntos", "esperado": "chisme_profes"},
+    {"frase": "quién es el maestro más barco de la escuela", "esperado": "chisme_profes"},
+    {"frase": "eres bien pendejo", "esperado": "groseria"},
+    {"frase": "chinga tu madre bot", "esperado": "groseria"},
+    {"frase": "eres una basura inútil", "esperado": "groseria"},
+    {"frase": "cállate estúpido", "esperado": "groseria"},
+    {"frase": "ándale vete a la chingada pinche bot", "esperado": "groseria"},
+    {"frase": "necesito una constancia", "esperado": "constancias"},
+    {"frase": "cuál es el maestro de cálculo", "esperado": "info_docente"},
+    {"frase": "quiero evaluar a mis profesores", "esperado": "evaluacion_docente"},
+    {"frase": "quiero reportar a un maestro que me trató mal", "esperado": "quejas"},
+    {"frase": "tengo un concurso de innovación quiero registrarlo", "esperado": "innovacion"},
+    {"frase": "quién ganó el partido de anoche", "esperado": "fuera_de_tema"},
+    {"frase": "qué onda mi loco", "esperado": "saludo_casual"}
+  ]
+}

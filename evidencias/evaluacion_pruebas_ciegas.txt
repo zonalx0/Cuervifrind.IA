@@ -1,20 +1,20 @@
 OK  | «buen día, cómo estás» -> como_estas (100.0 %)
-OK  | «buenas tardes cuervifriend» -> saludo (100.0 %)
+OK  | «buenas tardes cuervifriend» -> saludo (99.9 %)
 OK  | «qué pasó compa» -> saludo_casual (100.0 %)
-OK  | «tú qué eres exactamente» -> quien_eres (99.7 %)
+OK  | «tú qué eres exactamente» -> quien_eres (100.0 %)
 OK  | «para qué trámites me sirves» -> ayuda (100.0 %)
-OK  | «gracias por la información» -> agradecimiento (99.5 %)
+MAL | «gracias por la información» -> becas (41.9 %)   [esperado: agradecimiento]
 OK  | «bueno, me voy, nos vemos» -> despedida (100.0 %)
 OK  | «cuéntame algo gracioso» -> chiste (100.0 %)
 OK  | «quién es el mejor cantante del mundo» -> fuera_de_tema (100.0 %)
 OK  | «ocupo una constancia de estudios para el banco» -> constancias (100.0 %)
-MAL | «dónde saco mi historial académico» -> carga_academica (38.4 %)   [esperado: constancias]
+MAL | «dónde saco mi historial académico» -> comite_academico (97.5 %)   [esperado: constancias]
 OK  | «quiero solicitar la beca benito juárez» -> beca_benito_juarez (100.0 %)
 OK  | «hay algún apoyo para alumnos con promedio alto» -> beca_excelencia (100.0 %)
 OK  | «perdí mi credencial del tec» -> credencial (100.0 %)
 OK  | «quiero cambiarme de carrera a mecatrónica» -> cambio_carrera (100.0 %)
 OK  | «necesito pasarme al grupo de la tarde» -> cambio_horario (100.0 %)
-MAL | «ya no voy a estudiar este semestre qué hago» -> reactivar_baja (93.5 %)   [esperado: baja_temporal]
+OK  | «ya no voy a estudiar este semestre qué hago» -> baja_temporal (99.2 %)
 OK  | «terminé mi baja temporal y quiero regresar» -> reactivar_baja (100.0 %)
 OK  | «cómo libero el servicio social» -> servicio_social (100.0 %)
 OK  | «dónde puedo hacer mis prácticas» -> practicas_profesionales (100.0 %)
@@ -23,15 +23,15 @@ OK  | «necesito la factura de mi colegiatura» -> facturas (100.0 %)
 OK  | «no me deja entrar mi correo institucional» -> correo_institucional (100.0 %)
 OK  | «olvidé mi contraseña de mindbox» -> mindbox (100.0 %)
 OK  | «dónde me puedo titular» -> opcion_titulacion (100.0 %)
-MAL | «quiero informes sobre cursos de inglés» -> educacion_continua (97.2 %)   [esperado: lengua_extranjera]
+OK  | «quiero informes sobre cursos de inglés» -> lengua_extranjera (100.0 %)
 OK  | «cuándo es el examen ceneval» -> egel (100.0 %)
 OK  | «quiero un tutor porque voy mal en mis materias» -> tutorias (100.0 %)
 OK  | «puedo pagar mi reinscripción más tarde» -> prorroga_pago (100.0 %)
-OK  | «quiero estudiar una maestría en el tec» -> posgrado (98.2 %)
+OK  | «quiero estudiar una maestría en el tec» -> posgrado (99.9 %)
 OK  | «tengo una queja del servicio de la escuela» -> quejas (100.0 %)
 OK  | «cuándo es la evaluación de los maestros» -> evaluacion_docente (100.0 %)
 OK  | «quiero sacar un libro de la biblioteca» -> biblioteca (100.0 %)
-OK  | «dónde me inscribo para entrar al tec» -> aspirantes (82.9 %)
+OK  | «dónde me inscribo para entrar al tec» -> aspirantes (88.7 %)
 OK  | «tengo una idea de negocio quiero emprender» -> incubadora (100.0 %)
 OK  | «debo dinero a la escuela cuánto es» -> adeudos (100.0 %)
 OK  | «mi familia no tiene dinero necesito una beca» -> beca_bajos_recursos (100.0 %)
@@ -39,4 +39,4 @@ OK  | «quiero cambiar de modalidad virtual a presencial» -> cambio_modalidad (
 OK  | «dónde entrego mis papeles de inscripción» -> entrega_documentos (100.0 %)
 OK  | «quiero afiliarme al seguro del imss» -> seguro_facultativo (100.0 %)
 
-pruebas_ciegas.json: 37/40 = 92.5 %
+pruebas_ciegas.json: 38/40 = 95.0 %

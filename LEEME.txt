@@ -43,6 +43,8 @@ PUBLICARLO CON UN LINK PARA QUE OTROS LO PRUEBEN
           Build Command:   pip install -r requirements.txt
           Start Command:   gunicorn app:app
      3. Cuando termine, Render te da un link  xxxx.onrender.com.
+     ACTUALIZAR después de cambiar archivos: sube los archivos nuevos al repositorio de GitHub (mismo nombre,
+     "Commit changes") y en Render usa  Manual Deploy > Deploy latest commit. No hay que crear nada otra vez.
      Ojo: en el plan gratis el servicio se duerme tras 15 minutos sin visitas y tarda cerca de 1 minuto
      en despertar la primera vez; además Render indica que los servicios gratis son para pruebas y proyectos
      personales. Ábrelo tú unos minutos antes de presentar para que ya esté despierto.
@@ -59,6 +61,7 @@ OTROS COMANDOS ÚTILES (para mostrar al maestro)
   py probar_red.py                       Prueba la red desde la terminal y muestra las probabilidades.
   py entrenar.py                         Vuelve a entrenar la red neuronal (tarda ~1 minuto) y regenera modelo.json.
   py evaluar.py pruebas_ciegas.json      Mide la precisión con frases que la red nunca vio.
+  py evaluar.py pruebas_nuevas.json      Igual, con las frases de las intenciones nuevas.
 
 QUÉ HACE CADA ARCHIVO
 ---------------------
@@ -72,7 +75,7 @@ QUÉ HACE CADA ARCHIVO
   directorio.json     Directorio de trámites del TecNL (áreas, responsables, correos, teléfonos).
   pruebas*.json       Frases nuevas para medir si la red de verdad entiende.
   evidencias/         Registro del entrenamiento, curva de aprendizaje y resultados de las pruebas.
-  templates/ static/  La página web (color vino) y el logo (reemplaza static/logo.svg por el oficial).
+  templates/          La página web (color vino): templates/index.html.
   requirements.txt    Lo mínimo para publicarlo en internet (flask, numpy, gunicorn).
   requirements-local.txt  Lo mismo + las librerías de voz para usar en tu computadora.
   Procfile            Comando de arranque para hosting (gunicorn app:app).
@@ -90,11 +93,26 @@ CÓMO FUNCIONA (resumen para explicarlo)
 
 RESULTADOS REALES DE LA RED (ver carpeta evidencias/)
 -----------------------------------------------------
-  Pruebas ciegas (40 frases escritas después de entrenar, sin ajustar nada con ellas):  92.5 %
+  Pruebas ciegas (40 frases escritas después de entrenar, sin ajustar nada con ellas):  95.0 %
   Pruebas finales (71 frases nuevas):                                                   94.4 %
+  Pruebas de las intenciones nuevas (25 frases: JOMADAIS, "no sé", chismes, groserías): 92.0 %
   La red no es perfecta: a veces se confunde con frases muy parecidas entre trámites
   (por ejemplo "cursos de inglés" vs "cursos de educación continua"). Para mejorarla, agrega frases a
   intents.json y ejecuta  py entrenar.py.
+
+RAZONAMIENTO Y PERSONALIDAD (intenciones agregadas)
+---------------------------------------------------
+  jomadais       Sabe que el equipo JOMADAIS (Max, Isma, Joel y Luis) ganó el Innovatec 2024.
+  no_se_tec      Preguntas del campus que no están en el directorio (baños, cafetería, estacionamiento...):
+                 responde con humor que no lo sabe, pero que sí sabe qué trámites hacer y dónde.
+  chisme_profes  No opina de maestros; manda a la evaluación docente.
+  groseria       Si hay groserías, avisa que puede reportar al alumno con su maestro.
+                 (Es solo un mensaje: el programa no envía ningún reporte real.)
+  Para enseñarle algo nuevo: agrega una intención en intents.json y ejecuta  py entrenar.py.
+
+  En la página, el asistente muestra "Leyendo tu mensaje..." entre 1 y 2 segundos antes de contestar.
+  Es un efecto visual en la interfaz (la red responde en milisegundos); el tiempo se puede cambiar en
+  templates/index.html, en la línea que calcula  const demora.
 
 INTERRUPTORES EN app.py
 -----------------------

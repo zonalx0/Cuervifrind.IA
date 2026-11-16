@@ -159,6 +159,42 @@
       ]
     },
 
+    {
+      "tag": "jomadais", "tipo": "charla",
+      "patrones": ["quiénes son jomadais", "quién es jomadais", "qué es jomadais", "jomadais", "cuéntame de jomadais", "quiénes son los jomadais", "equipo jomadais", "conoces a jomadais", "dime de jomadais", "jomadais quiénes son", "qué sabes de jomadais", "quién ganó el innovatec", "quién ganó el innovatec 2024", "ganadores del innovatec 2024", "qué equipo ganó el innovatec del 2024", "quiénes ganaron el innovatec", "campeones del innovatec", "jomadais ganó algo", "quiénes son max isma joel y luis", "los ganadores del innovatec", "jomadais innovatec", "quién es el equipo ganador del innovatec", "innovatec 2024 ganadores", "háblame del equipo jomadais"],
+      "respuestas": [
+        "JOMADAIS es el equipo que ganó el Innovatec 2024. Lo forman Max, Isma, Joel y Luis. ¡Unos campeones! 🏆",
+        "¡Los JOMADAIS! Max, Isma, Joel y Luis ganaron el Innovatec del 2024. 🏆 ¡Felicidades a los campeones!",
+        "Te cuento: JOMADAIS son Max, Isma, Joel y Luis, el equipo ganador del Innovatec 2024. 🏆"
+      ]
+    },
+    {
+      "tag": "no_se_tec", "tipo": "charla",
+      "patrones": ["cuáles son los mejores baños del tec", "dónde están los mejores baños", "qué baño está más limpio", "cuál es la mejor cafetería", "qué venden en la cafetería", "a qué hora cierra la cafetería", "dónde puedo estacionarme", "cuál es el mejor salón", "qué salón tiene aire acondicionado", "hay wifi en el tec", "cuál es la contraseña del wifi", "dónde hay máquinas de snacks", "cuál es el lugar más bonito del tec", "dónde puedo dormir en la escuela", "qué comer en la cafetería", "dónde hay enchufes para cargar mi celular", "dónde compro café en la escuela", "hay fiestas en el tec", "cuándo es la próxima fiesta", "cuál es el mejor edificio del tec", "dónde se juntan los alumnos", "hay estacionamiento gratis", "qué baño está más cerca", "dónde hay un lugar tranquilo para estudiar"],
+      "respuestas": [
+        "Jaja, la verdad no lo sé 😅. Eso no viene en mi directorio. Lo que sí sé es dónde hacer trámites del Tec: becas, constancias, servicio social, pagos y más. ¿Te ayudo con alguno?",
+        "Buena pregunta, pero no lo sé jaja. 😄 Lo mío son los trámites: sé a qué área ir y a quién preguntarle. ¿Qué trámite necesitas?",
+        "Ni idea, jaja. 🤷 Esa información no la tengo, pero si es un trámite escolar, dime y te digo dónde ir."
+      ]
+    },
+    {
+      "tag": "chisme_profes", "tipo": "charla",
+      "patrones": ["cuáles son los profes más barcos", "dime los profes más malas onda", "quién es el mejor maestro", "cuál es el profe más barco", "qué profesores regalan puntos", "quién es el profe más exigente", "dime nombres de profes barcos", "profes más fáciles de pasar", "cuál es el peor maestro", "qué maestro es más buena onda", "quién es el profesor más estricto", "recomiéndame un profe", "con quién me conviene tomar la materia", "cuál profe es el más barco de cálculo", "quién da mejores clases", "los mejores profes del tec", "los maestros más difíciles", "qué profe deja menos tarea", "profes que no dejan tarea", "dime qué maestros son los más barcos"],
+      "respuestas": [
+        "Jaja, de eso no sé y no chismeo de los profes 😅. Si quieres opinar de un maestro de forma oficial, escribe «evaluación docente» y te digo con quién.",
+        "Uy, no me meto en chismes de profes jaja. 🤐 Si quieres calificar a un maestro de forma oficial, pregúntame por la «evaluación docente»."
+      ]
+    },
+    {
+      "tag": "groseria", "tipo": "charla",
+      "patrones": ["eres un idiota", "eres un estúpido", "pendejo", "estás pendejo", "eres un pendejo", "pinche bot inútil", "chinga tu madre", "vete a la verga", "vete a la chingada", "vete a la mierda", "hijo de tu puta madre", "hijo de la chingada", "no sirves para nada", "eres basura", "bot de mierda", "cállate imbécil", "cállate idiota", "estúpido bot", "puto bot", "pinche robot", "maldito bot", "eres un inútil", "eres un tarado", "eres un tonto", "mugroso bot", "estás bien menso", "eres un menso", "pinche asistente inservible", "ojete", "culero", "eres un culero", "no mames pendejo"],
+      "respuestas": [
+        "Oye, ese lenguaje no está bien. 😠 Si sigues con groserías, voy a reportarte con tu maestro. Mejor dime con respeto qué trámite necesitas.",
+        "¡Eso fue una grosería! Si continúas, te reporto con tu maestro. Hablemos con respeto: ¿qué trámite necesitas?",
+        "Uy, vamos a calmarnos. 🙅 Las groserías no son bienvenidas y puedo reportarte con tu maestro. ¿Te ayudo con algún trámite?"
+      ]
+    },
+
     { "tag": "ctx_ubicacion", "tipo": "contexto", "campo": "ubicacion",
       "patrones": ["dónde queda", "dónde está esa oficina", "en qué edificio es", "cómo llego ahí", "dónde la encuentro", "y dónde es", "dónde me toca ir", "dónde está ese lugar", "a dónde voy", "ubicación", "dónde se encuentra", "en qué parte del tec está"] },
     { "tag": "ctx_correo", "tipo": "contexto", "campo": "correo",
