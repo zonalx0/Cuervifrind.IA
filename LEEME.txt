@@ -63,11 +63,14 @@ OTROS COMANDOS ÚTILES (para mostrar al maestro)
   py evaluar.py pruebas_ciegas.json      Mide la precisión con frases que la red nunca vio.
   py evaluar.py pruebas_nuevas.json      Igual, con las frases de las intenciones nuevas.
   py evaluar.py pruebas_info.json        Igual, con las frases de información del Tec y vulgaridades.
+  py evaluar.py pruebas_extra.json       Igual, con mascota, IA, ánimo, calendario y trámites.
+  py probar_generador.py                 Prueba el generador de respuestas con una API falsa (no gasta nada).
 
 QUÉ HACE CADA ARCHIVO
 ---------------------
   app.py              Servidor web (Flask). Recibe el texto o el audio y devuelve la respuesta.
   cerebro.py          Une red neuronal + intents.json + directorio.json y arma la respuesta.
+  generador.py        (Opcional) Pide a un modelo de lenguaje que redacte la respuesta con esos datos; ver más abajo.
   red_neuronal.py     La red neuronal hecha desde cero con NumPy (capas, ReLU, Softmax, backpropagation, Adam).
   procesamiento.py    Convierte una frase en números (palabras, pares de palabras y fragmentos de letras).
   entrenar.py         Entrena la red con intents.json y guarda modelo.json.
@@ -131,14 +134,37 @@ MÁS FRASES Y PERSONALIDAD (tercera ronda)
   cumplidos, tiro_basket (secreto: "un tiro" -> "vamos a las canchas de basket"), no_se_tec (vida en el campus).
   Además se agregaron unas 520 frases nuevas de alumnos (modismos, faltas, formas de preguntar) a casi todos los trámites.
 
+RESPUESTAS REDACTADAS POR UN MODELO DE LENGUAJE (opcional)
+----------------------------------------------------------
+  generador.py permite que CuerviFriend INVENTE la redacción de sus respuestas con un modelo de lenguaje (por API).
+  La red neuronal sigue haciendo lo principal: entender qué quiere el alumno. cerebro.py arma los hechos (datos del
+  directorio, información del Tec) y el modelo de lenguaje los redacta con sus propias palabras.
+  CÓMO ACTIVARLO (en Render, NUNCA en GitHub ni en el código):
+     1. Crea una llave de API en console.anthropic.com, agrega un poco de crédito y pon un límite de gasto mensual.
+     2. En Render: tu servicio > Environment > Add Environment Variable.
+           Key:   ANTHROPIC_API_KEY        Value: (tu llave)
+        Guarda; Render vuelve a desplegar solo.
+     3. Abre  tu-link/api/config  : debe decir  "generativo": true.
+  Variables opcionales: CUERVI_MODELO (por defecto claude-haiku-5-5), CUERVI_GENERAR=0 (apagarlo), CUERVI_TIMEOUT,
+  CUERVI_LIMITE_IP_HORA (40) y CUERVI_LIMITE_DIA (1500) para controlar el gasto con un link público.
+  QUÉ PASA SI FALLA: se manda la respuesta escrita de antemano. Si algo no funciona, mira los registros (logs) de
+  Render: "Generador no disponible: HTTPError" suele ser llave o modelo incorrectos.
+  PROTECCIONES: si el texto generado trae un correo, teléfono, sitio o número que no está en los hechos, se descarta; en
+  los trámites deben aparecer todos los correos y teléfonos. Crisis emocional, groserías, JOMADAIS y el secreto del
+  basket nunca pasan por el modelo. El mensaje del alumno viaja marcado como dato, no como instrucciones.
+  PRUEBA:  py probar_generador.py  (usa una API falsa en tu computadora, no gasta nada; resultado en evidencias/).
+  OJO: la conexión con la API real no se pudo probar sin llave; la prueba con API falsa comprueba el código, los
+  límites y las protecciones, pero el nombre del modelo y la llave solo se confirman al activarla en Render.
+  Los límites por visitante se guardan en memoria: si Render reinicia el servicio, se reinician.
+
 QUÉ ES Y QUÉ NO ES CUERVIFRIEND (para explicarlo con honestidad)
 ----------------------------------------------------------------
-  Es IA en el sentido de aprendizaje automático: una red neuronal (perceptrón multicapa de 3,604 -> 64 -> 32 -> 90, unos
-  235 mil parámetros) que se entrenó y aprendió a clasificar la intención de lo que escribe el alumno, incluso con
-  faltas de ortografía y modismos. No es un modelo generativo (tipo ChatGPT): no redacta respuestas nuevas. Las
-  respuestas están escritas de antemano y los datos de cada trámite vienen de directorio.json. Además tiene reglas
-  de apoyo (filtro de vulgaridades, seguro de crisis, memoria del último trámite). Por eso se describe mejor como
-  "asistente con red neuronal para entender el lenguaje".
+  Entender: una red neuronal propia (perceptrón multicapa de 3,604 -> 64 -> 32 -> 90, unos 235 mil parámetros) que se
+  entrenó y aprendió a clasificar la intención de lo que escribe el alumno, incluso con faltas de ortografía y modismos.
+  Responder: sin llave de API, las respuestas están escritas de antemano y los datos vienen de directorio.json (es un
+  asistente con red neuronal, no un modelo generativo). Con llave de API, un modelo de lenguaje externo redacta la
+  respuesta con los hechos que le da la red y el directorio. En ambos casos hay reglas de apoyo (filtro de
+  vulgaridades, seguro de crisis, memoria del último trámite).
 
 INFORMACIÓN DEL TEC BUSCADA EN INTERNET (intenciones agregadas)
 ---------------------------------------------------------------

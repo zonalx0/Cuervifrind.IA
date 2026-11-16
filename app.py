@@ -22,6 +22,7 @@ import threading
 
 from flask import Flask, jsonify, render_template, request
 
+import generador
 from cerebro import Cerebro
 
 # --- Interruptores ---------------------------------------------------------
@@ -109,7 +110,7 @@ def index():
 def config():
     """Le dice a la página qué micrófono usar: el de Python (solo en localhost) o el dictado del navegador."""
     modo = "servidor" if (es_local() and microfono_servidor_disponible()) else "navegador"
-    return jsonify(microfono=modo)
+    return jsonify(microfono=modo, generativo=generador.activo())
 
 
 @app.route("/api/chat", methods=["POST"])
@@ -122,8 +123,14 @@ def chat():
         ofensas = 0
     if datos.get("tag"):                                     # la persona tocó un botón de opciones
         salida = cerebro.responder_tag(datos["tag"], contexto)
+        mensaje = cerebro.intenciones.get(datos["tag"], {}).get("tramite", "")
     else:                                                    # mensaje escrito (o dictado por voz)
-        salida = cerebro.responder(datos.get("mensaje", ""), contexto, ofensas)
+        mensaje = str(datos.get("mensaje", ""))
+        salida = cerebro.responder(mensaje, contexto, ofensas)
+    if salida.get("tag") in cerebro.intenciones:             # la red entendió: el modelo de lenguaje (si hay llave) la redacta
+        visitante = request.headers.get("X-Forwarded-For", request.remote_addr or "local").split(",")[0].strip()
+        salida = generador.redactar(salida, mensaje, cerebro.intenciones[salida["tag"]]["tipo"], visitante)
+    salida.setdefault("generada", False)
     if VOZ_RESPUESTA and es_local():
         threading.Thread(target=hablar, args=(salida["respuesta"],), daemon=True).start()
     return jsonify(salida)

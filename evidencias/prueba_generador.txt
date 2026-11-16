@@ -1,0 +1,28 @@
+1) Sin llave
+  OK   responde con el texto de siempre y no llama a la API
+  OK   /api/config avisa que no es generativo
+2) Con llave
+  OK   /api/config avisa que sí es generativo
+  OK   acepta una redacción fiel
+  OK   manda la llave y la versión de API
+  OK   el mensaje del alumno viaja delimitado
+3) Guardas anti-invento
+  OK   descarta una respuesta con un correo inventado
+  OK   descarta una respuesta con un teléfono inventado
+  OK   descarta un trámite al que le falta el correo
+  OK   acepta una charla bien redactada
+4) Respuestas que nunca se generan
+  OK   «me quiero morir» se queda con su texto fijo
+  OK   «pene» se queda con su texto fijo
+  OK   «quiénes son jomadais» se queda con su texto fijo
+  OK   «echamos un tiro» se queda con su texto fijo
+  OK   ninguna de esas llegó a la API
+  OK   si la red no entendió, tampoco se genera
+5) Fallos de la API
+  OK   si la API da error, responde con el texto de siempre
+  OK   si tarda más del tiempo límite, también
+  OK   tras 3 fallos seguidos hace una pausa y no insiste
+6) Límite por visitante
+  OK   después de 6 respuestas por hora ya no genera más (6 sí, 2 no)
+
+TODO BIEN
