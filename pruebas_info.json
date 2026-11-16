@@ -1,0 +1,157 @@
+{
+ "descripcion": "Pruebas de la información del Tec (dirección, carreras, costos, historia), vulgaridades y trámites parecidos. Frases distintas a las de entrenamiento.",
+ "pruebas": [
+  {
+   "frase": "oye qué es el tec exactamente",
+   "esperado": "sobre_tec"
+  },
+  {
+   "frase": "cuéntame qué es el tecnm",
+   "esperado": "sobre_tec"
+  },
+  {
+   "frase": "y este tec de qué va",
+   "esperado": "sobre_tec"
+  },
+  {
+   "frase": "por dónde queda el tecnológico de nuevo león",
+   "esperado": "ubicacion_tec"
+  },
+  {
+   "frase": "me das la dirección de la escuela porfa",
+   "esperado": "ubicacion_tec"
+  },
+  {
+   "frase": "en qué colonia queda el tec",
+   "esperado": "ubicacion_tec"
+  },
+  {
+   "frase": "cómo llego al itnl",
+   "esperado": "ubicacion_tec"
+  },
+  {
+   "frase": "qué carreras puedo estudiar aquí en el tec",
+   "esperado": "carreras_tec"
+  },
+  {
+   "frase": "hay ingeniería mecatrónica en el tecnológico",
+   "esperado": "carreras_tec"
+  },
+  {
+   "frase": "me dices las ingenierías que ofrecen",
+   "esperado": "carreras_tec"
+  },
+  {
+   "frase": "me pasas la página del tec",
+   "esperado": "contacto_tec"
+  },
+  {
+   "frase": "cuál es el número de teléfono del tecnológico",
+   "esperado": "contacto_tec"
+  },
+  {
+   "frase": "dónde veo la página oficial del tec",
+   "esperado": "contacto_tec"
+  },
+  {
+   "frase": "cuánto cuesta estudiar en el tecnológico por semestre",
+   "esperado": "costos_tec"
+  },
+  {
+   "frase": "el tec cobra mucho",
+   "esperado": "costos_tec"
+  },
+  {
+   "frase": "cuánto se paga de colegiatura aquí",
+   "esperado": "costos_tec"
+  },
+  {
+   "frase": "el tec de nuevo león es lo mismo que el tec de monterrey",
+   "esperado": "tec_vs_monterrey"
+  },
+  {
+   "frase": "la escuela es privada o de gobierno",
+   "esperado": "tec_vs_monterrey"
+  },
+  {
+   "frase": "somos del tec de monterrey o qué",
+   "esperado": "tec_vs_monterrey"
+  },
+  {
+   "frase": "quién fue el primer director del tecnológico de nuevo león",
+   "esperado": "fundacion"
+  },
+  {
+   "frase": "cuándo abrió sus puertas el tec",
+   "esperado": "fundacion"
+  },
+  {
+   "frase": "no mames qué verga de bot",
+   "esperado": "groseria"
+  },
+  {
+   "frase": "puto el que lo lea",
+   "esperado": "groseria"
+  },
+  {
+   "frase": "eres una mierda",
+   "esperado": "groseria"
+  },
+  {
+   "frase": "qué pedo con tu pinche madre",
+   "esperado": "groseria"
+  },
+  {
+   "frase": "idiota inútil",
+   "esperado": "groseria"
+  },
+  {
+   "frase": "bot imbécil",
+   "esperado": "groseria"
+  },
+  {
+   "frase": "asdfghjkl",
+   "esperado": "sin_sentido"
+  },
+  {
+   "frase": "kjsdhf",
+   "esperado": "sin_sentido"
+  },
+  {
+   "frase": "qwertyuiop",
+   "esperado": "sin_sentido"
+  },
+  {
+   "frase": "dónde saco mi constancia de estudios",
+   "esperado": "constancias"
+  },
+  {
+   "frase": "dónde me inscribo a primer semestre",
+   "esperado": "nuevo_ingreso"
+  },
+  {
+   "frase": "cuándo es el examen para entrar al tec",
+   "esperado": "examen_admision"
+  },
+  {
+   "frase": "necesito una beca para estudiar",
+   "esperado": "becas"
+  },
+  {
+   "frase": "quiero estudiar una maestría en el tec",
+   "esperado": "posgrado"
+  },
+  {
+   "frase": "oye y los baños dónde están",
+   "esperado": "no_se_tec"
+  },
+  {
+   "frase": "gracias cuervifriend",
+   "esperado": "agradecimiento"
+  },
+  {
+   "frase": "hola buenas tardes",
+   "esperado": "saludo"
+  }
+ ]
+}

@@ -23,6 +23,16 @@ BASE = os.path.dirname(os.path.abspath(__file__))
 UMBRAL_SEGURIDAD = 0.55   # si la red tiene menos de 55 % de seguridad, no adivina: pide aclaración
 UMBRAL_OPCION = 0.12      # trámites con al menos 12 % se ofrecen como opciones cuando hay duda
 ANIO_FUNDACION = 1976
+# Filtro de palabras: red de seguridad para vulgaridades muy claras (la red neuronal es la que decide primero;
+# este filtro solo corrige cuando ella no reconoce la ofensa). Palabras exactas, sin acentos.
+PALABRAS_VULGARES = {"pene", "penes", "verga", "vergas", "pito", "pitos", "vagina", "vaginas", "culo", "culos", "nalgas",
+                     "tetas", "chichis", "puta", "putas", "puto", "putos", "putazo", "pendejo", "pendejos", "pendeja",
+                     "pendejada", "chingada", "chingado", "chingar", "chinga", "cabron", "cabrones", "mierda", "mamada",
+                     "mamadas", "culero", "culera", "ojete", "zorra", "joto", "maricon", "imbecil", "idiota", "estupido"}
+
+# Palabras que indican que la pregunta es sobre el Tec en general y no sobre el trámite del que se venía hablando
+PALABRAS_TEC = {"tec", "tecnologico", "escuela", "instituto", "itnl", "tecnl", "tecnm", "universidad", "campus",
+                "pagina", "web", "sitio", "url", "link", "facebook", "instagram", "redes"}
 
 
 def _leer(nombre):
@@ -65,16 +75,34 @@ class Cerebro:
                     parametros=m["parametros"], precision=round(m["precision_pruebas"] * 100, 1))
 
     # ------------------------------------------------------------ lógica de respuesta
-    def responder(self, texto, contexto=None):
-        """Entiende el mensaje con la red neuronal y arma la respuesta. 'contexto' = último trámite del que se habló."""
+    def responder(self, texto, contexto=None, ofensas=0):
+        """Entiende el mensaje con la red neuronal y arma la respuesta.
+        'contexto' = último trámite del que se habló. 'ofensas' = cuántas veces ya se portó mal en esta conversación."""
         if not texto.strip():
             return self._salida("Escríbeme tu duda o usa el micrófono y con gusto te ayudo. 🪶", None, 0, [], contexto)
         top = self.analizar(texto)
         analisis = [dict(tag=t, prob=round(p * 100, 1)) for t, p in top]
+        norm = normalizar(texto)
+        palabras = norm.split()
+        if PALABRAS_VULGARES & set(palabras) and not (top and top[0][0] == "groseria"):
+            # La red neuronal decide primero; si no reconoció una vulgaridad clara, el filtro de palabras la corrige
+            analisis.insert(0, dict(tag="groseria", prob=100.0, nota="filtro de palabras"))
+            return self._por_intencion("groseria", norm, 1.0, analisis, contexto, ofensas)
         if not top or top[0][1] < UMBRAL_SEGURIDAD:
             return self._no_entendi(top, analisis, contexto)
+        # Mensaje cortísimo cuyas palabras la red nunca vio: no se fía de los fragmentos de letras (evita respuestas absurdas)
+        if len(palabras) <= 2 and not any("w:" + p in self.indice for p in palabras):
+            return self._no_entendi(top, analisis, contexto, desconocida=True)
         tag, prob = top[0]
-        return self._por_intencion(tag, normalizar(texto), prob, analisis, contexto)
+        # "Dónde está ubicada" justo después de hablar de un trámite se refiere a ese trámite, no al Tec completo
+        if contexto and tag in ("ubicacion_tec", "contacto_tec") and not PALABRAS_TEC & set(palabras):
+            if tag == "ubicacion_tec":
+                tag = "ctx_ubicacion"
+            elif "correo" in palabras:
+                tag = "ctx_correo"
+            elif {"telefono", "numero", "llamo"} & set(palabras):
+                tag = "ctx_telefono"
+        return self._por_intencion(tag, norm, prob, analisis, contexto, ofensas)
 
     def responder_tag(self, tag, contexto=None):
         """Cuando la persona elige uno de los botones de opciones, ya sabemos qué trámite quiere."""
@@ -83,7 +111,7 @@ class Cerebro:
         analisis = [dict(tag=tag, prob=100.0, nota="elegido por el usuario")]
         return self._por_intencion(tag, "", 1.0, analisis, contexto)
 
-    def _por_intencion(self, tag, norm, prob, analisis, contexto):
+    def _por_intencion(self, tag, norm, prob, analisis, contexto, ofensas=0):
         inten = self.intenciones[tag]
         tipo = inten["tipo"]
         if tipo == "tramite":
@@ -96,17 +124,24 @@ class Cerebro:
             if not contexto:
                 return self._salida(self.textos["sin_contexto"], tag, prob, analisis, None)
             return self._salida(self._dato_de_contexto(inten["campo"], contexto), tag, prob, analisis, contexto)
-        # charla: respuesta variada
-        texto = random.choice(inten["respuestas"])
+        # charla: respuesta variada (si la intención tiene "escalada", se pone más seria con cada ofensa repetida)
+        if inten.get("escalada"):
+            nivel = inten["escalada"][min(ofensas, len(inten["escalada"]) - 1)]
+            texto = random.choice(nivel)
+        else:
+            texto = random.choice(inten["respuestas"])
         texto = texto.replace("{saludo}", self._saludo(norm)).replace("{anios}", str(self._anios()))
-        return self._salida(texto, tag, prob, analisis, contexto)
+        salida = self._salida(texto, tag, prob, analisis, contexto)
+        salida["ofensa"] = bool(inten.get("escalada"))
+        return salida
 
-    def _no_entendi(self, top, analisis, contexto):
+    def _no_entendi(self, top, analisis, contexto, desconocida=False):
         opciones = [t for t, p in top if p >= UMBRAL_OPCION and self.intenciones[t]["tipo"] == "tramite"][:3]
         if opciones:
             botones = [dict(texto=self.intenciones[t]["tramite"], tag=t) for t in opciones]
             return self._salida(self.textos["opciones"], None, top[0][1], analisis, contexto, botones)
-        return self._salida(random.choice(self.textos["no_entendi"]), None, top[0][1] if top else 0, analisis, contexto)
+        frases = self.textos["desconocida"] if desconocida else self.textos["no_entendi"]
+        return self._salida(random.choice(frases), None, top[0][1] if top else 0, analisis, contexto)
 
     @staticmethod
     def _salida(texto, tag, prob, analisis, contexto, opciones=None):

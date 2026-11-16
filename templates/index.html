@@ -64,6 +64,7 @@ form button:hover{filter:brightness(1.06)}
 const $ = s => document.querySelector(s), msgs = $('#msgs');
 let contexto = null;          // último trámite del que se habló (para preguntas como "¿dónde queda?")
 let ocupado = false;
+let ofensas = 0;              // cuántas veces se ha portado mal en esta conversación (el asistente se pone más serio)
 const esperar = ms => new Promise(r => setTimeout(r, ms));
 
 function burbuja(clase){
@@ -124,7 +125,7 @@ async function enviar(entrada){
   agregar(texto, 'yo'); $('#txt').value = '';
   const ind = indicador();
   const t0 = performance.now();
-  const j = await pedir(esTag ? {tag: entrada.tag, contexto} : {mensaje: texto, contexto}, ind);
+  const j = await pedir(esTag ? {tag: entrada.tag, contexto} : {mensaje: texto, contexto, ofensas}, ind);
   if (!j){
     ind.quitar();
     agregar('No pude conectar con el servidor. Recarga la página e inténtalo de nuevo.', 'bot');
@@ -136,6 +137,7 @@ async function enviar(entrada){
   if (falta > 0) await esperar(falta);
   ind.quitar();
   contexto = j.contexto || null;
+  if (j.ofensa) ofensas++;
   agregar(j.respuesta, 'bot', j.opciones);
   ocupado = false;
   $('#txt').focus();

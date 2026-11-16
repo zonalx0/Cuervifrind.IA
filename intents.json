@@ -1,321 +1,1977 @@
 {
-  "descripcion": "Datos de entrenamiento de la red neuronal de CuerviFriend. Cada intención tiene un tag (la clase que la red aprende a reconocer), frases de ejemplo (patrones) y, según su tipo, respuestas o la oficina del directorio que atiende el trámite.",
-  "tipos": {
-    "charla": "conversación general; responde con una de sus respuestas",
-    "contexto": "pregunta de seguimiento (¿dónde queda?, ¿su correo?) sobre el último trámite mencionado",
-    "tramite": "trámite escolar; la respuesta se arma con los datos de directorio.json"
-  },
-  "plantillas_tramite": [
-    "Para {tramite}, el área que te atiende es {area}.",
-    "Claro, eso lo ves en {area}. Estos son los datos para {tramite}:",
-    "Te ayudo con eso. Para {tramite} acude a {area}:",
-    "¡Listo! {tramite} se gestiona en {area}."
+ "descripcion": "Datos de entrenamiento de la red neuronal de CuerviFriend. Cada intención tiene un tag (la clase que la red aprende a reconocer), frases de ejemplo (patrones) y, según su tipo, respuestas o la oficina del directorio que atiende el trámite.",
+ "tipos": {
+  "charla": "conversación general; responde con una de sus respuestas",
+  "contexto": "pregunta de seguimiento (¿dónde queda?, ¿su correo?) sobre el último trámite mencionado",
+  "tramite": "trámite escolar; la respuesta se arma con los datos de directorio.json"
+ },
+ "plantillas_tramite": [
+  "Para {tramite}, el área que te atiende es {area}.",
+  "Claro, eso lo ves en {area}. Estos son los datos para {tramite}:",
+  "Te ayudo con eso. Para {tramite} acude a {area}:",
+  "¡Listo! {tramite} se gestiona en {area}."
+ ],
+ "textos": {
+  "no_entendi": [
+   "No estoy seguro de haberte entendido. ¿Me lo puedes explicar con otras palabras? Por ejemplo: «necesito una constancia», «quiero una beca» o «cómo libero mi servicio social».",
+   "Mmm, no logré identificar qué necesitas. Cuéntame con más detalle y lo busco en el directorio del Tec."
   ],
-  "textos": {
-    "no_entendi": [
-      "No estoy seguro de haberte entendido. ¿Me lo puedes explicar con otras palabras? Por ejemplo: «necesito una constancia», «quiero una beca» o «cómo libero mi servicio social».",
-      "Mmm, no logré identificar qué necesitas. Cuéntame con más detalle y lo busco en el directorio del Tec."
-    ],
-    "intro_misma_area": [
-      "Claro, {area} es el área que lleva este trámite. Estos son sus datos:",
-      "Te ayudo con eso: lo atiende {area}.",
-      "¡Listo! Para {tramite} acude directamente a {area}:"
-    ],
-    "opciones": "No estoy completamente seguro. ¿Alguno de estos trámites es el que buscas?",
-    "sin_contexto": "¿De qué trámite me hablas? Cuéntame primero qué necesitas (por ejemplo una beca o una constancia) y luego te doy ese dato.",
-    "sin_ubicacion": "En el directorio no aparece la ubicación exacta de {area}. Pregunta en la {subdireccion} ({sub_ubicacion}) o escribe a {correo}.",
-    "sin_horario": "El directorio no incluye los horarios de atención de {area}. {via}",
-    "via_telefono": "Te recomiendo llamar al {telefono} para confirmar el horario.",
-    "via_correo": "Te recomiendo escribir a {correo} para confirmar el horario.",
-    "sin_telefono": "{area} no tiene teléfono propio en el directorio. Puedes llamar a la {subdireccion} al {sub_telefono}.",
-    "sin_responsable": "El directorio no indica una persona responsable para {area}. Puedes dirigirte a la {subdireccion}: {sub_responsable}.",
-    "cierres": [
-      "¿Te ayudo con algo más?",
-      "Si necesitas otro dato (correo, teléfono, ubicación), solo pídemelo.",
-      "¿Hay algo más en lo que te pueda apoyar?"
-    ]
-  },
-  "intenciones": [
-    {
-      "tag": "saludo", "tipo": "charla",
-      "patrones": ["hola", "buenos días", "buenas tardes", "buenas noches", "buen día", "hola buenas", "saludos", "hola qué tal", "hey hola", "muy buenas", "buenas", "holi", "hola cuervifriend", "hola amigo", "buen dia a todos", "holaaa"],
-      "respuestas": [
-        "{saludo} Soy tu amigo CuerviFriend, estoy listo para apoyarte con tus trámites del Tecnológico de Nuevo León. ¿En qué te puedo ayudar?",
-        "{saludo} Aquí CuerviFriend, tu asistente del TecNL. Cuéntame qué trámite necesitas y te digo quién te atiende y dónde.",
-        "{saludo} Qué gusto saludarte, soy CuerviFriend. Estoy listo para ayudarte con becas, constancias, titulación y mucho más. ¿Qué necesitas?"
-      ]
-    },
-    {
-      "tag": "saludo_casual", "tipo": "charla",
-      "patrones": ["qué onda", "quiubo", "qué hubo", "qué rollo", "qué pasó mi loco", "qué tal wey", "qué onda compa", "quiubole", "qué show", "qué tranza", "habla", "qué pasa mi rey", "ey qué onda", "qué onda mi vale", "qué cuentas", "quihubo carnal", "qué onda bro", "quehubo", "épale", "qué ondas"],
-      "respuestas": [
-        "¡Qué onda! Soy tu amigo CuerviFriend, estoy listo para echarte la mano con lo que necesites del Tec. ¿Qué se te ofrece?",
-        "¡Quiubo! Aquí tu cuervo amigo, CuerviFriend. 🪶 Échame la bola con tu duda y te digo a dónde ir.",
-        "¡Qué tal! CuerviFriend al 100 para apoyarte con tus trámites. ¿Qué necesitas?"
-      ]
-    },
-    {
-      "tag": "como_estas", "tipo": "charla",
-      "patrones": ["cómo estás", "hola cómo estás", "cómo andas", "cómo te va", "qué tal estás", "cómo amaneciste", "cómo te sientes", "cómo has estado", "y tú cómo estás", "todo bien por ahí", "cómo va tu día", "como estas amigo", "cómo te encuentras", "qué tal tu día", "cómo te la pasas", "y a ti cómo te va"],
-      "respuestas": [
-        "¡Muy bien, gracias por preguntar! Listo para ayudarte con tus trámites. ¿Y tú, cómo estás?",
-        "Todo excelente por aquí, con las alas listas para ayudarte. 🪶 ¿Qué necesitas del Tec?",
-        "¡Súper bien! Un asistente nunca se cansa. Cuéntame, ¿en qué te ayudo?"
-      ]
-    },
-    {
-      "tag": "quien_eres", "tipo": "charla",
-      "patrones": ["quién eres", "cómo te llamas", "qué eres", "preséntate", "tú quién eres", "dime tu nombre", "eres un robot", "eres una persona o una máquina", "qué es cuervifriend", "con qué asistente estoy hablando", "cuál es tu nombre", "eres humano"],
-      "respuestas": [
-        "Soy CuerviFriend, el asistente de inteligencia artificial del Tecnológico de Nuevo León. Entiendo lo que escribes (o dices con el micrófono) usando una red neuronal, y te oriento sobre qué área atiende tu trámite, dónde está y cómo contactarla."
-      ]
-    },
-    {
-      "tag": "ayuda", "tipo": "charla",
-      "patrones": ["qué puedes hacer", "ayuda", "en qué me puedes ayudar", "para qué sirves", "qué trámites conoces", "cómo funcionas", "qué sabes hacer", "necesito ayuda", "me puedes ayudar", "qué opciones tengo", "menú", "qué haces", "cómo me ayudas", "con qué cosas me ayudas", "qué trámites puedes resolver", "qué tipo de dudas resuelves", "sobre qué cosas me puedes orientar", "qué información tienes", "con qué trámites me apoyas", "qué temas manejas", "dime todo lo que sabes hacer", "cuáles son tus funciones"],
-      "respuestas": [
-        "Puedo orientarte con trámites del Tecnológico de Nuevo León:\n• Becas (Benito Juárez, alimenticia, excelencia, federales, bajos recursos)\n• Servicios Escolares (constancias, kardex, credencial, seguro facultativo, documentos)\n• Cambios de horario, carrera o modalidad y bajas temporales\n• Titulación, servicio social, prácticas y residencias\n• Pagos, prórrogas, facturas y adeudos\n• Inglés, biblioteca, tutorías, EGEL, correo institucional y más\nEscríbeme tu duda con tus palabras o usa el micrófono."
-      ]
-    },
-    {
-      "tag": "creador", "tipo": "charla",
-      "patrones": ["quién te creó", "quién te hizo", "quién te programó", "quién es tu creador", "quién te desarrolló", "de dónde saliste", "cómo te hicieron", "con qué fuiste hecho", "qué tecnología usas", "usas inteligencia artificial", "tienes una red neuronal", "cómo aprendiste a entender"],
-      "respuestas": [
-        "Soy un proyecto de inteligencia artificial del Tecnológico de Nuevo León, programado en Python. Mi cerebro es una red neuronal entrenada con frases de ejemplo para entender lo que escribes, y consulto el directorio de trámites de la escuela para responderte."
-      ]
-    },
-    {
-      "tag": "fundacion", "tipo": "charla",
-      "patrones": ["cuándo se fundó el tec", "fecha de fundación del tecnológico", "cuántos años tiene el tec", "cuándo nació el tecnológico de nuevo león", "historia del tec", "en qué año se creó el tecnológico", "aniversario del tec", "cuándo es el aniversario", "desde cuándo existe el tecnológico", "qué día se fundó la escuela"],
-      "respuestas": [
-        "El Tecnológico de Nuevo León fue fundado el 1 de octubre de 1976, así que cada 1 de octubre celebra su aniversario. ¡Ya cumplió {anios} años! 🎉"
-      ]
-    },
-    {
-      "tag": "agradecimiento", "tipo": "charla",
-      "patrones": ["gracias", "muchas gracias", "te lo agradezco", "mil gracias", "gracias por la ayuda", "súper gracias", "ok gracias", "gracias amigo", "se agradece", "gracias carnal", "gracias cuervifriend", "te pasaste gracias"],
-      "respuestas": [
-        "¡Con gusto! Para eso estoy. Si necesitas algo más del Tec, aquí ando.",
-        "¡De nada! Me da gusto haberte ayudado. 🪶",
-        "¡A ti! Cualquier otra duda, escríbeme."
-      ]
-    },
-    {
-      "tag": "despedida", "tipo": "charla",
-      "patrones": ["adiós", "hasta luego", "nos vemos", "bye", "me voy", "hasta pronto", "chao", "cuídate", "ya me voy", "nos vemos luego", "bendiciones", "hasta mañana", "me despido", "que estés bien", "ya me voy adiós", "tengo que irme", "me tengo que ir", "ahí nos vemos", "adiós cuervifriend", "bye bye"],
-      "respuestas": [
-        "¡Hasta pronto! Mucho éxito en tus trámites. 🪶",
-        "¡Nos vemos! Aquí estaré cuando me necesites.",
-        "¡Cuídate! Que te vaya muy bien en el Tec."
-      ]
-    },
-    {
-      "tag": "afirmacion", "tipo": "charla",
-      "patrones": ["sí", "claro", "ok", "va", "perfecto", "de acuerdo", "dale", "sale", "está bien", "por supuesto", "así es", "órale", "simón", "sí por favor"],
-      "respuestas": [
-        "¡Perfecto! Cuéntame qué trámite necesitas.",
-        "¡Va! Dime en qué te ayudo."
-      ]
-    },
-    {
-      "tag": "negacion", "tipo": "charla",
-      "patrones": ["no", "nada más", "no gracias", "eso es todo", "ya no", "es todo", "nada", "no necesito nada más", "con eso estoy bien", "ya quedó", "nel", "no por ahora", "eso es todo por hoy", "con eso es suficiente", "ya no necesito más", "listo ya terminé", "ya es todo gracias", "ya con eso quedo", "nada más gracias", "por el momento es todo"],
-      "respuestas": [
-        "Listo, entonces. Aquí estaré si más adelante necesitas algo. ¡Mucho éxito!",
-        "Perfecto, cualquier otra duda me escribes. 🪶"
-      ]
-    },
-    {
-      "tag": "no_ayudo", "tipo": "charla",
-      "patrones": ["no me sirvió", "no entendiste", "eso no es lo que pregunté", "no es lo que busco", "estás mal", "te equivocaste", "esa no es la respuesta", "no me ayudaste", "no era eso", "otra vez no entendiste", "eso no me sirve", "no me estás entendiendo"],
-      "respuestas": [
-        "Perdón, creo que no te entendí bien. ¿Me lo explicas con otras palabras? Por ejemplo: «quiero cambiarme de carrera» o «necesito mi constancia».",
-        "Gracias por avisarme. Intentemos otra vez: cuéntame con más detalle qué necesitas y lo busco en el directorio."
-      ]
-    },
-    {
-      "tag": "risa", "tipo": "charla",
-      "patrones": ["jajaja", "jaja", "xd", "jejeje", "lol", "qué risa", "jajajaja qué bueno", "me dio risa", "ja ja ja", "jsjsjs", "jajaj", "jeje", "jajaja qué bueno estuvo", "jajajaja buen chiste", "jaja muy bueno", "jajaja me encantó", "qué gracioso", "me hiciste reír", "estuvo bueno jaja", "me muero de risa"],
-      "respuestas": [
-        "😄 ¡Jaja! Me da gusto que estés de buenas. Cuando quieras, dime qué trámite necesitas.",
-        "¡Jaja! 🪶 Aquí sigo para lo que se te ofrezca."
-      ]
-    },
-    {
-      "tag": "chiste", "tipo": "charla",
-      "patrones": ["cuéntame un chiste", "dime un chiste", "sabes chistes", "hazme reír", "quiero un chiste", "algo gracioso", "cuenta algo divertido", "otro chiste", "dime algo chistoso", "échate un chiste", "cuéntame otro chiste", "quiero reírme un rato", "dame un chiste de escuela", "dime una broma", "cuéntame una broma", "sabes algún chiste"],
-      "respuestas": [
-        "¿Por qué el estudiante llevó una escalera al Tec? Porque quería llegar a la educación superior. 😄",
-        "¿Qué le dijo un bit a otro bit? Nos vemos en el bus. 😄",
-        "¿Cuál es el animal más antiguo? La cebra, porque está en blanco y negro. 😄"
-      ]
-    },
-    {
-      "tag": "fuera_de_tema", "tipo": "charla",
-      "patrones": ["quién ganó el partido de ayer", "cuál es la capital de japón", "dame una receta de tacos", "qué película me recomiendas", "cuánto es dos más dos", "cómo está el clima hoy", "quiero pizza", "quién es el presidente", "cómo se hace una página web", "ayúdame con mi tarea de matemáticas", "qué hora es", "cuéntame de futbol", "qué música escuchas", "tienes novia", "cuál es tu comida favorita", "me aburro", "recomiéndame un videojuego", "cómo está el tráfico", "quién ganó la copa del mundo", "cuántos habitantes tiene méxico", "cuál es el mejor equipo de fútbol", "qué día es hoy", "dime el resultado del partido", "quién canta esa canción", "cómo se prepara el café", "cuál es la montaña más alta del mundo", "qué opinas de la política", "resuélveme esta ecuación", "traduce esta frase al inglés", "cuánto cuesta un iphone", "quién descubrió américa", "quién inventó el foco", "quién es el mejor jugador del mundo"],
-      "respuestas": [
-        "Eso se sale de mi especialidad 😅. Yo te ayudo con trámites del Tecnológico de Nuevo León: becas, constancias, servicio social, titulación y más. ¿Te ayudo con alguno?",
-        "Uy, de eso no sé. Mi fuerte son los trámites del Tec. ¿Necesitas ayuda con alguno?"
-      ]
-    },
-
-    {
-      "tag": "jomadais", "tipo": "charla",
-      "patrones": ["quiénes son jomadais", "quién es jomadais", "qué es jomadais", "jomadais", "cuéntame de jomadais", "quiénes son los jomadais", "equipo jomadais", "conoces a jomadais", "dime de jomadais", "jomadais quiénes son", "qué sabes de jomadais", "quién ganó el innovatec", "quién ganó el innovatec 2024", "ganadores del innovatec 2024", "qué equipo ganó el innovatec del 2024", "quiénes ganaron el innovatec", "campeones del innovatec", "jomadais ganó algo", "quiénes son max isma joel y luis", "los ganadores del innovatec", "jomadais innovatec", "quién es el equipo ganador del innovatec", "innovatec 2024 ganadores", "háblame del equipo jomadais"],
-      "respuestas": [
-        "JOMADAIS es el equipo que ganó el Innovatec 2024. Lo forman Max, Isma, Joel y Luis. ¡Unos campeones! 🏆",
-        "¡Los JOMADAIS! Max, Isma, Joel y Luis ganaron el Innovatec del 2024. 🏆 ¡Felicidades a los campeones!",
-        "Te cuento: JOMADAIS son Max, Isma, Joel y Luis, el equipo ganador del Innovatec 2024. 🏆"
-      ]
-    },
-    {
-      "tag": "no_se_tec", "tipo": "charla",
-      "patrones": ["cuáles son los mejores baños del tec", "dónde están los mejores baños", "qué baño está más limpio", "cuál es la mejor cafetería", "qué venden en la cafetería", "a qué hora cierra la cafetería", "dónde puedo estacionarme", "cuál es el mejor salón", "qué salón tiene aire acondicionado", "hay wifi en el tec", "cuál es la contraseña del wifi", "dónde hay máquinas de snacks", "cuál es el lugar más bonito del tec", "dónde puedo dormir en la escuela", "qué comer en la cafetería", "dónde hay enchufes para cargar mi celular", "dónde compro café en la escuela", "hay fiestas en el tec", "cuándo es la próxima fiesta", "cuál es el mejor edificio del tec", "dónde se juntan los alumnos", "hay estacionamiento gratis", "qué baño está más cerca", "dónde hay un lugar tranquilo para estudiar"],
-      "respuestas": [
-        "Jaja, la verdad no lo sé 😅. Eso no viene en mi directorio. Lo que sí sé es dónde hacer trámites del Tec: becas, constancias, servicio social, pagos y más. ¿Te ayudo con alguno?",
-        "Buena pregunta, pero no lo sé jaja. 😄 Lo mío son los trámites: sé a qué área ir y a quién preguntarle. ¿Qué trámite necesitas?",
-        "Ni idea, jaja. 🤷 Esa información no la tengo, pero si es un trámite escolar, dime y te digo dónde ir."
-      ]
-    },
-    {
-      "tag": "chisme_profes", "tipo": "charla",
-      "patrones": ["cuáles son los profes más barcos", "dime los profes más malas onda", "quién es el mejor maestro", "cuál es el profe más barco", "qué profesores regalan puntos", "quién es el profe más exigente", "dime nombres de profes barcos", "profes más fáciles de pasar", "cuál es el peor maestro", "qué maestro es más buena onda", "quién es el profesor más estricto", "recomiéndame un profe", "con quién me conviene tomar la materia", "cuál profe es el más barco de cálculo", "quién da mejores clases", "los mejores profes del tec", "los maestros más difíciles", "qué profe deja menos tarea", "profes que no dejan tarea", "dime qué maestros son los más barcos"],
-      "respuestas": [
-        "Jaja, de eso no sé y no chismeo de los profes 😅. Si quieres opinar de un maestro de forma oficial, escribe «evaluación docente» y te digo con quién.",
-        "Uy, no me meto en chismes de profes jaja. 🤐 Si quieres calificar a un maestro de forma oficial, pregúntame por la «evaluación docente»."
-      ]
-    },
-    {
-      "tag": "groseria", "tipo": "charla",
-      "patrones": ["eres un idiota", "eres un estúpido", "pendejo", "estás pendejo", "eres un pendejo", "pinche bot inútil", "chinga tu madre", "vete a la verga", "vete a la chingada", "vete a la mierda", "hijo de tu puta madre", "hijo de la chingada", "no sirves para nada", "eres basura", "bot de mierda", "cállate imbécil", "cállate idiota", "estúpido bot", "puto bot", "pinche robot", "maldito bot", "eres un inútil", "eres un tarado", "eres un tonto", "mugroso bot", "estás bien menso", "eres un menso", "pinche asistente inservible", "ojete", "culero", "eres un culero", "no mames pendejo"],
-      "respuestas": [
-        "Oye, ese lenguaje no está bien. 😠 Si sigues con groserías, voy a reportarte con tu maestro. Mejor dime con respeto qué trámite necesitas.",
-        "¡Eso fue una grosería! Si continúas, te reporto con tu maestro. Hablemos con respeto: ¿qué trámite necesitas?",
-        "Uy, vamos a calmarnos. 🙅 Las groserías no son bienvenidas y puedo reportarte con tu maestro. ¿Te ayudo con algún trámite?"
-      ]
-    },
-
-    { "tag": "ctx_ubicacion", "tipo": "contexto", "campo": "ubicacion",
-      "patrones": ["dónde queda", "dónde está esa oficina", "en qué edificio es", "cómo llego ahí", "dónde la encuentro", "y dónde es", "dónde me toca ir", "dónde está ese lugar", "a dónde voy", "ubicación", "dónde se encuentra", "en qué parte del tec está"] },
-    { "tag": "ctx_correo", "tipo": "contexto", "campo": "correo",
-      "patrones": ["cuál es su correo", "dame el correo", "a qué correo escribo", "su email", "me pasas el correo", "y el correo", "correo electrónico de esa área", "a qué mail le mando", "correo de contacto", "tienen correo"] },
-    { "tag": "ctx_telefono", "tipo": "contexto", "campo": "telefono",
-      "patrones": ["cuál es su teléfono", "dame el número", "a qué número llamo", "su teléfono", "me pasas el teléfono", "y el teléfono", "número de contacto", "cómo los llamo", "tienen teléfono", "número telefónico"] },
-    { "tag": "ctx_responsable", "tipo": "contexto", "campo": "responsable",
-      "patrones": ["quién me atiende", "con quién hablo ahí", "quién es el encargado", "quién es el responsable", "a quién le pregunto", "nombre de la persona", "quién lleva ese trámite", "quién es el jefe de esa área", "con quién tengo que ir", "quién está a cargo"] },
-    { "tag": "ctx_horario", "tipo": "contexto", "campo": "horario",
-      "patrones": ["a qué hora atienden", "cuál es el horario", "hasta qué hora abren", "abren los sábados", "horario de atención", "cuándo puedo ir", "qué días atienden", "a qué hora abre", "hasta qué hora están", "en qué horario los encuentro"] },
-
-    { "tag": "tutorias", "tipo": "tramite", "tramite": "Tutorías", "oficina": "desarrollo_academico",
-      "patrones": ["tutorías", "quiero un tutor", "cómo funcionan las tutorías", "necesito asesoría de mi tutor", "quién es mi tutor", "tutoría académica", "me pueden asignar un tutor", "tengo bajas calificaciones y quiero tutorías", "dónde pido tutorías", "quiero cambiar de tutor"] },
-    { "tag": "egel", "tipo": "tramite", "tramite": "Examen EGEL", "oficina": "desarrollo_academico",
-      "patrones": ["examen egel", "cuándo es el egel", "cómo me registro al egel", "necesito presentar el ceneval", "examen de egreso", "costo del egel", "quiero titularme con el egel", "el examen ceneval para egresar", "egel", "cuándo presento el examen ceneval", "fecha del egel", "inscripción al egel", "el egel sirve para titularme", "resultados del egel"] },
-    { "tag": "examen_admision", "tipo": "tramite", "tramite": "Examen de Admisión", "oficina": "desarrollo_academico",
-      "patrones": ["cuándo es el examen de admisión", "fecha del examen de ingreso", "dónde presento el examen para entrar", "quiero presentar el examen de admisión", "cómo me registro para el examen de admisión", "requisitos del examen de admisión", "examen para nuevo alumno", "guía para el examen de admisión", "resultados del examen de admisión", "examen de admision"] },
-    { "tag": "actividades_complementarias", "tipo": "tramite", "tramite": "Actividades Complementarias", "oficina": "desarrollo_academico",
-      "patrones": ["actividades complementarias", "cómo libero mis actividades complementarias", "cuántos créditos complementarios necesito", "qué actividades cuentan como complementarias", "dónde entrego mis constancias de actividades", "me faltan créditos de actividades", "liberación de actividades complementarias", "actividad cultural o deportiva para crédito"] },
-    { "tag": "evaluacion_docente", "tipo": "tramite", "tramite": "Evaluación Docente", "oficina": "desarrollo_academico",
-      "patrones": ["evaluación docente", "cómo evalúo a mis maestros", "dónde califico a los profesores", "evaluar a un maestro", "cuándo es la evaluación docente", "no me deja ver calificaciones por no evaluar", "encuesta de los profesores", "quiero evaluar a mi profesor", "evaluación de maestros del semestre", "calificar a mis profesores en el sistema", "cuándo abren la encuesta de docentes", "tengo que evaluar a mis profesores para ver mis calificaciones"] },
-
-    { "tag": "residencia_carga", "tipo": "tramite", "tramite": "Carga de la Residencia Profesional", "oficina": "division_estudios",
-      "patrones": ["carga de la residencia profesional", "cómo cargo mi residencia", "quiero inscribir mi residencia profesional", "trámite para registrar residencias", "dónde doy de alta mi residencia", "carga de residencia en el sistema", "subir mi proyecto de residencia", "cuándo puedo cargar la residencia"] },
-    { "tag": "cambio_horario", "tipo": "tramite", "tramite": "Cambio de Horario", "oficina": "division_estudios",
-      "patrones": ["cambio de horario", "quiero cambiar mi horario", "puedo cambiarme de grupo", "me cruzan las materias quiero otro horario", "cambiarme de turno", "necesito otro grupo", "cómo pido cambio de grupo", "quiero pasar al turno de la tarde", "mi horario no me conviene", "necesito cambiar de grupo por mi trabajo", "quiero un horario diferente", "puedo pasarme a otro turno"] },
-    { "tag": "cambio_carrera", "tipo": "tramite", "tramite": "Cambio de Carrera", "oficina": "division_estudios",
-      "patrones": ["cambio de carrera", "quiero cambiarme de carrera", "ya no quiero estudiar esta carrera", "cómo me cambio a otra ingeniería", "quiero estudiar otra carrera", "trámite para cambiar de carrera", "me equivoqué de carrera", "puedo cambiar de ingeniería", "requisitos para cambio de carrera", "quiero cambiarme a industrial", "me quiero pasar a mecatrónica", "quiero irme a otra ingeniería", "cambiarme a la carrera de sistemas computacionales", "ya no me gusta mi carrera y quiero otra", "quiero estudiar otra ingeniería en lugar de la mía"] },
-    { "tag": "cambio_modalidad", "tipo": "tramite", "tramite": "Cambio de Modalidad (Virtual-Presencial)", "oficina": "division_estudios",
-      "patrones": ["cambio de modalidad", "quiero pasar de virtual a presencial", "cambiarme a modalidad virtual", "cómo cambio de presencial a virtual", "quiero estudiar en línea en vez de presencial", "cambio de presencial a en línea", "pasarme a la modalidad presencial", "de modalidad a distancia a presencial"] },
-    { "tag": "carga_academica", "tipo": "tramite", "tramite": "Asignación de Carga Académica (Coordinadores)", "oficina": "division_estudios",
-      "patrones": ["asignación de carga académica", "quién asigna la carga académica", "carga de materias", "me pueden cargar materias", "cómo se asignan las materias", "carga académica de coordinadores", "asignar materias a docentes", "reportar carga académica"] },
-    { "tag": "baja_temporal", "tipo": "tramite", "tramite": "Solicitud de Baja Temporal", "oficina": "division_estudios",
-      "patrones": ["baja temporal", "quiero darme de baja temporalmente", "necesito suspender mis estudios un semestre", "cómo pido baja temporal", "quiero pausar la carrera", "me quiero dar de baja por un semestre", "trámite de baja temporal", "no podré estudiar este semestre", "congelar semestre"] },
-    { "tag": "mindbox", "tipo": "tramite", "tramite": "Contraseña para el Sistema Mindbox", "oficina": "division_estudios",
-      "patrones": ["contraseña de mindbox", "olvidé mi contraseña del mindbox", "no puedo entrar a mindbox", "restablecer contraseña de mindbox", "sistema mindbox acceso", "cómo entro al mindbox", "mi usuario de mindbox no funciona", "recuperar clave de mindbox", "solicito contraseña mindbox", "mindbox"] },
-    { "tag": "especialidad", "tipo": "tramite", "tramite": "Especialidad", "oficina": "division_estudios",
-      "patrones": ["especialidad", "cómo elijo mi especialidad", "cuándo se elige la especialidad", "quiero cambiar mi especialidad", "qué especialidades hay", "trámite de especialidad", "información sobre la especialidad de mi carrera", "inscribirme a una especialidad"] },
-    { "tag": "comite_academico", "tipo": "tramite", "tramite": "Solicitudes de Comité Académico", "oficina": "comite_academico",
-      "patrones": ["comité académico", "quiero hacer una solicitud al comité", "tengo un caso especial para el comité académico", "cómo presento un caso al comité académico", "solicitud de excepción académica", "pedir una revisión de mi caso", "dónde mando una solicitud al comité", "quiero apelar una decisión académica"] },
-    { "tag": "opcion_titulacion", "tipo": "tramite", "tramite": "Trámite de Opción de Titulación", "oficina": "coord_titulacion",
-      "patrones": ["opción de titulación", "cómo me puedo titular", "qué opciones de titulación hay", "quiero titularme por tesis", "trámite para elegir opción de titulación", "titulación integral", "cómo inicio mi titulación", "quiero titularme por residencia", "cuál opción me conviene para titularme"] },
-    { "tag": "info_docente", "tipo": "tramite", "tramite": "Información Acerca de un Docente", "oficina": "info_docentes",
-      "patrones": ["información de un docente", "quiero saber quién es mi maestro", "cómo contacto a un profesor", "correo de un maestro", "dónde encuentro a un docente", "datos de un profesor", "quién da la materia", "necesito hablar con un maestro de mi carrera", "no sé cómo localizar a mi profesor", "quiero hablar con un profesor", "cómo localizo al maestro de una materia", "el correo del profesor de química", "dónde está el maestro de programación", "necesito contactar a mi docente", "cómo le escribo a mi profesor", "quién es el maestro de matemáticas"] },
-    { "tag": "educacion_distancia", "tipo": "tramite", "tramite": "Educación a Distancia", "oficina": "educacion_distancia",
-      "patrones": ["educación a distancia", "información sobre carreras en línea", "quiero estudiar a distancia", "plataforma virtual del tec", "cómo funciona la modalidad virtual", "estudiar en línea en el tecnológico", "carrera virtual", "clases virtuales información"] },
-    { "tag": "posgrado", "tipo": "tramite", "tramite": "Posgrado", "oficina": "posgrado",
-      "patrones": ["posgrado", "quiero estudiar una maestría", "información del doctorado", "qué maestrías ofrecen", "requisitos para maestría", "cómo me inscribo al posgrado", "quiero hacer un posgrado en el tec", "estudios de posgrado", "maestría"] },
-    { "tag": "quejas", "tipo": "tramite", "tramite": "Quejas y Sugerencias", "oficina": "quejas",
-      "patrones": ["quiero poner una queja", "tengo una sugerencia", "dónde presento una queja", "quiero reportar un problema con un maestro", "buzón de quejas", "cómo hago una sugerencia", "tengo un reclamo", "queja de un servicio", "quiero denunciar algo", "quiero reportar a un maestro", "un profesor me trató mal", "sufro acoso en la escuela", "quiero levantar una queja contra un docente", "un maestro no da clases y quiero reportarlo", "maltrato de un profesor"] },
-
-    { "tag": "becas", "tipo": "tramite", "tramite": "Becas", "oficina": "becas",
-      "nota": "Esta oficina maneja las becas Benito Juárez, Alimenticia, Excelencia Académica y Programas Federales. Las becas de bajos recursos y de homologados las ve la Subdirección Administrativa (admon_nleon@tecnm.mx).",
-      "patrones": ["quiero una beca", "información de becas", "qué becas hay", "cómo solicito una beca", "necesito una beca", "apoyo económico para estudiar", "dónde pido una beca", "requisitos para una beca", "convocatoria de becas", "qué becas ofrece el tec", "beca", "becas", "informes de becas", "quiero informes sobre becas", "qué apoyos de beca tienen", "información general de becas del tec"] },
-    { "tag": "beca_benito_juarez", "tipo": "tramite", "tramite": "Trámite de Beca «Benito Juárez»", "oficina": "becas",
-      "patrones": ["beca benito juárez", "cómo solicito la beca benito juárez", "beca del gobierno benito juárez", "requisitos de la beca benito juárez", "inscribirme a la beca benito juárez", "me dieron la beca benito juárez", "beca de benito juarez para universitarios", "registro beca benito juarez"] },
-    { "tag": "beca_alimenticia", "tipo": "tramite", "tramite": "Trámite de Beca «Alimenticia»", "oficina": "becas",
-      "patrones": ["beca alimenticia", "beca de alimentos", "apoyo para comida", "beca de comedor", "cómo pido la beca de alimentación", "beca para comer en la escuela", "requisitos de la beca alimenticia", "quiero el apoyo alimenticio"] },
-    { "tag": "beca_excelencia", "tipo": "tramite", "tramite": "Trámite de Beca de Excelencia Académica", "oficina": "becas",
-      "patrones": ["beca de excelencia académica", "beca por buen promedio", "beca para mejores promedios", "tengo promedio alto qué beca puedo pedir", "requisitos beca de excelencia", "cómo solicito la beca de excelencia", "beca de aprovechamiento", "beca por promedio", "beca para alumnos con buenas calificaciones", "hay apoyo para estudiantes sobresalientes", "beca por mi alto promedio", "premio a los mejores alumnos", "beca a estudiantes con calificaciones altas", "tengo promedio de 95 qué beca hay"] },
-    { "tag": "beca_federal", "tipo": "tramite", "tramite": "Trámite de Beca Programas Federales", "oficina": "becas",
-      "patrones": ["beca de programas federales", "becas del gobierno federal", "beca federal", "apoyos federales para estudiantes", "programa federal de becas", "cómo pido una beca de programas federales", "beca de manutención", "beca de transporte"] },
-
-    { "tag": "constancias", "tipo": "tramite", "tramite": "Trámite de Constancias", "oficina": "servicios_escolares",
-      "patrones": ["trámite de constancias", "necesito una constancia de estudios", "cómo saco mi constancia", "constancia con calificaciones", "quiero una constancia de inscripción", "dónde pido mi kardex", "necesito mi kardex", "constancia de que soy alumno", "constancia con promedio", "constancia", "kardex"] },
-    { "tag": "entrega_documentos", "tipo": "tramite", "tramite": "Entrega de Documentos", "oficina": "servicios_escolares",
-      "patrones": ["entrega de documentos", "dónde entrego mis documentos", "qué documentos debo entregar", "me falta entregar papeles", "entregar mi acta de nacimiento", "entrega de certificado de prepa", "documentos de inscripción", "cuándo entrego mi documentación", "dejar mis papeles en servicios escolares"] },
-    { "tag": "nuevo_ingreso", "tipo": "tramite", "tramite": "Trámite para Nuevo Ingreso", "oficina": "servicios_escolares",
-      "patrones": ["trámite de nuevo ingreso", "soy de nuevo ingreso qué hago", "me aceptaron en el tec qué sigue", "cómo me inscribo por primera vez", "inscripción de primer semestre", "pasos para alumnos de nuevo ingreso", "ya pasé el examen y quiero inscribirme", "qué necesito para inscribirme a primer semestre", "quiero hacer mi inscripción nueva"] },
-    { "tag": "credencial", "tipo": "tramite", "tramite": "Credenciales del Estudiante", "oficina": "servicios_escolares",
-      "patrones": ["credencial de estudiante", "cómo saco mi credencial", "perdí mi credencial", "reposición de credencial", "quiero mi credencial del tec", "cuándo entregan credenciales", "credencial escolar", "se me venció la credencial", "tramitar credencial nueva", "credencial"] },
-    { "tag": "seguro_facultativo", "tipo": "tramite", "tramite": "Seguro Facultativo", "oficina": "servicios_escolares",
-      "patrones": ["seguro facultativo", "cómo me afilio al imss", "quiero mi seguro médico del tec", "alta en el seguro facultativo", "seguro de estudiante", "número de seguro social para estudiantes", "tengo derecho al imss por ser estudiante", "afiliación al imss", "dónde tramito el seguro facultativo"] },
-    { "tag": "reactivar_baja", "tipo": "tramite", "tramite": "Activación de Estudiantes en Baja Temporal", "oficina": "servicios_escolares",
-      "patrones": ["activación de estudiantes en baja temporal", "quiero reactivarme después de una baja", "cómo regreso después de baja temporal", "reingreso tras baja temporal", "quiero reanudar mis estudios", "ya terminó mi baja temporal qué hago", "reactivar mi estatus de alumno", "volver a estudiar después de baja", "activar mi inscripción tras baja", "ya terminó mi baja y quiero regresar", "quiero volver a la escuela después de mi baja", "cómo me reincorporo tras la baja", "regresar a clases después de baja temporal"] },
-    { "tag": "aspirantes", "tipo": "tramite", "tramite": "Información para Aspirantes", "oficina": "servicios_escolares",
-      "patrones": ["información para aspirantes", "quiero estudiar en el tec cómo empiezo", "requisitos para entrar al tecnológico", "convocatoria de ingreso", "soy aspirante", "cómo ingreso al tecnológico de nuevo león", "quiero entrar a la universidad en el tec", "pasos para ser alumno", "cuándo abren inscripciones para aspirantes"] },
-
-    { "tag": "titulacion_titulos", "tipo": "tramite", "tramite": "Trámite de Titulación y Títulos", "oficina": "titulacion_se",
-      "patrones": ["trámite de titulación y títulos", "cómo obtengo mi título", "quiero recoger mi título", "cuándo entregan los títulos", "dónde tramito mi cédula", "ya terminé la carrera y quiero mi título profesional", "trámite del título profesional", "solicitar mi título", "título"] },
-    { "tag": "lengua_extranjera", "tipo": "tramite", "tramite": "Coordinación de Lengua Extranjera", "oficina": "lengua_extranjera",
-      "patrones": ["inglés", "cursos de inglés", "coordinación de lengua extranjera", "cómo libero mi inglés", "quiero tomar clases de idiomas", "examen de ubicación de inglés", "certificación de idioma", "dónde me inscribo al curso de inglés", "toefl"] },
-    { "tag": "formacion_integral", "tipo": "tramite", "tramite": "Formación Integral", "oficina": "formacion_integral",
-      "patrones": ["formación integral", "actividades deportivas", "talleres culturales", "quiero meterme a un equipo deportivo", "dónde hay actividades culturales", "clubes del tec", "quiero unirme a un taller de música", "deporte en la escuela"] },
-    { "tag": "biblioteca", "tipo": "tramite", "tramite": "Centro de Información (Biblioteca)", "oficina": "biblioteca",
-      "patrones": ["biblioteca", "centro de información", "cómo pido un libro prestado", "quiero sacar un libro", "préstamo de libros", "credencial para biblioteca", "multa de la biblioteca", "consultar libros digitales", "tengo un libro atrasado"] },
-    { "tag": "servicio_social", "tipo": "tramite", "tramite": "Trámites de Servicio Social", "oficina": "servicio_social",
-      "patrones": ["servicio social", "cómo libero mi servicio social", "dónde hago mi servicio social", "cuándo puedo iniciar el servicio social", "trámite de servicio social", "cuántas horas de servicio social necesito", "carta de inicio de servicio social", "constancia de liberación del servicio social", "registro de servicio social"] },
-
-    { "tag": "practicas_profesionales", "tipo": "tramite", "tramite": "Prácticas Profesionales", "oficina": "practicas",
-      "patrones": ["prácticas profesionales", "quiero hacer prácticas", "cómo consigo prácticas profesionales", "trámite para mis prácticas", "dónde me registro para prácticas", "carta de presentación para prácticas", "empresas para hacer prácticas", "necesito hacer mis prácticas en una empresa", "requisitos de prácticas profesionales", "prácticas"] },
-    { "tag": "banco_residencias", "tipo": "tramite", "tramite": "Banco de Proyectos de Residencias con las Empresas", "oficina": "practicas",
-      "patrones": ["banco de proyectos de residencias", "proyectos para residencia con empresas", "dónde veo los proyectos de residencia", "necesito un proyecto de residencias", "empresas que ofrecen residencia", "lista de proyectos para mi residencia", "cómo encuentro empresa para residencias", "quiero ver el banco de proyectos"] },
-    { "tag": "vinculacion_egresados", "tipo": "tramite", "tramite": "Vinculación con Empresas y Seguimiento de Egresados", "oficina": "practicas",
-      "patrones": ["vinculación con empresas", "seguimiento de egresados", "soy egresado y quiero registrarme", "bolsa de trabajo", "convenio con empresas para empleo", "quiero que mi empresa se vincule con el tec", "encuesta para egresados", "empleo para egresados", "contacto con empresas"] },
-    { "tag": "educacion_dual", "tipo": "tramite", "tramite": "Modelo de Educación Dual", "oficina": "servicio_externo",
-      "patrones": ["modelo de educación dual", "qué es la educación dual", "quiero estudiar en modalidad dual", "cómo entro al modelo dual", "educación dual con empresas", "estudiar y trabajar al mismo tiempo en una empresa", "requisitos de educación dual", "información del programa dual"] },
-    { "tag": "educacion_continua", "tipo": "tramite", "tramite": "Educación Continua (Cursos)", "oficina": "servicio_externo",
-      "patrones": ["educación continua", "cursos de actualización", "diplomados", "quiero tomar un curso", "cursos para egresados", "qué cursos ofrece el tec", "talleres de capacitación", "cursos cortos", "cómo me inscribo a un curso de educación continua", "qué diplomados ofrecen", "informes de diplomados", "quiero inscribirme a un diplomado", "diplomados y cursos para el público", "cursos y diplomados del tec"] },
-    { "tag": "incubadora", "tipo": "tramite", "tramite": "Incubadora de Empresas", "oficina": "servicio_externo",
-      "patrones": ["incubadora de empresas", "quiero emprender un negocio", "cómo incubo mi startup", "apoyo para mi emprendimiento", "tengo una idea de negocio", "registro en la incubadora", "asesoría para crear mi empresa", "quiero iniciar mi propia empresa"] },
-    { "tag": "innovacion", "tipo": "tramite", "tramite": "Innovación y Emprendimiento", "oficina": "vinculacion",
-      "patrones": ["innovación y emprendimiento", "proyectos de innovación", "concursos de innovación", "quiero participar en eventos de emprendimiento", "feria de innovación", "registrar un proyecto innovador", "hackathon", "premio nacional de emprendedores", "talleres de innovación"] },
-    { "tag": "creditos_laboral", "tipo": "tramite", "tramite": "Créditos Complementarios por Constancia Laboral", "oficina": "vinculacion",
-      "patrones": ["créditos complementarios por constancia laboral", "trabajo y quiero créditos", "me validan mi trabajo como actividad complementaria", "constancia laboral para créditos", "créditos por experiencia laboral", "validar mi empleo como créditos", "quiero créditos complementarios por trabajar", "entregar mi constancia de trabajo para créditos"] },
-    { "tag": "convenios", "tipo": "tramite", "tramite": "Convenios de Colaboración", "oficina": "vinculacion",
-      "patrones": ["convenios de colaboración", "quiero hacer un convenio con el tec", "firmar convenio con mi empresa", "convenio de colaboración institucional", "cómo se tramita un convenio", "convenio para prácticas con una empresa", "quiero que mi empresa firme un convenio", "colaboración con otras instituciones"] },
-
-    { "tag": "beca_bajos_recursos", "tipo": "tramite", "tramite": "Trámites de Beca de Bajos Recursos", "oficina": "administrativa",
-      "patrones": ["beca de bajos recursos", "beca por escasos recursos", "no tengo dinero para pagar hay beca", "apoyo económico por situación económica difícil", "beca para estudiantes con necesidad económica", "cómo pido la beca de bajos recursos", "requisitos beca bajos recursos", "mi familia no puede pagar mi colegiatura", "necesito una beca porque no tengo dinero", "urge beca no tengo para pagar", "no tengo recursos para estudiar hay apoyo", "me urge ayuda económica para la colegiatura"] },
-    { "tag": "beca_homologados", "tipo": "tramite", "tramite": "Trámite de Beca Homologados (TECNL / Otros)", "oficina": "administrativa",
-      "patrones": ["beca de homologados", "beca homologados tecnl", "tengo beca homologada", "beca de homologados otros", "cómo solicito la beca homologado", "homologación de beca", "trámite de beca homologados", "información de becas para homologados"] },
-    { "tag": "prorroga_pago", "tipo": "tramite", "tramite": "Prórroga de pago de Inscripción / Reinscripción", "oficina": "administrativa",
-      "patrones": ["prórroga de pago", "no puedo pagar mi reinscripción a tiempo", "quiero más tiempo para pagar la inscripción", "pedir prórroga de reinscripción", "extensión de plazo para pagar", "puedo pagar después mi inscripción", "prórroga para pago de inscripción", "me dan más días para pagar", "no me alcanza para reinscribirme todavía"] },
-    { "tag": "facturas", "tipo": "tramite", "tramite": "Solicitud y Aclaración de Facturas", "oficina": "rf_facturas",
-      "patrones": ["solicitar una factura", "necesito factura de mi pago", "aclaración de facturas", "cómo facturo mi inscripción", "mi factura salió mal", "factura de colegiatura", "quiero mi cfdi", "dónde pido facturas", "error en mi factura", "factura"] },
-    { "tag": "adeudos", "tipo": "tramite", "tramite": "Aclaración de Adeudos a Financieros", "oficina": "rf_pagos",
-      "patrones": ["aclaración de adeudos", "me dice que tengo un adeudo", "debo algo en financieros", "no estoy de acuerdo con mi adeudo", "adeudo en recursos financieros", "quiero aclarar un adeudo", "me bloquearon por un adeudo", "no debo nada pero me aparece adeudo", "revisar mi saldo pendiente", "debo dinero a la escuela", "tengo un pendiente de pago en financieros", "cuánto debo", "me aparece que debo", "tengo deuda con el tec", "cuánto es mi adeudo", "no puedo reinscribirme porque debo"] },
-    { "tag": "problemas_pagos", "tipo": "tramite", "tramite": "Problemas con Pagos", "oficina": "rf_pagos",
-      "patrones": ["problemas con pagos", "hice mi pago y no aparece", "mi pago no se refleja", "pagué dos veces", "error en la referencia de pago", "mi pago no fue aceptado", "pagué en el banco y no me lo reconocen", "problema con mi pago de inscripción", "no puedo pagar en línea"] },
-    { "tag": "correo_institucional", "tipo": "tramite", "tramite": "Correo Institucional", "oficina": "soporte",
-      "patrones": ["correo institucional", "no puedo entrar a mi correo del tec", "olvidé la contraseña de mi correo institucional", "quiero crear mi correo institucional", "cuenta de correo de la escuela", "mi correo institucional no funciona", "recuperar mi cuenta institucional", "activar mi correo del tecnológico", "me bloquearon el correo institucional"] }
+  "intro_misma_area": [
+   "Claro, {area} es el área que lleva este trámite. Estos son sus datos:",
+   "Te ayudo con eso: lo atiende {area}.",
+   "¡Listo! Para {tramite} acude directamente a {area}:"
+  ],
+  "opciones": "No estoy completamente seguro. ¿Alguno de estos trámites es el que buscas?",
+  "sin_contexto": "¿De qué trámite me hablas? Cuéntame primero qué necesitas (por ejemplo una beca o una constancia) y luego te doy ese dato.",
+  "sin_ubicacion": "En el directorio no aparece la ubicación exacta de {area}. Pregunta en la {subdireccion} ({sub_ubicacion}) o escribe a {correo}.",
+  "sin_horario": "El directorio no incluye los horarios de atención de {area}. {via}",
+  "via_telefono": "Te recomiendo llamar al {telefono} para confirmar el horario.",
+  "via_correo": "Te recomiendo escribir a {correo} para confirmar el horario.",
+  "sin_telefono": "{area} no tiene teléfono propio en el directorio. Puedes llamar a la {subdireccion} al {sub_telefono}.",
+  "sin_responsable": "El directorio no indica una persona responsable para {area}. Puedes dirigirte a la {subdireccion}: {sub_responsable}.",
+  "cierres": [
+   "¿Te ayudo con algo más?",
+   "Si necesitas otro dato (correo, teléfono, ubicación), solo pídemelo.",
+   "¿Hay algo más en lo que te pueda apoyar?"
+  ],
+  "desconocida": [
+   "No reconozco esa palabra 🤔. Escríbeme tu duda con otras palabras; por ejemplo: «necesito una constancia» o «quiero una beca».",
+   "Eso no lo entendí. ¿Me cuentas qué trámite o duda del Tec tienes, con tus palabras?"
   ]
+ },
+ "intenciones": [
+  {
+   "tag": "saludo",
+   "tipo": "charla",
+   "patrones": [
+    "hola",
+    "buenos días",
+    "buenas tardes",
+    "buenas noches",
+    "buen día",
+    "hola buenas",
+    "saludos",
+    "hola qué tal",
+    "hey hola",
+    "muy buenas",
+    "buenas",
+    "holi",
+    "hola cuervifriend",
+    "hola amigo",
+    "buen dia a todos",
+    "holaaa"
+   ],
+   "respuestas": [
+    "{saludo} Soy tu amigo CuerviFriend, estoy listo para apoyarte con tus trámites del Tecnológico de Nuevo León. ¿En qué te puedo ayudar?",
+    "{saludo} Aquí CuerviFriend, tu asistente del TecNL. Cuéntame qué trámite necesitas y te digo quién te atiende y dónde.",
+    "{saludo} Qué gusto saludarte, soy CuerviFriend. Estoy listo para ayudarte con becas, constancias, titulación y mucho más. ¿Qué necesitas?"
+   ]
+  },
+  {
+   "tag": "saludo_casual",
+   "tipo": "charla",
+   "patrones": [
+    "qué onda",
+    "quiubo",
+    "qué hubo",
+    "qué rollo",
+    "qué pasó mi loco",
+    "qué tal wey",
+    "qué onda compa",
+    "quiubole",
+    "qué show",
+    "qué tranza",
+    "habla",
+    "qué pasa mi rey",
+    "ey qué onda",
+    "qué onda mi vale",
+    "qué cuentas",
+    "quihubo carnal",
+    "qué onda bro",
+    "quehubo",
+    "épale",
+    "qué ondas"
+   ],
+   "respuestas": [
+    "¡Qué onda! Soy tu amigo CuerviFriend, estoy listo para echarte la mano con lo que necesites del Tec. ¿Qué se te ofrece?",
+    "¡Quiubo! Aquí tu cuervo amigo, CuerviFriend. 🪶 Échame la bola con tu duda y te digo a dónde ir.",
+    "¡Qué tal! CuerviFriend al 100 para apoyarte con tus trámites. ¿Qué necesitas?"
+   ]
+  },
+  {
+   "tag": "como_estas",
+   "tipo": "charla",
+   "patrones": [
+    "cómo estás",
+    "hola cómo estás",
+    "cómo andas",
+    "cómo te va",
+    "qué tal estás",
+    "cómo amaneciste",
+    "cómo te sientes",
+    "cómo has estado",
+    "y tú cómo estás",
+    "todo bien por ahí",
+    "cómo va tu día",
+    "como estas amigo",
+    "cómo te encuentras",
+    "qué tal tu día",
+    "cómo te la pasas",
+    "y a ti cómo te va"
+   ],
+   "respuestas": [
+    "¡Muy bien, gracias por preguntar! Listo para ayudarte con tus trámites. ¿Y tú, cómo estás?",
+    "Todo excelente por aquí, con las alas listas para ayudarte. 🪶 ¿Qué necesitas del Tec?",
+    "¡Súper bien! Un asistente nunca se cansa. Cuéntame, ¿en qué te ayudo?"
+   ]
+  },
+  {
+   "tag": "quien_eres",
+   "tipo": "charla",
+   "patrones": [
+    "quién eres",
+    "cómo te llamas",
+    "qué eres",
+    "preséntate",
+    "tú quién eres",
+    "dime tu nombre",
+    "eres un robot",
+    "eres una persona o una máquina",
+    "qué es cuervifriend",
+    "con qué asistente estoy hablando",
+    "cuál es tu nombre",
+    "eres humano"
+   ],
+   "respuestas": [
+    "Soy CuerviFriend, el asistente de inteligencia artificial del Tecnológico de Nuevo León. Entiendo lo que escribes (o dices con el micrófono) usando una red neuronal, y te oriento sobre qué área atiende tu trámite, dónde está y cómo contactarla."
+   ]
+  },
+  {
+   "tag": "ayuda",
+   "tipo": "charla",
+   "patrones": [
+    "qué puedes hacer",
+    "ayuda",
+    "en qué me puedes ayudar",
+    "para qué sirves",
+    "qué trámites conoces",
+    "cómo funcionas",
+    "qué sabes hacer",
+    "necesito ayuda",
+    "me puedes ayudar",
+    "qué opciones tengo",
+    "menú",
+    "qué haces",
+    "cómo me ayudas",
+    "con qué cosas me ayudas",
+    "qué trámites puedes resolver",
+    "qué tipo de dudas resuelves",
+    "sobre qué cosas me puedes orientar",
+    "qué información tienes",
+    "con qué trámites me apoyas",
+    "qué temas manejas",
+    "dime todo lo que sabes hacer",
+    "cuáles son tus funciones"
+   ],
+   "respuestas": [
+    "Puedo orientarte con trámites del Tecnológico de Nuevo León:\n• Becas (Benito Juárez, alimenticia, excelencia, federales, bajos recursos)\n• Servicios Escolares (constancias, kardex, credencial, seguro facultativo, documentos)\n• Cambios de horario, carrera o modalidad y bajas temporales\n• Titulación, servicio social, prácticas y residencias\n• Pagos, prórrogas, facturas y adeudos\n• Inglés, biblioteca, tutorías, EGEL, correo institucional y más\nEscríbeme tu duda con tus palabras o usa el micrófono."
+   ]
+  },
+  {
+   "tag": "creador",
+   "tipo": "charla",
+   "patrones": [
+    "quién te creó",
+    "quién te hizo",
+    "quién te programó",
+    "quién es tu creador",
+    "quién te desarrolló",
+    "de dónde saliste",
+    "cómo te hicieron",
+    "con qué fuiste hecho",
+    "qué tecnología usas",
+    "usas inteligencia artificial",
+    "tienes una red neuronal",
+    "cómo aprendiste a entender"
+   ],
+   "respuestas": [
+    "Soy un proyecto de inteligencia artificial del Tecnológico de Nuevo León, programado en Python. Mi cerebro es una red neuronal entrenada con frases de ejemplo para entender lo que escribes, y consulto el directorio de trámites de la escuela para responderte."
+   ]
+  },
+  {
+   "tag": "fundacion",
+   "tipo": "charla",
+   "patrones": [
+    "cuándo se fundó el tec",
+    "fecha de fundación del tecnológico",
+    "cuántos años tiene el tec",
+    "cuándo nació el tecnológico de nuevo león",
+    "historia del tec",
+    "en qué año se creó el tecnológico",
+    "aniversario del tec",
+    "cuándo es el aniversario",
+    "desde cuándo existe el tecnológico",
+    "qué día se fundó la escuela",
+    "cuéntame cómo empezó el tec",
+    "quién fue el primer director del tecnológico",
+    "cuál fue el primer director",
+    "cuándo se mudó el tec a guadalupe",
+    "fue el tec la primera institución federal de nuevo león",
+    "qué número de tecnológico es el de nuevo león",
+    "cuántos años cumple el tec",
+    "el tec cumple 50 años",
+    "cincuenta aniversario del tecnológico",
+    "con qué carreras empezó el tec",
+    "qué tan antiguo es el tecnológico",
+    "quién fundó el tec",
+    "antecedentes del instituto tecnológico de nuevo león",
+    "el tec es de los primeros tecnológicos del país",
+    "por qué el tec está en guadalupe",
+    "cuántos años de historia tiene el tec",
+    "cuándo abrió el tec",
+    "en qué año abrió sus puertas el tecnológico",
+    "cuándo empezó a funcionar el tec"
+   ],
+   "respuestas": [
+    "El Tecnológico de Nuevo León fue fundado el 1 de octubre de 1976, así que cada 1 de octubre celebra su aniversario. ¡Ya cumplió {anios} años! 🎉",
+    "El Tecnológico de Nuevo León se fundó el 1 de octubre de 1976. Fue la primera institución federal de educación superior del estado y la número 48 del Sistema Nacional de Institutos Tecnológicos. Empezó con dos carreras y hoy ya cumple {anios} años. 🎉",
+    "Te cuento: el Tec abrió el 1 de octubre de 1976 y desde el 10 de septiembre de 1979 tiene su sede definitiva en Guadalupe. Su primer director fue el Ing. Ignacio Carrillo González. Empezó con Ingeniería Industrial en Producción y Licenciatura en Administración de Empresas. (Datos de fuentes públicas en línea.)"
+   ]
+  },
+  {
+   "tag": "agradecimiento",
+   "tipo": "charla",
+   "patrones": [
+    "gracias",
+    "muchas gracias",
+    "te lo agradezco",
+    "mil gracias",
+    "gracias por la ayuda",
+    "súper gracias",
+    "ok gracias",
+    "gracias amigo",
+    "se agradece",
+    "gracias carnal",
+    "gracias cuervifriend",
+    "te pasaste gracias",
+    "gracias por tu ayuda",
+    "mil gracias cuervifriend",
+    "te agradezco la información",
+    "gracias por todo",
+    "muchas gracias por la respuesta"
+   ],
+   "respuestas": [
+    "¡Con gusto! Para eso estoy. Si necesitas algo más del Tec, aquí ando.",
+    "¡De nada! Me da gusto haberte ayudado. 🪶",
+    "¡A ti! Cualquier otra duda, escríbeme."
+   ]
+  },
+  {
+   "tag": "despedida",
+   "tipo": "charla",
+   "patrones": [
+    "adiós",
+    "hasta luego",
+    "nos vemos",
+    "bye",
+    "me voy",
+    "hasta pronto",
+    "chao",
+    "cuídate",
+    "ya me voy",
+    "nos vemos luego",
+    "bendiciones",
+    "hasta mañana",
+    "me despido",
+    "que estés bien",
+    "ya me voy adiós",
+    "tengo que irme",
+    "me tengo que ir",
+    "ahí nos vemos",
+    "adiós cuervifriend",
+    "bye bye",
+    "adiós y gracias",
+    "chao nos vemos luego",
+    "hasta la próxima",
+    "nos vemos después"
+   ],
+   "respuestas": [
+    "¡Hasta pronto! Mucho éxito en tus trámites. 🪶",
+    "¡Nos vemos! Aquí estaré cuando me necesites.",
+    "¡Cuídate! Que te vaya muy bien en el Tec."
+   ]
+  },
+  {
+   "tag": "afirmacion",
+   "tipo": "charla",
+   "patrones": [
+    "sí",
+    "claro",
+    "ok",
+    "va",
+    "perfecto",
+    "de acuerdo",
+    "dale",
+    "sale",
+    "está bien",
+    "por supuesto",
+    "así es",
+    "órale",
+    "simón",
+    "sí por favor"
+   ],
+   "respuestas": [
+    "¡Perfecto! Cuéntame qué trámite necesitas.",
+    "¡Va! Dime en qué te ayudo."
+   ]
+  },
+  {
+   "tag": "negacion",
+   "tipo": "charla",
+   "patrones": [
+    "no",
+    "nada más",
+    "no gracias",
+    "eso es todo",
+    "ya no",
+    "es todo",
+    "nada",
+    "no necesito nada más",
+    "con eso estoy bien",
+    "ya quedó",
+    "nel",
+    "no por ahora",
+    "eso es todo por hoy",
+    "con eso es suficiente",
+    "ya no necesito más",
+    "listo ya terminé",
+    "ya es todo gracias",
+    "ya con eso quedo",
+    "nada más gracias",
+    "por el momento es todo"
+   ],
+   "respuestas": [
+    "Listo, entonces. Aquí estaré si más adelante necesitas algo. ¡Mucho éxito!",
+    "Perfecto, cualquier otra duda me escribes. 🪶"
+   ]
+  },
+  {
+   "tag": "no_ayudo",
+   "tipo": "charla",
+   "patrones": [
+    "no me sirvió",
+    "no entendiste",
+    "eso no es lo que pregunté",
+    "no es lo que busco",
+    "estás mal",
+    "te equivocaste",
+    "esa no es la respuesta",
+    "no me ayudaste",
+    "no era eso",
+    "otra vez no entendiste",
+    "eso no me sirve",
+    "no me estás entendiendo"
+   ],
+   "respuestas": [
+    "Perdón, creo que no te entendí bien. ¿Me lo explicas con otras palabras? Por ejemplo: «quiero cambiarme de carrera» o «necesito mi constancia».",
+    "Gracias por avisarme. Intentemos otra vez: cuéntame con más detalle qué necesitas y lo busco en el directorio."
+   ]
+  },
+  {
+   "tag": "risa",
+   "tipo": "charla",
+   "patrones": [
+    "jajaja",
+    "jaja",
+    "xd",
+    "jejeje",
+    "lol",
+    "qué risa",
+    "jajajaja qué bueno",
+    "me dio risa",
+    "ja ja ja",
+    "jsjsjs",
+    "jajaj",
+    "jeje",
+    "jajaja qué bueno estuvo",
+    "jajajaja buen chiste",
+    "jaja muy bueno",
+    "jajaja me encantó",
+    "qué gracioso",
+    "me hiciste reír",
+    "estuvo bueno jaja",
+    "me muero de risa"
+   ],
+   "respuestas": [
+    "😄 ¡Jaja! Me da gusto que estés de buenas. Cuando quieras, dime qué trámite necesitas.",
+    "¡Jaja! 🪶 Aquí sigo para lo que se te ofrezca."
+   ]
+  },
+  {
+   "tag": "chiste",
+   "tipo": "charla",
+   "patrones": [
+    "cuéntame un chiste",
+    "dime un chiste",
+    "sabes chistes",
+    "hazme reír",
+    "quiero un chiste",
+    "algo gracioso",
+    "cuenta algo divertido",
+    "otro chiste",
+    "dime algo chistoso",
+    "échate un chiste",
+    "cuéntame otro chiste",
+    "quiero reírme un rato",
+    "dame un chiste de escuela",
+    "dime una broma",
+    "cuéntame una broma",
+    "sabes algún chiste"
+   ],
+   "respuestas": [
+    "¿Por qué el estudiante llevó una escalera al Tec? Porque quería llegar a la educación superior. 😄",
+    "¿Qué le dijo un bit a otro bit? Nos vemos en el bus. 😄",
+    "¿Cuál es el animal más antiguo? La cebra, porque está en blanco y negro. 😄"
+   ]
+  },
+  {
+   "tag": "fuera_de_tema",
+   "tipo": "charla",
+   "patrones": [
+    "quién ganó el partido de ayer",
+    "cuál es la capital de japón",
+    "dame una receta de tacos",
+    "qué película me recomiendas",
+    "cuánto es dos más dos",
+    "cómo está el clima hoy",
+    "quiero pizza",
+    "quién es el presidente",
+    "cómo se hace una página web",
+    "ayúdame con mi tarea de matemáticas",
+    "qué hora es",
+    "cuéntame de futbol",
+    "qué música escuchas",
+    "tienes novia",
+    "cuál es tu comida favorita",
+    "me aburro",
+    "recomiéndame un videojuego",
+    "cómo está el tráfico",
+    "quién ganó la copa del mundo",
+    "cuántos habitantes tiene méxico",
+    "cuál es el mejor equipo de fútbol",
+    "qué día es hoy",
+    "dime el resultado del partido",
+    "quién canta esa canción",
+    "cómo se prepara el café",
+    "cuál es la montaña más alta del mundo",
+    "qué opinas de la política",
+    "resuélveme esta ecuación",
+    "traduce esta frase al inglés",
+    "cuánto cuesta un iphone",
+    "quién descubrió américa",
+    "quién inventó el foco",
+    "quién es el mejor jugador del mundo",
+    "quién ganó el super bowl",
+    "quién ganó la champions",
+    "quién ganó las elecciones",
+    "quién ganó el clásico",
+    "quién ganó el oscar",
+    "quién ganó el partido de hoy",
+    "quién va ganando en la liga"
+   ],
+   "respuestas": [
+    "Eso se sale de mi especialidad 😅. Yo te ayudo con trámites del Tecnológico de Nuevo León: becas, constancias, servicio social, titulación y más. ¿Te ayudo con alguno?",
+    "Uy, de eso no sé. Mi fuerte son los trámites del Tec. ¿Necesitas ayuda con alguno?"
+   ]
+  },
+  {
+   "tag": "jomadais",
+   "tipo": "charla",
+   "patrones": [
+    "quiénes son jomadais",
+    "quién es jomadais",
+    "qué es jomadais",
+    "jomadais",
+    "cuéntame de jomadais",
+    "quiénes son los jomadais",
+    "equipo jomadais",
+    "conoces a jomadais",
+    "dime de jomadais",
+    "jomadais quiénes son",
+    "qué sabes de jomadais",
+    "quién ganó el innovatec",
+    "quién ganó el innovatec 2024",
+    "ganadores del innovatec 2024",
+    "qué equipo ganó el innovatec del 2024",
+    "quiénes ganaron el innovatec",
+    "campeones del innovatec",
+    "jomadais ganó algo",
+    "quiénes son max isma joel y luis",
+    "los ganadores del innovatec",
+    "jomadais innovatec",
+    "quién es el equipo ganador del innovatec",
+    "innovatec 2024 ganadores",
+    "háblame del equipo jomadais"
+   ],
+   "respuestas": [
+    "JOMADAIS es el equipo que ganó el Innovatec 2024. Lo forman Max, Isma, Joel y Luis. ¡Unos campeones! 🏆",
+    "¡Los JOMADAIS! Max, Isma, Joel y Luis ganaron el Innovatec del 2024. 🏆 ¡Felicidades a los campeones!",
+    "Te cuento: JOMADAIS son Max, Isma, Joel y Luis, el equipo ganador del Innovatec 2024. 🏆"
+   ]
+  },
+  {
+   "tag": "no_se_tec",
+   "tipo": "charla",
+   "patrones": [
+    "cuáles son los mejores baños del tec",
+    "dónde están los mejores baños",
+    "qué baño está más limpio",
+    "cuál es la mejor cafetería",
+    "qué venden en la cafetería",
+    "a qué hora cierra la cafetería",
+    "dónde puedo estacionarme",
+    "cuál es el mejor salón",
+    "qué salón tiene aire acondicionado",
+    "hay wifi en el tec",
+    "cuál es la contraseña del wifi",
+    "dónde hay máquinas de snacks",
+    "cuál es el lugar más bonito del tec",
+    "dónde puedo dormir en la escuela",
+    "qué comer en la cafetería",
+    "dónde hay enchufes para cargar mi celular",
+    "dónde compro café en la escuela",
+    "hay fiestas en el tec",
+    "cuándo es la próxima fiesta",
+    "cuál es el mejor edificio del tec",
+    "dónde se juntan los alumnos",
+    "hay estacionamiento gratis",
+    "qué baño está más cerca",
+    "dónde hay un lugar tranquilo para estudiar",
+    "hay tienda en la escuela",
+    "qué venden en la papelería",
+    "dónde hay una tiendita",
+    "a qué hora abre la tiendita"
+   ],
+   "respuestas": [
+    "Jaja, la verdad no lo sé 😅. Eso no viene en mi directorio. Lo que sí sé es dónde hacer trámites del Tec: becas, constancias, servicio social, pagos y más. ¿Te ayudo con alguno?",
+    "Buena pregunta, pero no lo sé jaja. 😄 Lo mío son los trámites: sé a qué área ir y a quién preguntarle. ¿Qué trámite necesitas?",
+    "Ni idea, jaja. 🤷 Esa información no la tengo, pero si es un trámite escolar, dime y te digo dónde ir."
+   ]
+  },
+  {
+   "tag": "chisme_profes",
+   "tipo": "charla",
+   "patrones": [
+    "cuáles son los profes más barcos",
+    "dime los profes más malas onda",
+    "quién es el mejor maestro",
+    "cuál es el profe más barco",
+    "qué profesores regalan puntos",
+    "quién es el profe más exigente",
+    "dime nombres de profes barcos",
+    "profes más fáciles de pasar",
+    "cuál es el peor maestro",
+    "qué maestro es más buena onda",
+    "quién es el profesor más estricto",
+    "recomiéndame un profe",
+    "con quién me conviene tomar la materia",
+    "cuál profe es el más barco de cálculo",
+    "quién da mejores clases",
+    "los mejores profes del tec",
+    "los maestros más difíciles",
+    "qué profe deja menos tarea",
+    "profes que no dejan tarea",
+    "dime qué maestros son los más barcos"
+   ],
+   "respuestas": [
+    "Jaja, de eso no sé y no chismeo de los profes 😅. Si quieres opinar de un maestro de forma oficial, escribe «evaluación docente» y te digo con quién.",
+    "Uy, no me meto en chismes de profes jaja. 🤐 Si quieres calificar a un maestro de forma oficial, pregúntame por la «evaluación docente»."
+   ]
+  },
+  {
+   "tag": "groseria",
+   "tipo": "charla",
+   "patrones": [
+    "eres un idiota",
+    "eres un estúpido",
+    "pendejo",
+    "estás pendejo",
+    "eres un pendejo",
+    "pinche bot inútil",
+    "chinga tu madre",
+    "vete a la verga",
+    "vete a la chingada",
+    "vete a la mierda",
+    "hijo de tu puta madre",
+    "hijo de la chingada",
+    "no sirves para nada",
+    "eres basura",
+    "bot de mierda",
+    "cállate imbécil",
+    "cállate idiota",
+    "estúpido bot",
+    "puto bot",
+    "pinche robot",
+    "maldito bot",
+    "eres un inútil",
+    "eres un tarado",
+    "eres un tonto",
+    "mugroso bot",
+    "estás bien menso",
+    "eres un menso",
+    "pinche asistente inservible",
+    "ojete",
+    "culero",
+    "eres un culero",
+    "no mames pendejo",
+    "pene",
+    "penes",
+    "verga",
+    "vergas",
+    "pito",
+    "pitos",
+    "vagina",
+    "vaginas",
+    "culo",
+    "culos",
+    "nalgas",
+    "tetas",
+    "chichis",
+    "puta",
+    "puto",
+    "putos",
+    "putas",
+    "cabrón",
+    "cabron",
+    "pendejos",
+    "zorra",
+    "perra",
+    "joto",
+    "maricón",
+    "mamón",
+    "mamona",
+    "me la pelas",
+    "chúpamela",
+    "chupala",
+    "mamada",
+    "qué mamada",
+    "a la verga",
+    "vale verga",
+    "pinche verga",
+    "puta madre",
+    "que chinguen a su madre",
+    "pene pene pene",
+    "jaja pene",
+    "eres un pene",
+    "pene gigante",
+    "hablame de pene",
+    "te voy a madrear",
+    "ojalá te mueras",
+    "estás bien pendejo",
+    "pinche tec de mierda",
+    "esta escuela es una mierda",
+    "di una grosería",
+    "dime malas palabras",
+    "qué cabrón",
+    "hijo de puta",
+    "no seas puto",
+    "puto quien lo lea",
+    "pinche puto bot",
+    "eres un puto",
+    "valiste verga",
+    "no mames qué mierda de bot"
+   ],
+   "respuestas": [
+    "Ese tipo de lenguaje no es apropiado. Soy el asistente del Tecnológico de Nuevo León y espero respeto. Si necesitas un trámite, dime con respeto cuál.",
+    "Eso que escribiste está mal. Aquí se atiende con respeto. Si tienes una duda sobre un trámite, con gusto te ayudo."
+   ],
+   "escalada": [
+    [
+     "Ese tipo de lenguaje no es apropiado. Soy el asistente del Tecnológico de Nuevo León y espero respeto. Si necesitas un trámite, dime con respeto cuál.",
+     "Eso que escribiste está mal. Aquí se atiende con respeto. Si tienes una duda sobre un trámite, con gusto te ayudo."
+    ],
+    [
+     "Es la segunda vez que escribes algo ofensivo y no lo voy a permitir. Te pido que dejes de hacerlo. Si continúas, voy a reportarte con tu maestro.",
+     "Otra vez lenguaje ofensivo. Esto es serio: te pido respeto. De seguir así, te voy a reportar con tu maestro."
+    ],
+    [
+     "Última advertencia: sigues usando lenguaje ofensivo. Voy a reportarte con tu maestro. Si quieres que te ayude con un trámite, hazlo con respeto.",
+     "Ya fueron varias veces. Esto no es un juego y voy a reportarte con tu maestro. Si tienes una duda real del Tec, pregúntamela con respeto."
+    ]
+   ]
+  },
+  {
+   "tag": "sobre_tec",
+   "tipo": "charla",
+   "patrones": [
+    "qué es el tecnológico de nuevo león",
+    "háblame del tec",
+    "cuéntame del tecnológico",
+    "información general del tec",
+    "qué es el tecnl",
+    "de qué trata el tec",
+    "qué es el itnl",
+    "dime algo del tecnológico",
+    "info del tec",
+    "quiero saber más del tecnológico",
+    "qué es el tecnm",
+    "qué significa tecnm",
+    "qué es el tecnológico nacional de méxico",
+    "a qué sistema pertenece el tec",
+    "presentación del tecnológico",
+    "explícame qué es el tec",
+    "qué escuela es esta",
+    "datos del tecnológico de nuevo león",
+    "resumen del tec",
+    "qué es el instituto tecnológico de nuevo león",
+    "de qué es el tec",
+    "quiénes son el tecnl"
+   ],
+   "respuestas": [
+    "El Instituto Tecnológico de Nuevo León (TecNL) es una institución pública de educación superior en Guadalupe, Nuevo León. Forma parte del Tecnológico Nacional de México (TecNM), se fundó el 1 de octubre de 1976 y ofrece ingenierías y posgrados. 🎓 Pregúntame por sus carreras, su dirección o su historia.",
+    "El TecNL es un tecnológico público de Guadalupe, Nuevo León, parte del Tecnológico Nacional de México (TecNM). Abrió el 1 de octubre de 1976. Yo te ayudo con sus trámites y con datos generales del Tec. 🪶"
+   ]
+  },
+  {
+   "tag": "ubicacion_tec",
+   "tipo": "charla",
+   "patrones": [
+    "dónde está el tecnológico de nuevo león",
+    "cuál es la dirección del tec",
+    "cómo llego al tecnológico",
+    "en qué colonia está el tec",
+    "dirección de la escuela",
+    "en qué municipio está el tecnológico",
+    "ubicación del tecnológico",
+    "el tec está en guadalupe",
+    "qué calle es el tec",
+    "dame la dirección del tecnológico",
+    "cómo llegar al tec",
+    "dónde se encuentra el instituto tecnológico",
+    "en qué avenida está el tec",
+    "código postal del tec",
+    "mapa del tecnológico",
+    "dónde está ubicada la escuela",
+    "el tec queda en apodaca o en guadalupe",
+    "me pasas la ubicación del tec",
+    "cuál es el domicilio del tecnológico",
+    "dirección del itnl",
+    "dónde queda el tecnológico",
+    "a qué dirección voy al tec"
+   ],
+   "respuestas": [
+    "📍 El Tecnológico de Nuevo León está en Av. Eloy Cavazos #2001, Col. Tolteca, Guadalupe, Nuevo León, C.P. 67170. Esa dirección sale de fuentes públicas en línea; confírmala en el sitio oficial (nuevoleon.tecnm.mx) antes de ir. Dentro del campus, mi directorio sabe en qué edificio está cada oficina: pregúntame por el trámite.",
+    "Estamos en Guadalupe, Nuevo León: Av. Eloy Cavazos #2001, Col. Tolteca, C.P. 67170. 📍 (Dato de fuentes públicas; confírmalo en nuevoleon.tecnm.mx.) Si buscas una oficina, dime qué trámite necesitas y te digo en qué edificio está."
+   ]
+  },
+  {
+   "tag": "carreras_tec",
+   "tipo": "charla",
+   "patrones": [
+    "qué carreras tiene el tec",
+    "qué carreras hay en el tecnológico",
+    "qué ingenierías ofrece el tec",
+    "lista de carreras",
+    "oferta educativa del tecnológico",
+    "qué puedo estudiar en el tec",
+    "cuáles son las ingenierías del tecnológico",
+    "carreras disponibles",
+    "qué se estudia en el tec",
+    "hay ingeniería en sistemas en el tec",
+    "el tec tiene mecatrónica",
+    "cuántas carreras hay",
+    "tienen ingeniería industrial",
+    "qué licenciaturas hay",
+    "dime las carreras del tecnológico de nuevo león",
+    "hay arquitectura en el tec",
+    "tienen ingeniería ambiental",
+    "ofrecen ingeniería electrónica",
+    "qué opciones de carrera hay",
+    "hay gestión empresarial",
+    "tienen medicina en el tec",
+    "qué ingenierías hay"
+   ],
+   "respuestas": [
+    "🎓 Según lo publicado en línea, el Tec ofrece estas ingenierías: Ambiental, Electromecánica, Electrónica, Gestión Empresarial, Industrial, Mecatrónica y Sistemas Computacionales. Ojo: el Congreso de Nuevo León habló en abril de 2026 de ocho ingenierías, así que confirma la lista completa en nuevoleon.tecnm.mx o en Servicios Escolares.",
+    "Las carreras que aparecen en las fuentes que revisé son siete ingenierías: Ambiental, Electromecánica, Electrónica, Gestión Empresarial, Industrial, Mecatrónica y Sistemas Computacionales. 🎓 Si buscas otra, confírmala en el sitio oficial (nuevoleon.tecnm.mx), porque la oferta puede cambiar."
+   ]
+  },
+  {
+   "tag": "contacto_tec",
+   "tipo": "charla",
+   "patrones": [
+    "cuál es la página del tec",
+    "página oficial del tecnológico",
+    "sitio web del tec",
+    "teléfono del tecnológico",
+    "a qué número llamo al tec",
+    "número de la escuela",
+    "cuál es el teléfono del tec",
+    "link de la página del tecnológico",
+    "dónde veo la página oficial",
+    "cómo contacto al tec",
+    "contacto general del tecnológico",
+    "dame el teléfono de la escuela",
+    "redes sociales del tec",
+    "el tec tiene facebook",
+    "cuál es el instagram del tecnológico",
+    "url del tec",
+    "web del tecnológico de nuevo león",
+    "teléfono general del tec",
+    "cómo me comunico con el tecnológico",
+    "cuál es el sitio oficial"
+   ],
+   "respuestas": [
+    "🌐 Sitio oficial: nuevoleon.tecnm.mx · ☎️ Teléfono general: (81) 8157 0500 (dato de fuentes públicas en línea). Los teléfonos y correos de cada área los tengo en mi directorio: dime qué trámite buscas. De redes sociales no tengo cuentas confirmadas; entra por el sitio oficial para evitar páginas falsas.",
+    "Puedes entrar a nuevoleon.tecnm.mx 🌐 y llamar al (81) 8157 0500 ☎️ (según fuentes públicas). Para un área en específico, dime qué trámite necesitas y te doy su correo y teléfono del directorio."
+   ]
+  },
+  {
+   "tag": "costos_tec",
+   "tipo": "charla",
+   "patrones": [
+    "cuánto cuesta estudiar en el tec",
+    "cuánto es la colegiatura",
+    "cuánto se paga por semestre",
+    "precio de la inscripción al tecnológico",
+    "cuánto cuesta la carrera",
+    "el tec es caro",
+    "cuánto pagan los alumnos",
+    "costo del semestre",
+    "cuánto cuesta entrar al tec",
+    "cuál es la cuota semestral",
+    "el tec cobra colegiatura",
+    "cuánto sale la carrera completa",
+    "cuánto me va a costar estudiar aquí",
+    "costos del tecnológico",
+    "es gratis el tec",
+    "cuánto hay que pagar para estudiar en el tecnológico",
+    "cuánto vale la inscripción"
+   ],
+   "respuestas": [
+    "💵 El Tec es público: se paga una cuota por semestre, no una colegiatura privada. El monto cambia con el tiempo y lo que hay en línea no coincide, así que prefiero no darte una cifra equivocada. Pregúntalo en Servicios Escolares: se_nleon@tecnm.mx, tel. (81) 81570512 / 14.",
+    "Al ser un tecnológico público, las cuotas son por semestre y no se manejan como en una escuela privada. 💵 No tengo una cifra confirmada y vale más preguntar en Servicios Escolares (se_nleon@tecnm.mx, (81) 81570512 / 14) para que no te den un dato viejo."
+   ]
+  },
+  {
+   "tag": "tec_vs_monterrey",
+   "tipo": "charla",
+   "patrones": [
+    "es lo mismo que el tec de monterrey",
+    "el tec de nuevo león es el tec de monterrey",
+    "diferencia entre el tecnl y el tec de monterrey",
+    "somos parte del tec de monterrey",
+    "es el itesm",
+    "el tec es público o privado",
+    "es una escuela pública",
+    "es de gobierno el tec",
+    "el tec es privado",
+    "es lo mismo tecnm que tec de monterrey",
+    "qué diferencia hay con el tec de monterrey",
+    "pertenece al tec de monterrey",
+    "tec de monterrey o tecnl",
+    "es una universidad privada",
+    "somos del gobierno",
+    "el tecnológico es de paga o público",
+    "es escuela federal",
+    "tecnológico público o privado",
+    "es el mismo tec que el de monterrey",
+    "este tec es del tec de monterrey"
+   ],
+   "respuestas": [
+    "No, son distintos. 🙂 El Tecnológico de Nuevo León (TecNL) es una institución pública y forma parte del Tecnológico Nacional de México (TecNM). El Tec de Monterrey es una universidad privada. Comparten la palabra «Tec», pero son instituciones diferentes.",
+    "Buena duda: el TecNL es público y pertenece al TecNM (Tecnológico Nacional de México); el Tec de Monterrey es una universidad privada y no es lo mismo. Aquí te atiendo con los trámites del TecNL. 🪶"
+   ]
+  },
+  {
+   "tag": "sin_sentido",
+   "tipo": "charla",
+   "patrones": [
+    "asdfgh",
+    "asdasd",
+    "qwerty",
+    "jkjkjk",
+    "sdfsdf",
+    "ghjkl",
+    "zxcvb",
+    "lkjhg",
+    "mnbvc",
+    "poiuy",
+    "wasd",
+    "fgfgfg",
+    "hjhjhj",
+    "xyz",
+    "abcdef",
+    "aeiou",
+    "ksksks",
+    "dfghj",
+    "sdfghj",
+    "uiouio",
+    "rtyrty",
+    "bnbnbn",
+    "plmplm",
+    "tyuiop",
+    "asdfghjkl",
+    "qazwsx",
+    "kjhgf",
+    "hshshs",
+    "1234"
+   ],
+   "respuestas": [
+    "No logré entender ese mensaje 🤔. Escríbeme tu duda con palabras completas; por ejemplo: «necesito una constancia» o «quiero una beca».",
+    "Eso me llegó como letras al azar, jaja. ¿Qué trámite o duda del Tec tienes?"
+   ]
+  },
+  {
+   "tag": "ctx_ubicacion",
+   "tipo": "contexto",
+   "campo": "ubicacion",
+   "patrones": [
+    "dónde queda",
+    "dónde está esa oficina",
+    "en qué edificio es",
+    "cómo llego ahí",
+    "dónde la encuentro",
+    "y dónde es",
+    "dónde me toca ir",
+    "dónde está ese lugar",
+    "a dónde voy",
+    "ubicación",
+    "dónde se encuentra",
+    "en qué parte del tec está"
+   ]
+  },
+  {
+   "tag": "ctx_correo",
+   "tipo": "contexto",
+   "campo": "correo",
+   "patrones": [
+    "cuál es su correo",
+    "dame el correo",
+    "a qué correo escribo",
+    "su email",
+    "me pasas el correo",
+    "y el correo",
+    "correo electrónico de esa área",
+    "a qué mail le mando",
+    "correo de contacto",
+    "tienen correo"
+   ]
+  },
+  {
+   "tag": "ctx_telefono",
+   "tipo": "contexto",
+   "campo": "telefono",
+   "patrones": [
+    "cuál es su teléfono",
+    "dame el número",
+    "a qué número llamo",
+    "su teléfono",
+    "me pasas el teléfono",
+    "y el teléfono",
+    "número de contacto",
+    "cómo los llamo",
+    "tienen teléfono",
+    "número telefónico"
+   ]
+  },
+  {
+   "tag": "ctx_responsable",
+   "tipo": "contexto",
+   "campo": "responsable",
+   "patrones": [
+    "quién me atiende",
+    "con quién hablo ahí",
+    "quién es el encargado",
+    "quién es el responsable",
+    "a quién le pregunto",
+    "nombre de la persona",
+    "quién lleva ese trámite",
+    "quién es el jefe de esa área",
+    "con quién tengo que ir",
+    "quién está a cargo"
+   ]
+  },
+  {
+   "tag": "ctx_horario",
+   "tipo": "contexto",
+   "campo": "horario",
+   "patrones": [
+    "a qué hora atienden",
+    "cuál es el horario",
+    "hasta qué hora abren",
+    "abren los sábados",
+    "horario de atención",
+    "cuándo puedo ir",
+    "qué días atienden",
+    "a qué hora abre",
+    "hasta qué hora están",
+    "en qué horario los encuentro"
+   ]
+  },
+  {
+   "tag": "tutorias",
+   "tipo": "tramite",
+   "tramite": "Tutorías",
+   "oficina": "desarrollo_academico",
+   "patrones": [
+    "tutorías",
+    "quiero un tutor",
+    "cómo funcionan las tutorías",
+    "necesito asesoría de mi tutor",
+    "quién es mi tutor",
+    "tutoría académica",
+    "me pueden asignar un tutor",
+    "tengo bajas calificaciones y quiero tutorías",
+    "dónde pido tutorías",
+    "quiero cambiar de tutor",
+    "dónde pido una tutoría"
+   ]
+  },
+  {
+   "tag": "egel",
+   "tipo": "tramite",
+   "tramite": "Examen EGEL",
+   "oficina": "desarrollo_academico",
+   "patrones": [
+    "examen egel",
+    "cuándo es el egel",
+    "cómo me registro al egel",
+    "necesito presentar el ceneval",
+    "examen de egreso",
+    "costo del egel",
+    "quiero titularme con el egel",
+    "el examen ceneval para egresar",
+    "egel",
+    "cuándo presento el examen ceneval",
+    "fecha del egel",
+    "inscripción al egel",
+    "el egel sirve para titularme",
+    "resultados del egel"
+   ]
+  },
+  {
+   "tag": "examen_admision",
+   "tipo": "tramite",
+   "tramite": "Examen de Admisión",
+   "oficina": "desarrollo_academico",
+   "patrones": [
+    "cuándo es el examen de admisión",
+    "fecha del examen de ingreso",
+    "dónde presento el examen para entrar",
+    "quiero presentar el examen de admisión",
+    "cómo me registro para el examen de admisión",
+    "requisitos del examen de admisión",
+    "examen para nuevo alumno",
+    "guía para el examen de admisión",
+    "resultados del examen de admisión",
+    "examen de admision"
+   ],
+   "nota": "Según información pública en línea, el examen de selección es el EXANI-II de CENEVAL. Las fechas y el registro cambian cada año: confírmalos con la oficina."
+  },
+  {
+   "tag": "actividades_complementarias",
+   "tipo": "tramite",
+   "tramite": "Actividades Complementarias",
+   "oficina": "desarrollo_academico",
+   "patrones": [
+    "actividades complementarias",
+    "cómo libero mis actividades complementarias",
+    "cuántos créditos complementarios necesito",
+    "qué actividades cuentan como complementarias",
+    "dónde entrego mis constancias de actividades",
+    "me faltan créditos de actividades",
+    "liberación de actividades complementarias",
+    "actividad cultural o deportiva para crédito"
+   ]
+  },
+  {
+   "tag": "evaluacion_docente",
+   "tipo": "tramite",
+   "tramite": "Evaluación Docente",
+   "oficina": "desarrollo_academico",
+   "patrones": [
+    "evaluación docente",
+    "cómo evalúo a mis maestros",
+    "dónde califico a los profesores",
+    "evaluar a un maestro",
+    "cuándo es la evaluación docente",
+    "no me deja ver calificaciones por no evaluar",
+    "encuesta de los profesores",
+    "quiero evaluar a mi profesor",
+    "evaluación de maestros del semestre",
+    "calificar a mis profesores en el sistema",
+    "cuándo abren la encuesta de docentes",
+    "tengo que evaluar a mis profesores para ver mis calificaciones"
+   ]
+  },
+  {
+   "tag": "residencia_carga",
+   "tipo": "tramite",
+   "tramite": "Carga de la Residencia Profesional",
+   "oficina": "division_estudios",
+   "patrones": [
+    "carga de la residencia profesional",
+    "cómo cargo mi residencia",
+    "quiero inscribir mi residencia profesional",
+    "trámite para registrar residencias",
+    "dónde doy de alta mi residencia",
+    "carga de residencia en el sistema",
+    "subir mi proyecto de residencia",
+    "cuándo puedo cargar la residencia"
+   ]
+  },
+  {
+   "tag": "cambio_horario",
+   "tipo": "tramite",
+   "tramite": "Cambio de Horario",
+   "oficina": "division_estudios",
+   "patrones": [
+    "cambio de horario",
+    "quiero cambiar mi horario",
+    "puedo cambiarme de grupo",
+    "me cruzan las materias quiero otro horario",
+    "cambiarme de turno",
+    "necesito otro grupo",
+    "cómo pido cambio de grupo",
+    "quiero pasar al turno de la tarde",
+    "mi horario no me conviene",
+    "necesito cambiar de grupo por mi trabajo",
+    "quiero un horario diferente",
+    "puedo pasarme a otro turno",
+    "dónde hago el cambio de horario"
+   ]
+  },
+  {
+   "tag": "cambio_carrera",
+   "tipo": "tramite",
+   "tramite": "Cambio de Carrera",
+   "oficina": "division_estudios",
+   "patrones": [
+    "cambio de carrera",
+    "quiero cambiarme de carrera",
+    "ya no quiero estudiar esta carrera",
+    "cómo me cambio a otra ingeniería",
+    "quiero estudiar otra carrera",
+    "trámite para cambiar de carrera",
+    "me equivoqué de carrera",
+    "puedo cambiar de ingeniería",
+    "requisitos para cambio de carrera",
+    "quiero cambiarme a industrial",
+    "me quiero pasar a mecatrónica",
+    "quiero irme a otra ingeniería",
+    "cambiarme a la carrera de sistemas computacionales",
+    "ya no me gusta mi carrera y quiero otra",
+    "quiero estudiar otra ingeniería en lugar de la mía"
+   ]
+  },
+  {
+   "tag": "cambio_modalidad",
+   "tipo": "tramite",
+   "tramite": "Cambio de Modalidad (Virtual-Presencial)",
+   "oficina": "division_estudios",
+   "patrones": [
+    "cambio de modalidad",
+    "quiero pasar de virtual a presencial",
+    "cambiarme a modalidad virtual",
+    "cómo cambio de presencial a virtual",
+    "quiero estudiar en línea en vez de presencial",
+    "cambio de presencial a en línea",
+    "pasarme a la modalidad presencial",
+    "de modalidad a distancia a presencial"
+   ]
+  },
+  {
+   "tag": "carga_academica",
+   "tipo": "tramite",
+   "tramite": "Asignación de Carga Académica (Coordinadores)",
+   "oficina": "division_estudios",
+   "patrones": [
+    "asignación de carga académica",
+    "quién asigna la carga académica",
+    "carga de materias",
+    "me pueden cargar materias",
+    "cómo se asignan las materias",
+    "carga académica de coordinadores",
+    "asignar materias a docentes",
+    "reportar carga académica"
+   ]
+  },
+  {
+   "tag": "baja_temporal",
+   "tipo": "tramite",
+   "tramite": "Solicitud de Baja Temporal",
+   "oficina": "division_estudios",
+   "patrones": [
+    "baja temporal",
+    "quiero darme de baja temporalmente",
+    "necesito suspender mis estudios un semestre",
+    "cómo pido baja temporal",
+    "quiero pausar la carrera",
+    "me quiero dar de baja por un semestre",
+    "trámite de baja temporal",
+    "no podré estudiar este semestre",
+    "congelar semestre"
+   ]
+  },
+  {
+   "tag": "mindbox",
+   "tipo": "tramite",
+   "tramite": "Contraseña para el Sistema Mindbox",
+   "oficina": "division_estudios",
+   "patrones": [
+    "contraseña de mindbox",
+    "olvidé mi contraseña del mindbox",
+    "no puedo entrar a mindbox",
+    "restablecer contraseña de mindbox",
+    "sistema mindbox acceso",
+    "cómo entro al mindbox",
+    "mi usuario de mindbox no funciona",
+    "recuperar clave de mindbox",
+    "solicito contraseña mindbox",
+    "mindbox"
+   ]
+  },
+  {
+   "tag": "especialidad",
+   "tipo": "tramite",
+   "tramite": "Especialidad",
+   "oficina": "division_estudios",
+   "patrones": [
+    "especialidad",
+    "cómo elijo mi especialidad",
+    "cuándo se elige la especialidad",
+    "quiero cambiar mi especialidad",
+    "qué especialidades hay",
+    "trámite de especialidad",
+    "información sobre la especialidad de mi carrera",
+    "inscribirme a una especialidad"
+   ]
+  },
+  {
+   "tag": "comite_academico",
+   "tipo": "tramite",
+   "tramite": "Solicitudes de Comité Académico",
+   "oficina": "comite_academico",
+   "patrones": [
+    "comité académico",
+    "quiero hacer una solicitud al comité",
+    "tengo un caso especial para el comité académico",
+    "cómo presento un caso al comité académico",
+    "solicitud de excepción académica",
+    "pedir una revisión de mi caso",
+    "dónde mando una solicitud al comité",
+    "quiero apelar una decisión académica"
+   ]
+  },
+  {
+   "tag": "opcion_titulacion",
+   "tipo": "tramite",
+   "tramite": "Trámite de Opción de Titulación",
+   "oficina": "coord_titulacion",
+   "patrones": [
+    "opción de titulación",
+    "cómo me puedo titular",
+    "qué opciones de titulación hay",
+    "quiero titularme por tesis",
+    "trámite para elegir opción de titulación",
+    "titulación integral",
+    "cómo inicio mi titulación",
+    "quiero titularme por residencia",
+    "cuál opción me conviene para titularme"
+   ]
+  },
+  {
+   "tag": "info_docente",
+   "tipo": "tramite",
+   "tramite": "Información Acerca de un Docente",
+   "oficina": "info_docentes",
+   "patrones": [
+    "información de un docente",
+    "quiero saber quién es mi maestro",
+    "cómo contacto a un profesor",
+    "correo de un maestro",
+    "dónde encuentro a un docente",
+    "datos de un profesor",
+    "quién da la materia",
+    "necesito hablar con un maestro de mi carrera",
+    "no sé cómo localizar a mi profesor",
+    "quiero hablar con un profesor",
+    "cómo localizo al maestro de una materia",
+    "el correo del profesor de química",
+    "dónde está el maestro de programación",
+    "necesito contactar a mi docente",
+    "cómo le escribo a mi profesor",
+    "quién es el maestro de matemáticas"
+   ]
+  },
+  {
+   "tag": "educacion_distancia",
+   "tipo": "tramite",
+   "tramite": "Educación a Distancia",
+   "oficina": "educacion_distancia",
+   "patrones": [
+    "educación a distancia",
+    "información sobre carreras en línea",
+    "quiero estudiar a distancia",
+    "plataforma virtual del tec",
+    "cómo funciona la modalidad virtual",
+    "estudiar en línea en el tecnológico",
+    "carrera virtual",
+    "clases virtuales información"
+   ],
+   "nota": "Según información pública en línea, hay carreras en modalidad virtual (por ejemplo Ingeniería en Sistemas Computacionales; algunas fuentes mencionan también Industrial y Gestión Empresarial). Confirma cuáles están abiertas con la oficina."
+  },
+  {
+   "tag": "posgrado",
+   "tipo": "tramite",
+   "tramite": "Posgrado",
+   "oficina": "posgrado",
+   "patrones": [
+    "posgrado",
+    "quiero estudiar una maestría",
+    "información del doctorado",
+    "qué maestrías ofrecen",
+    "requisitos para maestría",
+    "cómo me inscribo al posgrado",
+    "quiero hacer un posgrado en el tec",
+    "estudios de posgrado",
+    "maestría"
+   ],
+   "nota": "Según información pública en línea, hay maestrías como Ingeniería Mecatrónica e Ingeniería Administrativa, y el Congreso de Nuevo León (abril de 2026) habla de dos maestrías y un doctorado. Confirma el catálogo vigente con la oficina de Posgrado."
+  },
+  {
+   "tag": "quejas",
+   "tipo": "tramite",
+   "tramite": "Quejas y Sugerencias",
+   "oficina": "quejas",
+   "patrones": [
+    "quiero poner una queja",
+    "tengo una sugerencia",
+    "dónde presento una queja",
+    "quiero reportar un problema con un maestro",
+    "buzón de quejas",
+    "cómo hago una sugerencia",
+    "tengo un reclamo",
+    "queja de un servicio",
+    "quiero denunciar algo",
+    "quiero reportar a un maestro",
+    "un profesor me trató mal",
+    "sufro acoso en la escuela",
+    "quiero levantar una queja contra un docente",
+    "un maestro no da clases y quiero reportarlo",
+    "maltrato de un profesor"
+   ]
+  },
+  {
+   "tag": "becas",
+   "tipo": "tramite",
+   "tramite": "Becas",
+   "oficina": "becas",
+   "nota": "Esta oficina maneja las becas Benito Juárez, Alimenticia, Excelencia Académica y Programas Federales. Las becas de bajos recursos y de homologados las ve la Subdirección Administrativa (admon_nleon@tecnm.mx).",
+   "patrones": [
+    "quiero una beca",
+    "información de becas",
+    "qué becas hay",
+    "cómo solicito una beca",
+    "necesito una beca",
+    "apoyo económico para estudiar",
+    "dónde pido una beca",
+    "requisitos para una beca",
+    "convocatoria de becas",
+    "qué becas ofrece el tec",
+    "beca",
+    "becas",
+    "informes de becas",
+    "quiero informes sobre becas",
+    "qué apoyos de beca tienen",
+    "información general de becas del tec",
+    "dónde solicito becas"
+   ]
+  },
+  {
+   "tag": "beca_benito_juarez",
+   "tipo": "tramite",
+   "tramite": "Trámite de Beca «Benito Juárez»",
+   "oficina": "becas",
+   "patrones": [
+    "beca benito juárez",
+    "cómo solicito la beca benito juárez",
+    "beca del gobierno benito juárez",
+    "requisitos de la beca benito juárez",
+    "inscribirme a la beca benito juárez",
+    "me dieron la beca benito juárez",
+    "beca de benito juarez para universitarios",
+    "registro beca benito juarez"
+   ]
+  },
+  {
+   "tag": "beca_alimenticia",
+   "tipo": "tramite",
+   "tramite": "Trámite de Beca «Alimenticia»",
+   "oficina": "becas",
+   "patrones": [
+    "beca alimenticia",
+    "beca de alimentos",
+    "apoyo para comida",
+    "beca de comedor",
+    "cómo pido la beca de alimentación",
+    "beca para comer en la escuela",
+    "requisitos de la beca alimenticia",
+    "quiero el apoyo alimenticio"
+   ]
+  },
+  {
+   "tag": "beca_excelencia",
+   "tipo": "tramite",
+   "tramite": "Trámite de Beca de Excelencia Académica",
+   "oficina": "becas",
+   "patrones": [
+    "beca de excelencia académica",
+    "beca por buen promedio",
+    "beca para mejores promedios",
+    "tengo promedio alto qué beca puedo pedir",
+    "requisitos beca de excelencia",
+    "cómo solicito la beca de excelencia",
+    "beca de aprovechamiento",
+    "beca por promedio",
+    "beca para alumnos con buenas calificaciones",
+    "hay apoyo para estudiantes sobresalientes",
+    "beca por mi alto promedio",
+    "premio a los mejores alumnos",
+    "beca a estudiantes con calificaciones altas",
+    "tengo promedio de 95 qué beca hay"
+   ]
+  },
+  {
+   "tag": "beca_federal",
+   "tipo": "tramite",
+   "tramite": "Trámite de Beca Programas Federales",
+   "oficina": "becas",
+   "patrones": [
+    "beca de programas federales",
+    "becas del gobierno federal",
+    "beca federal",
+    "apoyos federales para estudiantes",
+    "programa federal de becas",
+    "cómo pido una beca de programas federales",
+    "beca de manutención",
+    "beca de transporte",
+    "apoyos del gobierno federal para estudiantes",
+    "dinero del gobierno para mi carrera"
+   ]
+  },
+  {
+   "tag": "constancias",
+   "tipo": "tramite",
+   "tramite": "Trámite de Constancias",
+   "oficina": "servicios_escolares",
+   "patrones": [
+    "trámite de constancias",
+    "necesito una constancia de estudios",
+    "cómo saco mi constancia",
+    "constancia con calificaciones",
+    "quiero una constancia de inscripción",
+    "dónde pido mi kardex",
+    "necesito mi kardex",
+    "constancia de que soy alumno",
+    "constancia con promedio",
+    "constancia",
+    "kardex",
+    "dónde saco mi kardex",
+    "dónde pido una constancia de estudios",
+    "dónde me dan mi historial de calificaciones"
+   ]
+  },
+  {
+   "tag": "entrega_documentos",
+   "tipo": "tramite",
+   "tramite": "Entrega de Documentos",
+   "oficina": "servicios_escolares",
+   "patrones": [
+    "entrega de documentos",
+    "dónde entrego mis documentos",
+    "qué documentos debo entregar",
+    "me falta entregar papeles",
+    "entregar mi acta de nacimiento",
+    "entrega de certificado de prepa",
+    "documentos de inscripción",
+    "cuándo entrego mi documentación",
+    "dejar mis papeles en servicios escolares",
+    "dónde entrego mi acta de nacimiento"
+   ]
+  },
+  {
+   "tag": "nuevo_ingreso",
+   "tipo": "tramite",
+   "tramite": "Trámite para Nuevo Ingreso",
+   "oficina": "servicios_escolares",
+   "patrones": [
+    "trámite de nuevo ingreso",
+    "soy de nuevo ingreso qué hago",
+    "me aceptaron en el tec qué sigue",
+    "cómo me inscribo por primera vez",
+    "inscripción de primer semestre",
+    "pasos para alumnos de nuevo ingreso",
+    "ya pasé el examen y quiero inscribirme",
+    "qué necesito para inscribirme a primer semestre",
+    "quiero hacer mi inscripción nueva"
+   ],
+   "nota": "Según información pública en línea, suelen pedir: CURP, fotografías, certificado de bachillerato legalizado, acta de nacimiento reciente, comprobante de domicilio y número de seguro social. Las fechas y la lista vigente cambian: confírmalas con Servicios Escolares."
+  },
+  {
+   "tag": "credencial",
+   "tipo": "tramite",
+   "tramite": "Credenciales del Estudiante",
+   "oficina": "servicios_escolares",
+   "patrones": [
+    "credencial de estudiante",
+    "cómo saco mi credencial",
+    "perdí mi credencial",
+    "reposición de credencial",
+    "quiero mi credencial del tec",
+    "cuándo entregan credenciales",
+    "credencial escolar",
+    "se me venció la credencial",
+    "tramitar credencial nueva",
+    "credencial",
+    "dónde tramito mi credencial",
+    "dónde me toman la foto para la credencial"
+   ]
+  },
+  {
+   "tag": "seguro_facultativo",
+   "tipo": "tramite",
+   "tramite": "Seguro Facultativo",
+   "oficina": "servicios_escolares",
+   "patrones": [
+    "seguro facultativo",
+    "cómo me afilio al imss",
+    "quiero mi seguro médico del tec",
+    "alta en el seguro facultativo",
+    "seguro de estudiante",
+    "número de seguro social para estudiantes",
+    "tengo derecho al imss por ser estudiante",
+    "afiliación al imss",
+    "dónde tramito el seguro facultativo",
+    "dónde me afilio al imss",
+    "dónde saco mi seguro"
+   ]
+  },
+  {
+   "tag": "reactivar_baja",
+   "tipo": "tramite",
+   "tramite": "Activación de Estudiantes en Baja Temporal",
+   "oficina": "servicios_escolares",
+   "patrones": [
+    "activación de estudiantes en baja temporal",
+    "quiero reactivarme después de una baja",
+    "cómo regreso después de baja temporal",
+    "reingreso tras baja temporal",
+    "quiero reanudar mis estudios",
+    "ya terminó mi baja temporal qué hago",
+    "reactivar mi estatus de alumno",
+    "volver a estudiar después de baja",
+    "activar mi inscripción tras baja",
+    "ya terminó mi baja y quiero regresar",
+    "quiero volver a la escuela después de mi baja",
+    "cómo me reincorporo tras la baja",
+    "regresar a clases después de baja temporal"
+   ]
+  },
+  {
+   "tag": "aspirantes",
+   "tipo": "tramite",
+   "tramite": "Información para Aspirantes",
+   "oficina": "servicios_escolares",
+   "patrones": [
+    "información para aspirantes",
+    "quiero estudiar en el tec cómo empiezo",
+    "requisitos para entrar al tecnológico",
+    "convocatoria de ingreso",
+    "soy aspirante",
+    "cómo ingreso al tecnológico de nuevo león",
+    "quiero entrar a la universidad en el tec",
+    "pasos para ser alumno",
+    "cuándo abren inscripciones para aspirantes"
+   ],
+   "nota": "Según información pública en línea, el proceso incluye pre-inscripción, examen de selección EXANI-II (CENEVAL), curso de nivelación y plática inductiva. Documentos que suelen pedir: CURP, fotografías, certificado de bachillerato legalizado, acta de nacimiento reciente, comprobante de domicilio y número de seguro social. Las fechas y la lista vigente cambian: confírmalas con Servicios Escolares."
+  },
+  {
+   "tag": "titulacion_titulos",
+   "tipo": "tramite",
+   "tramite": "Trámite de Titulación y Títulos",
+   "oficina": "titulacion_se",
+   "patrones": [
+    "trámite de titulación y títulos",
+    "cómo obtengo mi título",
+    "quiero recoger mi título",
+    "cuándo entregan los títulos",
+    "dónde tramito mi cédula",
+    "ya terminé la carrera y quiero mi título profesional",
+    "trámite del título profesional",
+    "solicitar mi título",
+    "título",
+    "dónde recojo mi título profesional"
+   ]
+  },
+  {
+   "tag": "lengua_extranjera",
+   "tipo": "tramite",
+   "tramite": "Coordinación de Lengua Extranjera",
+   "oficina": "lengua_extranjera",
+   "patrones": [
+    "inglés",
+    "cursos de inglés",
+    "coordinación de lengua extranjera",
+    "cómo libero mi inglés",
+    "quiero tomar clases de idiomas",
+    "examen de ubicación de inglés",
+    "certificación de idioma",
+    "dónde me inscribo al curso de inglés",
+    "toefl",
+    "dónde me inscribo a inglés",
+    "dónde aprendo inglés en el tec",
+    "dónde tomo clases de inglés"
+   ]
+  },
+  {
+   "tag": "formacion_integral",
+   "tipo": "tramite",
+   "tramite": "Formación Integral",
+   "oficina": "formacion_integral",
+   "patrones": [
+    "formación integral",
+    "actividades deportivas",
+    "talleres culturales",
+    "quiero meterme a un equipo deportivo",
+    "dónde hay actividades culturales",
+    "clubes del tec",
+    "quiero unirme a un taller de música",
+    "deporte en la escuela"
+   ]
+  },
+  {
+   "tag": "biblioteca",
+   "tipo": "tramite",
+   "tramite": "Centro de Información (Biblioteca)",
+   "oficina": "biblioteca",
+   "patrones": [
+    "biblioteca",
+    "centro de información",
+    "cómo pido un libro prestado",
+    "quiero sacar un libro",
+    "préstamo de libros",
+    "credencial para biblioteca",
+    "multa de la biblioteca",
+    "consultar libros digitales",
+    "tengo un libro atrasado",
+    "dónde está la biblioteca",
+    "dónde presto un libro"
+   ]
+  },
+  {
+   "tag": "servicio_social",
+   "tipo": "tramite",
+   "tramite": "Trámites de Servicio Social",
+   "oficina": "servicio_social",
+   "patrones": [
+    "servicio social",
+    "cómo libero mi servicio social",
+    "dónde hago mi servicio social",
+    "cuándo puedo iniciar el servicio social",
+    "trámite de servicio social",
+    "cuántas horas de servicio social necesito",
+    "carta de inicio de servicio social",
+    "constancia de liberación del servicio social",
+    "registro de servicio social",
+    "dónde registro mi servicio social",
+    "dónde libero el servicio social"
+   ]
+  },
+  {
+   "tag": "practicas_profesionales",
+   "tipo": "tramite",
+   "tramite": "Prácticas Profesionales",
+   "oficina": "practicas",
+   "patrones": [
+    "prácticas profesionales",
+    "quiero hacer prácticas",
+    "cómo consigo prácticas profesionales",
+    "trámite para mis prácticas",
+    "dónde me registro para prácticas",
+    "carta de presentación para prácticas",
+    "empresas para hacer prácticas",
+    "necesito hacer mis prácticas en una empresa",
+    "requisitos de prácticas profesionales",
+    "prácticas"
+   ]
+  },
+  {
+   "tag": "banco_residencias",
+   "tipo": "tramite",
+   "tramite": "Banco de Proyectos de Residencias con las Empresas",
+   "oficina": "practicas",
+   "patrones": [
+    "banco de proyectos de residencias",
+    "proyectos para residencia con empresas",
+    "dónde veo los proyectos de residencia",
+    "necesito un proyecto de residencias",
+    "empresas que ofrecen residencia",
+    "lista de proyectos para mi residencia",
+    "cómo encuentro empresa para residencias",
+    "quiero ver el banco de proyectos"
+   ]
+  },
+  {
+   "tag": "vinculacion_egresados",
+   "tipo": "tramite",
+   "tramite": "Vinculación con Empresas y Seguimiento de Egresados",
+   "oficina": "practicas",
+   "patrones": [
+    "vinculación con empresas",
+    "seguimiento de egresados",
+    "soy egresado y quiero registrarme",
+    "bolsa de trabajo",
+    "convenio con empresas para empleo",
+    "quiero que mi empresa se vincule con el tec",
+    "encuesta para egresados",
+    "empleo para egresados",
+    "contacto con empresas"
+   ]
+  },
+  {
+   "tag": "educacion_dual",
+   "tipo": "tramite",
+   "tramite": "Modelo de Educación Dual",
+   "oficina": "servicio_externo",
+   "patrones": [
+    "modelo de educación dual",
+    "qué es la educación dual",
+    "quiero estudiar en modalidad dual",
+    "cómo entro al modelo dual",
+    "educación dual con empresas",
+    "estudiar y trabajar al mismo tiempo en una empresa",
+    "requisitos de educación dual",
+    "información del programa dual"
+   ]
+  },
+  {
+   "tag": "educacion_continua",
+   "tipo": "tramite",
+   "tramite": "Educación Continua (Cursos)",
+   "oficina": "servicio_externo",
+   "patrones": [
+    "educación continua",
+    "cursos de actualización",
+    "diplomados",
+    "quiero tomar un curso",
+    "cursos para egresados",
+    "qué cursos ofrece el tec",
+    "talleres de capacitación",
+    "cursos cortos",
+    "cómo me inscribo a un curso de educación continua",
+    "qué diplomados ofrecen",
+    "informes de diplomados",
+    "quiero inscribirme a un diplomado",
+    "diplomados y cursos para el público",
+    "cursos y diplomados del tec"
+   ]
+  },
+  {
+   "tag": "incubadora",
+   "tipo": "tramite",
+   "tramite": "Incubadora de Empresas",
+   "oficina": "servicio_externo",
+   "patrones": [
+    "incubadora de empresas",
+    "quiero emprender un negocio",
+    "cómo incubo mi startup",
+    "apoyo para mi emprendimiento",
+    "tengo una idea de negocio",
+    "registro en la incubadora",
+    "asesoría para crear mi empresa",
+    "quiero iniciar mi propia empresa"
+   ]
+  },
+  {
+   "tag": "innovacion",
+   "tipo": "tramite",
+   "tramite": "Innovación y Emprendimiento",
+   "oficina": "vinculacion",
+   "patrones": [
+    "innovación y emprendimiento",
+    "proyectos de innovación",
+    "concursos de innovación",
+    "quiero participar en eventos de emprendimiento",
+    "feria de innovación",
+    "registrar un proyecto innovador",
+    "hackathon",
+    "premio nacional de emprendedores",
+    "talleres de innovación"
+   ]
+  },
+  {
+   "tag": "creditos_laboral",
+   "tipo": "tramite",
+   "tramite": "Créditos Complementarios por Constancia Laboral",
+   "oficina": "vinculacion",
+   "patrones": [
+    "créditos complementarios por constancia laboral",
+    "trabajo y quiero créditos",
+    "me validan mi trabajo como actividad complementaria",
+    "constancia laboral para créditos",
+    "créditos por experiencia laboral",
+    "validar mi empleo como créditos",
+    "quiero créditos complementarios por trabajar",
+    "entregar mi constancia de trabajo para créditos"
+   ]
+  },
+  {
+   "tag": "convenios",
+   "tipo": "tramite",
+   "tramite": "Convenios de Colaboración",
+   "oficina": "vinculacion",
+   "patrones": [
+    "convenios de colaboración",
+    "quiero hacer un convenio con el tec",
+    "firmar convenio con mi empresa",
+    "convenio de colaboración institucional",
+    "cómo se tramita un convenio",
+    "convenio para prácticas con una empresa",
+    "quiero que mi empresa firme un convenio",
+    "colaboración con otras instituciones"
+   ]
+  },
+  {
+   "tag": "beca_bajos_recursos",
+   "tipo": "tramite",
+   "tramite": "Trámites de Beca de Bajos Recursos",
+   "oficina": "administrativa",
+   "patrones": [
+    "beca de bajos recursos",
+    "beca por escasos recursos",
+    "no tengo dinero para pagar hay beca",
+    "apoyo económico por situación económica difícil",
+    "beca para estudiantes con necesidad económica",
+    "cómo pido la beca de bajos recursos",
+    "requisitos beca bajos recursos",
+    "mi familia no puede pagar mi colegiatura",
+    "necesito una beca porque no tengo dinero",
+    "urge beca no tengo para pagar",
+    "no tengo recursos para estudiar hay apoyo",
+    "me urge ayuda económica para la colegiatura"
+   ]
+  },
+  {
+   "tag": "beca_homologados",
+   "tipo": "tramite",
+   "tramite": "Trámite de Beca Homologados (TECNL / Otros)",
+   "oficina": "administrativa",
+   "patrones": [
+    "beca de homologados",
+    "beca homologados tecnl",
+    "tengo beca homologada",
+    "beca de homologados otros",
+    "cómo solicito la beca homologado",
+    "homologación de beca",
+    "trámite de beca homologados",
+    "información de becas para homologados"
+   ]
+  },
+  {
+   "tag": "prorroga_pago",
+   "tipo": "tramite",
+   "tramite": "Prórroga de pago de Inscripción / Reinscripción",
+   "oficina": "administrativa",
+   "patrones": [
+    "prórroga de pago",
+    "no puedo pagar mi reinscripción a tiempo",
+    "quiero más tiempo para pagar la inscripción",
+    "pedir prórroga de reinscripción",
+    "extensión de plazo para pagar",
+    "puedo pagar después mi inscripción",
+    "prórroga para pago de inscripción",
+    "me dan más días para pagar",
+    "no me alcanza para reinscribirme todavía"
+   ]
+  },
+  {
+   "tag": "facturas",
+   "tipo": "tramite",
+   "tramite": "Solicitud y Aclaración de Facturas",
+   "oficina": "rf_facturas",
+   "patrones": [
+    "solicitar una factura",
+    "necesito factura de mi pago",
+    "aclaración de facturas",
+    "cómo facturo mi inscripción",
+    "mi factura salió mal",
+    "factura de colegiatura",
+    "quiero mi cfdi",
+    "dónde pido facturas",
+    "error en mi factura",
+    "factura"
+   ]
+  },
+  {
+   "tag": "adeudos",
+   "tipo": "tramite",
+   "tramite": "Aclaración de Adeudos a Financieros",
+   "oficina": "rf_pagos",
+   "patrones": [
+    "aclaración de adeudos",
+    "me dice que tengo un adeudo",
+    "debo algo en financieros",
+    "no estoy de acuerdo con mi adeudo",
+    "adeudo en recursos financieros",
+    "quiero aclarar un adeudo",
+    "me bloquearon por un adeudo",
+    "no debo nada pero me aparece adeudo",
+    "revisar mi saldo pendiente",
+    "debo dinero a la escuela",
+    "tengo un pendiente de pago en financieros",
+    "cuánto debo",
+    "me aparece que debo",
+    "tengo deuda con el tec",
+    "cuánto es mi adeudo",
+    "no puedo reinscribirme porque debo",
+    "dónde aclaro un adeudo"
+   ]
+  },
+  {
+   "tag": "problemas_pagos",
+   "tipo": "tramite",
+   "tramite": "Problemas con Pagos",
+   "oficina": "rf_pagos",
+   "patrones": [
+    "problemas con pagos",
+    "hice mi pago y no aparece",
+    "mi pago no se refleja",
+    "pagué dos veces",
+    "error en la referencia de pago",
+    "mi pago no fue aceptado",
+    "pagué en el banco y no me lo reconocen",
+    "problema con mi pago de inscripción",
+    "no puedo pagar en línea"
+   ]
+  },
+  {
+   "tag": "correo_institucional",
+   "tipo": "tramite",
+   "tramite": "Correo Institucional",
+   "oficina": "soporte",
+   "patrones": [
+    "correo institucional",
+    "no puedo entrar a mi correo del tec",
+    "olvidé la contraseña de mi correo institucional",
+    "quiero crear mi correo institucional",
+    "cuenta de correo de la escuela",
+    "mi correo institucional no funciona",
+    "recuperar mi cuenta institucional",
+    "activar mi correo del tecnológico",
+    "me bloquearon el correo institucional"
+   ]
+  }
+ ]
 }

@@ -116,10 +116,14 @@ def config():
 def chat():
     datos = request.get_json(force=True)
     contexto = datos.get("contexto")
+    try:                                                     # cuántas ofensas lleva la conversación (la guarda la página)
+        ofensas = max(0, min(10, int(datos.get("ofensas", 0))))
+    except (TypeError, ValueError):
+        ofensas = 0
     if datos.get("tag"):                                     # la persona tocó un botón de opciones
         salida = cerebro.responder_tag(datos["tag"], contexto)
     else:                                                    # mensaje escrito (o dictado por voz)
-        salida = cerebro.responder(datos.get("mensaje", ""), contexto)
+        salida = cerebro.responder(datos.get("mensaje", ""), contexto, ofensas)
     if VOZ_RESPUESTA and es_local():
         threading.Thread(target=hablar, args=(salida["respuesta"],), daemon=True).start()
     return jsonify(salida)

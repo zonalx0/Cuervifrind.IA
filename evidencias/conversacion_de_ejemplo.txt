@@ -3,10 +3,10 @@ CONVERSACIÓN DE EJEMPLO (generada con el modelo.json actual, ejecutando cerebro
 
 Alumno: hola buenas tardes
 [intención: saludo · seguridad: 100.0%]
-CuerviFriend: ¡Buenas tardes! Qué gusto saludarte, soy CuerviFriend. Estoy listo para ayudarte con becas, constancias, titulación y mucho más. ¿Qué necesitas?
+CuerviFriend: ¡Buenas tardes! Soy tu amigo CuerviFriend, estoy listo para apoyarte con tus trámites del Tecnológico de Nuevo León. ¿En qué te puedo ayudar?
 
 Alumno: QUE ONDAA MI LOCO
-[intención: saludo_casual · seguridad: 99.2%]
+[intención: saludo_casual · seguridad: 99.9%]
 CuerviFriend: ¡Quiubo! Aquí tu cuervo amigo, CuerviFriend. 🪶 Échame la bola con tu duda y te digo a dónde ir.
 
 Alumno: necesito una constancia
@@ -19,10 +19,10 @@ CuerviFriend: Para Trámite de Constancias, el área que te atiende es Departame
 📞 Teléfono: (81) 81570512 / 14
 🏛️ Subdirección de Planeación y Vinculación: Rodolfo Abdiel Cerón Delgado (Subdirector) · Edificio 1, planta alta · plan_nleon@tecnm.mx · (81) 81570506
 
-¿Te ayudo con algo más?
+Si necesitas otro dato (correo, teléfono, ubicación), solo pídemelo.
 
-Alumno: dónde queda
-[intención: ctx_ubicacion · seguridad: 100.0%]
+Alumno: dónde está ubicada
+[intención: ctx_ubicacion · seguridad: 97.6%]
 CuerviFriend: 📍 Departamento de Servicios Escolares está en Edificio 1.
 
 Alumno: su correo
@@ -41,11 +41,11 @@ CuerviFriend: Te ayudo con eso: lo atiende Becas.
 
 Esta oficina maneja las becas Benito Juárez, Alimenticia, Excelencia Académica y Programas Federales. Las becas de bajos recursos y de homologados las ve la Subdirección Administrativa (admon_nleon@tecnm.mx).
 
-¿Te ayudo con algo más?
+Si necesitas otro dato (correo, teléfono, ubicación), solo pídemelo.
 
 Alumno: quiénes son jomadais
 [intención: jomadais · seguridad: 100.0%]
-CuerviFriend: JOMADAIS es el equipo que ganó el Innovatec 2024. Lo forman Max, Isma, Joel y Luis. ¡Unos campeones! 🏆
+CuerviFriend: ¡Los JOMADAIS! Max, Isma, Joel y Luis ganaron el Innovatec del 2024. 🏆 ¡Felicidades a los campeones!
 
 Alumno: cuáles son los mejores baños del tec
 [intención: no_se_tec · seguridad: 100.0%]
@@ -55,13 +55,37 @@ Alumno: dime los profes más barcos
 [intención: chisme_profes · seguridad: 100.0%]
 CuerviFriend: Jaja, de eso no sé y no chismeo de los profes 😅. Si quieres opinar de un maestro de forma oficial, escribe «evaluación docente» y te digo con quién.
 
-Alumno: eres un pendejo
+Alumno: pene
 [intención: groseria · seguridad: 100.0%]
-CuerviFriend: ¡Eso fue una grosería! Si continúas, te reporto con tu maestro. Hablemos con respeto: ¿qué trámite necesitas?
+CuerviFriend: Eso que escribiste está mal. Aquí se atiende con respeto. Si tienes una duda sobre un trámite, con gusto te ayudo.
+
+Alumno: verga
+[intención: groseria · seguridad: 100.0%]
+CuerviFriend: Otra vez lenguaje ofensivo. Esto es serio: te pido respeto. De seguir así, te voy a reportar con tu maestro.
+
+Alumno: dónde está el tecnológico
+[intención: ubicacion_tec · seguridad: 100.0%]
+CuerviFriend: Estamos en Guadalupe, Nuevo León: Av. Eloy Cavazos #2001, Col. Tolteca, C.P. 67170. 📍 (Dato de fuentes públicas; confírmalo en nuevoleon.tecnm.mx.) Si buscas una oficina, dime qué trámite necesitas y te digo en qué edificio está.
+
+Alumno: qué carreras tiene el tec
+[intención: carreras_tec · seguridad: 100.0%]
+CuerviFriend: 🎓 Según lo publicado en línea, el Tec ofrece estas ingenierías: Ambiental, Electromecánica, Electrónica, Gestión Empresarial, Industrial, Mecatrónica y Sistemas Computacionales. Ojo: el Congreso de Nuevo León habló en abril de 2026 de ocho ingenierías, así que confirma la lista completa en nuevoleon.tecnm.mx o en Servicios Escolares.
+
+Alumno: cuánto cuesta estudiar en el tec
+[intención: costos_tec · seguridad: 100.0%]
+CuerviFriend: Al ser un tecnológico público, las cuotas son por semestre y no se manejan como en una escuela privada. 💵 No tengo una cifra confirmada y vale más preguntar en Servicios Escolares (se_nleon@tecnm.mx, (81) 81570512 / 14) para que no te den un dato viejo.
+
+Alumno: es lo mismo que el tec de monterrey
+[intención: tec_vs_monterrey · seguridad: 100.0%]
+CuerviFriend: No, son distintos. 🙂 El Tecnológico de Nuevo León (TecNL) es una institución pública y forma parte del Tecnológico Nacional de México (TecNM). El Tec de Monterrey es una universidad privada. Comparten la palabra «Tec», pero son instituciones diferentes.
+
+Alumno: quién fue el primer director del tec
+[intención: fundacion · seguridad: 100.0%]
+CuerviFriend: El Tecnológico de Nuevo León se fundó el 1 de octubre de 1976. Fue la primera institución federal de educación superior del estado y la número 48 del Sistema Nacional de Institutos Tecnológicos. Empezó con dos carreras y hoy ya cumple 50 años. 🎉
 
 Alumno: cómo libero mi servicio social
 [intención: servicio_social · seguridad: 100.0%]
-CuerviFriend: Te ayudo con eso. Para Trámites de Servicio Social acude a Servicio Social:
+CuerviFriend: Claro, eso lo ves en Servicio Social. Estos son los datos para Trámites de Servicio Social:
 
 ✉️ Correo: servicio.social@nuevoleon.tecnm.mx
 🏛️ Subdirección de Planeación y Vinculación: Rodolfo Abdiel Cerón Delgado (Subdirector) · Edificio 1, planta alta · plan_nleon@tecnm.mx · (81) 81570506
@@ -70,7 +94,7 @@ CuerviFriend: Te ayudo con eso. Para Trámites de Servicio Social acude a Servic
 
 Alumno: k onda wey nesesito mi kardex
 [intención: constancias · seguridad: 100.0%]
-CuerviFriend: Te ayudo con eso. Para Trámite de Constancias acude a Departamento de Servicios Escolares:
+CuerviFriend: ¡Listo! Trámite de Constancias se gestiona en Departamento de Servicios Escolares.
 
 📍 Ubicación: Edificio 1
 👤 Responsable: Laura Edith Baltazar Estrada (Jefa del Departamento)
@@ -78,8 +102,12 @@ CuerviFriend: Te ayudo con eso. Para Trámite de Constancias acude a Departament
 📞 Teléfono: (81) 81570512 / 14
 🏛️ Subdirección de Planeación y Vinculación: Rodolfo Abdiel Cerón Delgado (Subdirector) · Edificio 1, planta alta · plan_nleon@tecnm.mx · (81) 81570506
 
-¿Hay algo más en lo que te pueda apoyar?
+Si necesitas otro dato (correo, teléfono, ubicación), solo pídemelo.
 
 Alumno: quién ganó el mundial
-[intención: fuera_de_tema · seguridad: 96.1%]
+[intención: fuera_de_tema · seguridad: 100.0%]
 CuerviFriend: Uy, de eso no sé. Mi fuerte son los trámites del Tec. ¿Necesitas ayuda con alguno?
+
+Alumno: jkjkjk
+[intención: sin_sentido · seguridad: 98.1%]
+CuerviFriend: No logré entender ese mensaje 🤔. Escríbeme tu duda con palabras completas; por ejemplo: «necesito una constancia» o «quiero una beca».

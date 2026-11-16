@@ -62,6 +62,7 @@ OTROS COMANDOS ÚTILES (para mostrar al maestro)
   py entrenar.py                         Vuelve a entrenar la red neuronal (tarda ~1 minuto) y regenera modelo.json.
   py evaluar.py pruebas_ciegas.json      Mide la precisión con frases que la red nunca vio.
   py evaluar.py pruebas_nuevas.json      Igual, con las frases de las intenciones nuevas.
+  py evaluar.py pruebas_info.json        Igual, con las frases de información del Tec y vulgaridades.
 
 QUÉ HACE CADA ARCHIVO
 ---------------------
@@ -93,9 +94,14 @@ CÓMO FUNCIONA (resumen para explicarlo)
 
 RESULTADOS REALES DE LA RED (ver carpeta evidencias/)
 -----------------------------------------------------
-  Pruebas ciegas (40 frases escritas después de entrenar, sin ajustar nada con ellas):  95.0 %
-  Pruebas finales (71 frases nuevas):                                                   94.4 %
-  Pruebas de las intenciones nuevas (25 frases: JOMADAIS, "no sé", chismes, groserías): 92.0 %
+  (La red sola, sin filtros; la red tiene 83 intenciones. Resultados de la última vez que se entrenó.)
+  pruebas.json (77 frases):                                                             100.0 %
+  Pruebas ciegas (40 frases escritas después de entrenar la primera versión):            95.0 %
+  Pruebas finales (71 frases nuevas):                                                    91.5 %
+  Pruebas de JOMADAIS, "no sé", chismes y groserías (25 frases):                         96.0 %
+  Pruebas de información del Tec, vulgaridades y trámites parecidos (38 frases):         92.1 %
+  Ojo: durante el desarrollo se miraron los errores de estas pruebas para mejorar las frases de entrenamiento
+  (nunca se copiaron las frases de prueba al entrenamiento), así que son una medida honesta pero optimista.
   La red no es perfecta: a veces se confunde con frases muy parecidas entre trámites
   (por ejemplo "cursos de inglés" vs "cursos de educación continua"). Para mejorarla, agrega frases a
   intents.json y ejecuta  py entrenar.py.
@@ -108,6 +114,21 @@ RAZONAMIENTO Y PERSONALIDAD (intenciones agregadas)
   chisme_profes  No opina de maestros; manda a la evaluación docente.
   groseria       Si hay groserías, avisa que puede reportar al alumno con su maestro.
                  (Es solo un mensaje: el programa no envía ningún reporte real.)
+  Vulgaridades (pene, verga, etc.): la red las reconoce y, además, hay un filtro de palabras en cerebro.py
+                 (PALABRAS_VULGARES) que corrige cuando la red no las ve. Responde serio y se pone más serio
+                 cada vez que el alumno insiste (la página cuenta las ofensas de la conversación).
+  Palabras que no conoce: si el mensaje es de 1 o 2 palabras que la red nunca vio, no adivina: pide aclarar.
+
+INFORMACIÓN DEL TEC BUSCADA EN INTERNET (intenciones agregadas)
+---------------------------------------------------------------
+  sobre_tec, ubicacion_tec, carreras_tec, contacto_tec, costos_tec, tec_vs_monterrey y más datos en fundacion.
+  También se agregaron notas con datos públicos a: aspirantes, nuevo_ingreso, examen_admision, posgrado y
+  educacion_distancia. Fuentes consultadas (noviembre de 2026): Congreso de Nuevo León (reconocimiento al
+  Instituto Tecnológico de Nuevo León, abril 2026), Wikipedia (español e inglés) y Mextudia/EduCaEdu.
+  El sitio oficial (nuevoleon.tecnm.mx) no permite lectura automática, así que algunos datos vienen de fuentes
+  de terceros y el asistente le dice al alumno que los confirme en el sitio oficial o en Servicios Escolares.
+  Los datos son una captura de ese momento: no se consultan en vivo. Para actualizarlos edita intents.json y
+  ejecuta  py entrenar.py.
   Para enseñarle algo nuevo: agrega una intención en intents.json y ejecuta  py entrenar.py.
 
   En la página, el asistente muestra "Leyendo tu mensaje..." entre 1 y 2 segundos antes de contestar.
