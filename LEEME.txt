@@ -94,12 +94,13 @@ CÓMO FUNCIONA (resumen para explicarlo)
 
 RESULTADOS REALES DE LA RED (ver carpeta evidencias/)
 -----------------------------------------------------
-  (La red sola, sin filtros; la red tiene 83 intenciones. Resultados de la última vez que se entrenó.)
-  pruebas.json (77 frases):                                                             100.0 %
-  Pruebas ciegas (40 frases escritas después de entrenar la primera versión):            95.0 %
-  Pruebas finales (71 frases nuevas):                                                    91.5 %
+  (La red sola, sin filtros; 90 intenciones y 1,724 frases de entrenamiento. Resultados del último entrenamiento.)
+  pruebas.json (77 frases):                                                             98.7 %
+  Pruebas ciegas (40 frases escritas después de entrenar la primera versión):            97.5 %
+  Pruebas finales (71 frases nuevas):                                                    95.8 %
   Pruebas de JOMADAIS, "no sé", chismes y groserías (25 frases):                         96.0 %
-  Pruebas de información del Tec, vulgaridades y trámites parecidos (38 frases):         92.1 %
+  Pruebas de información del Tec, vulgaridades y trámites parecidos (38 frases):         94.7 %
+  Pruebas de mascota, IA, ánimo, crisis, calendario y trámites con frases nuevas (39):   100.0 %
   Ojo: durante el desarrollo se miraron los errores de estas pruebas para mejorar las frases de entrenamiento
   (nunca se copiaron las frases de prueba al entrenamiento), así que son una medida honesta pero optimista.
   La red no es perfecta: a veces se confunde con frases muy parecidas entre trámites
@@ -118,6 +119,26 @@ RAZONAMIENTO Y PERSONALIDAD (intenciones agregadas)
                  (PALABRAS_VULGARES) que corrige cuando la red no las ve. Responde serio y se pone más serio
                  cada vez que el alumno insiste (la página cuenta las ofensas de la conversación).
   Palabras que no conoce: si el mensaje es de 1 o 2 palabras que la red nunca vio, no adivina: pide aclarar.
+
+MÁS FRASES Y PERSONALIDAD (tercera ronda)
+-----------------------------------------
+  mascota_tec    El cuervo es la mascota del Tec (dato dado por el equipo; el nombre CuerviFriend viene de ahí).
+  eres_ia        Si le preguntan si es una IA o un chatbot, responde que sí es una IA (red neuronal), no una persona.
+  animo_estres   Estrés escolar, reprobar, cansancio: responde con empatía y manda a Tutorías o al Comité Académico.
+  crisis         Mensajes de que no quiere vivir o quiere hacerse daño: responde con cuidado y da la Línea de la Vida
+                 (800 911 2000, 24 horas) y el 911. Tiene un seguro en cerebro.py (FRASES_CRISIS) por si la red falla.
+  calendario_escolar  No inventa fechas: manda a la agenda escolar y a Servicios Escolares.
+  cumplidos, tiro_basket (secreto: "un tiro" -> "vamos a las canchas de basket"), no_se_tec (vida en el campus).
+  Además se agregaron unas 520 frases nuevas de alumnos (modismos, faltas, formas de preguntar) a casi todos los trámites.
+
+QUÉ ES Y QUÉ NO ES CUERVIFRIEND (para explicarlo con honestidad)
+----------------------------------------------------------------
+  Es IA en el sentido de aprendizaje automático: una red neuronal (perceptrón multicapa de 3,604 -> 64 -> 32 -> 90, unos
+  235 mil parámetros) que se entrenó y aprendió a clasificar la intención de lo que escribe el alumno, incluso con
+  faltas de ortografía y modismos. No es un modelo generativo (tipo ChatGPT): no redacta respuestas nuevas. Las
+  respuestas están escritas de antemano y los datos de cada trámite vienen de directorio.json. Además tiene reglas
+  de apoyo (filtro de vulgaridades, seguro de crisis, memoria del último trámite). Por eso se describe mejor como
+  "asistente con red neuronal para entender el lenguaje".
 
 INFORMACIÓN DEL TEC BUSCADA EN INTERNET (intenciones agregadas)
 ---------------------------------------------------------------

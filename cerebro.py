@@ -30,6 +30,11 @@ PALABRAS_VULGARES = {"pene", "penes", "verga", "vergas", "pito", "pitos", "vagin
                      "pendejada", "chingada", "chingado", "chingar", "chinga", "cabron", "cabrones", "mierda", "mamada",
                      "mamadas", "culero", "culera", "ojete", "zorra", "joto", "maricon", "imbecil", "idiota", "estupido"}
 
+# Seguro para mensajes de crisis emocional: si la red no lo reconoce, esta lista lo atrapa (se revisa texto sin acentos).
+FRASES_CRISIS = ("suicid", "quitarme la vida", "quiero morir", "quiero morirme", "me quiero morir", "no quiero vivir", "ya no quiero vivir",
+                 "matarme", "me quiero matar", "acabar con mi vida", "hacerme dano", "lastimarme", "dejar de existir")
+NO_ES_CRISIS = ("de risa", "de la risa", "de hambre", "de sueno", "de pena", "de verguenza", "de calor", "de frio", "de flojera", "de aburrimiento")
+
 # Palabras que indican que la pregunta es sobre el Tec en general y no sobre el trámite del que se venía hablando
 PALABRAS_TEC = {"tec", "tecnologico", "escuela", "instituto", "itnl", "tecnl", "tecnm", "universidad", "campus",
                 "pagina", "web", "sitio", "url", "link", "facebook", "instagram", "redes"}
@@ -84,6 +89,11 @@ class Cerebro:
         analisis = [dict(tag=t, prob=round(p * 100, 1)) for t, p in top]
         norm = normalizar(texto)
         palabras = norm.split()
+        if (any(f in norm for f in FRASES_CRISIS) and not any(x in norm for x in NO_ES_CRISIS)
+                and not (top and top[0][0] == "crisis")):
+            # Un mensaje así nunca debe terminar en "no entendí" ni en una respuesta alegre
+            analisis.insert(0, dict(tag="crisis", prob=100.0, nota="seguro para mensajes de crisis"))
+            return self._por_intencion("crisis", norm, 1.0, analisis, contexto, ofensas)
         if PALABRAS_VULGARES & set(palabras) and not (top and top[0][0] == "groseria"):
             # La red neuronal decide primero; si no reconoció una vulgaridad clara, el filtro de palabras la corrige
             analisis.insert(0, dict(tag="groseria", prob=100.0, nota="filtro de palabras"))
@@ -94,6 +104,8 @@ class Cerebro:
         if len(palabras) <= 2 and not any("w:" + p in self.indice for p in palabras):
             return self._no_entendi(top, analisis, contexto, desconocida=True)
         tag, prob = top[0]
+        if tag == "crisis" and any(x in norm for x in NO_ES_CRISIS):
+            tag = "risa"                          # "me quiero morir de la risa" es una expresión, no una crisis
         # "Dónde está ubicada" justo después de hablar de un trámite se refiere a ese trámite, no al Tec completo
         if contexto and tag in ("ubicacion_tec", "contacto_tec") and not PALABRAS_TEC & set(palabras):
             if tag == "ubicacion_tec":

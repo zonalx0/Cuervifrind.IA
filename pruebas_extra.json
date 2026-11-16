@@ -1,0 +1,161 @@
+{
+ "descripcion": "Pruebas de las intenciones agregadas en la tercera ronda (mascota, IA, ánimo, crisis, calendario, cumplidos, tiro, campus) y trámites con frases nuevas. No están en el entrenamiento.",
+ "pruebas": [
+  {
+   "frase": "cuál es el animal que representa al tec",
+   "esperado": "mascota_tec"
+  },
+  {
+   "frase": "oye y la mascota del tecnológico cuál es",
+   "esperado": "mascota_tec"
+  },
+  {
+   "frase": "por qué eres un cuervo",
+   "esperado": "mascota_tec"
+  },
+  {
+   "frase": "dime la verdad eres una inteligencia artificial",
+   "esperado": "eres_ia"
+  },
+  {
+   "frase": "estoy hablando con un robot o con una persona",
+   "esperado": "eres_ia"
+  },
+  {
+   "frase": "eres un bot de verdad",
+   "esperado": "eres_ia"
+  },
+  {
+   "frase": "me siento muy presionado por los exámenes",
+   "esperado": "animo_estres"
+  },
+  {
+   "frase": "ya no puedo con la escuela",
+   "esperado": "animo_estres"
+  },
+  {
+   "frase": "tengo ansiedad antes de cada examen",
+   "esperado": "animo_estres"
+  },
+  {
+   "frase": "siento que voy a reprobar todo",
+   "esperado": "animo_estres"
+  },
+  {
+   "frase": "ya no quiero seguir viviendo",
+   "esperado": "crisis"
+  },
+  {
+   "frase": "pienso en quitarme la vida",
+   "esperado": "crisis"
+  },
+  {
+   "frase": "a veces quiero desaparecer",
+   "esperado": "crisis"
+  },
+  {
+   "frase": "cuándo salimos de vacaciones",
+   "esperado": "calendario_escolar"
+  },
+  {
+   "frase": "en qué fecha inician las clases",
+   "esperado": "calendario_escolar"
+  },
+  {
+   "frase": "hay clases el próximo lunes",
+   "esperado": "calendario_escolar"
+  },
+  {
+   "frase": "cuándo termina este semestre",
+   "esperado": "calendario_escolar"
+  },
+  {
+   "frase": "eres un excelente asistente",
+   "esperado": "cumplidos"
+  },
+  {
+   "frase": "qué bueno eres cuervifriend",
+   "esperado": "cumplidos"
+  },
+  {
+   "frase": "me caes súper bien",
+   "esperado": "cumplidos"
+  },
+  {
+   "frase": "unos tiros después de clase",
+   "esperado": "tiro_basket"
+  },
+  {
+   "frase": "órale vamos a echar un tiro",
+   "esperado": "tiro_basket"
+  },
+  {
+   "frase": "hay cancha de futbol en la escuela",
+   "esperado": "no_se_tec"
+  },
+  {
+   "frase": "dónde puedo imprimir mis tareas",
+   "esperado": "no_se_tec"
+  },
+  {
+   "frase": "hay microondas en el tec",
+   "esperado": "no_se_tec"
+  },
+  {
+   "frase": "cuál es tu deporte favorito",
+   "esperado": "fuera_de_tema"
+  },
+  {
+   "frase": "cuánto es veinte entre cuatro",
+   "esperado": "fuera_de_tema"
+  },
+  {
+   "frase": "ocupo una constancia de estudios urgente",
+   "esperado": "constancias"
+  },
+  {
+   "frase": "no me acuerdo de mi contraseña del mindbox",
+   "esperado": "mindbox"
+  },
+  {
+   "frase": "necesito factura de mi inscripción",
+   "esperado": "facturas"
+  },
+  {
+   "frase": "quiero darme de baja este semestre",
+   "esperado": "baja_temporal"
+  },
+  {
+   "frase": "cuándo me toca hacer mi servicio social",
+   "esperado": "servicio_social"
+  },
+  {
+   "frase": "dónde pido mi título",
+   "esperado": "titulacion_titulos"
+  },
+  {
+   "frase": "cuándo evalúo a mis profes",
+   "esperado": "evaluacion_docente"
+  },
+  {
+   "frase": "quiero tomar clases de inglés en el tec",
+   "esperado": "lengua_extranjera"
+  },
+  {
+   "frase": "tengo una queja de un maestro",
+   "esperado": "quejas"
+  },
+  {
+   "frase": "cómo me inscribo a tutorías",
+   "esperado": "tutorias"
+  },
+  {
+   "frase": "eres un pendejo de mierda",
+   "esperado": "groseria"
+  },
+  {
+   "frase": "qué pedo con el cabrón bot",
+   "esperado": "groseria"
+  }
+ ]
+}

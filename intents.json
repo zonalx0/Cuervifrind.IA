@@ -59,7 +59,12 @@
     "hola cuervifriend",
     "hola amigo",
     "buen dia a todos",
-    "holaaa"
+    "holaaa",
+    "hola cuervi",
+    "hola buen día",
+    "qué tal buenas",
+    "hola hola",
+    "buenas noches cuervifriend"
    ],
    "respuestas": [
     "{saludo} Soy tu amigo CuerviFriend, estoy listo para apoyarte con tus trámites del Tecnológico de Nuevo León. ¿En qué te puedo ayudar?",
@@ -90,7 +95,12 @@
     "qué onda bro",
     "quehubo",
     "épale",
-    "qué ondas"
+    "qué ondas",
+    "qué onda cuervi",
+    "qué pasó wey",
+    "quiubole raza",
+    "qué pedo cuervi",
+    "aquí andamos qué onda"
    ],
    "respuestas": [
     "¡Qué onda! Soy tu amigo CuerviFriend, estoy listo para echarte la mano con lo que necesites del Tec. ¿Qué se te ofrece?",
@@ -117,7 +127,11 @@
     "cómo te encuentras",
     "qué tal tu día",
     "cómo te la pasas",
-    "y a ti cómo te va"
+    "y a ti cómo te va",
+    "y tú cómo andas",
+    "todo bien contigo",
+    "cómo te sientes hoy",
+    "qué tal todo"
    ],
    "respuestas": [
     "¡Muy bien, gracias por preguntar! Listo para ayudarte con tus trámites. ¿Y tú, cómo estás?",
@@ -135,12 +149,21 @@
     "preséntate",
     "tú quién eres",
     "dime tu nombre",
-    "eres un robot",
-    "eres una persona o una máquina",
     "qué es cuervifriend",
     "con qué asistente estoy hablando",
     "cuál es tu nombre",
-    "eres humano"
+    "quién es cuervifriend",
+    "preséntate por favor",
+    "cuál es tu nombre completo",
+    "qué haces aquí",
+    "cómo te llamas amigo",
+    "tú qué eres",
+    "para quién trabajas",
+    "qué eres exactamente",
+    "dime quién eres en una frase",
+    "qué significa tu nombre",
+    "eres del tec o de otra escuela",
+    "de dónde eres"
    ],
    "respuestas": [
     "Soy CuerviFriend, el asistente de inteligencia artificial del Tecnológico de Nuevo León. Entiendo lo que escribes (o dices con el micrófono) usando una red neuronal, y te oriento sobre qué área atiende tu trámite, dónde está y cómo contactarla."
@@ -171,7 +194,16 @@
     "con qué trámites me apoyas",
     "qué temas manejas",
     "dime todo lo que sabes hacer",
-    "cuáles son tus funciones"
+    "cuáles son tus funciones",
+    "qué sabes hacer exactamente",
+    "para qué te puedo preguntar",
+    "ayúdame por favor",
+    "necesito que me ayudes",
+    "con qué trámites ayudas",
+    "no sé qué preguntarte",
+    "qué te puedo preguntar",
+    "dame ejemplos de preguntas",
+    "qué cosas me puedes decir"
    ],
    "respuestas": [
     "Puedo orientarte con trámites del Tecnológico de Nuevo León:\n• Becas (Benito Juárez, alimenticia, excelencia, federales, bajos recursos)\n• Servicios Escolares (constancias, kardex, credencial, seguro facultativo, documentos)\n• Cambios de horario, carrera o modalidad y bajas temporales\n• Titulación, servicio social, prácticas y residencias\n• Pagos, prórrogas, facturas y adeudos\n• Inglés, biblioteca, tutorías, EGEL, correo institucional y más\nEscríbeme tu duda con tus palabras o usa el micrófono."
@@ -192,7 +224,19 @@
     "qué tecnología usas",
     "usas inteligencia artificial",
     "tienes una red neuronal",
-    "cómo aprendiste a entender"
+    "cómo aprendiste a entender",
+    "en qué lenguaje estás hecho",
+    "usas python",
+    "cómo funciona tu cerebro",
+    "cómo entiendes lo que escribo",
+    "quién te enseñó",
+    "tienes una base de datos",
+    "usas machine learning",
+    "quién fue tu maestro",
+    "qué lenguaje de programación usas",
+    "eres de código abierto",
+    "qué tan inteligente eres",
+    "aprendes de lo que te digo"
    ],
    "respuestas": [
     "Soy un proyecto de inteligencia artificial del Tecnológico de Nuevo León, programado en Python. Mi cerebro es una red neuronal entrenada con frases de ejemplo para entender lo que escribes, y consulto el directorio de trámites de la escuela para responderte."
@@ -230,7 +274,12 @@
     "cuántos años de historia tiene el tec",
     "cuándo abrió el tec",
     "en qué año abrió sus puertas el tecnológico",
-    "cuándo empezó a funcionar el tec"
+    "cuándo empezó a funcionar el tec",
+    "hace cuántos años se fundó el tec",
+    "qué año se fundó el tecnológico de nuevo león",
+    "el tec ya cumplió 50 años",
+    "quién creó el tecnológico",
+    "cuándo es el cumpleaños del tec"
    ],
    "respuestas": [
     "El Tecnológico de Nuevo León fue fundado el 1 de octubre de 1976, así que cada 1 de octubre celebra su aniversario. ¡Ya cumplió {anios} años! 🎉",
@@ -258,7 +307,16 @@
     "mil gracias cuervifriend",
     "te agradezco la información",
     "gracias por todo",
-    "muchas gracias por la respuesta"
+    "muchas gracias por la respuesta",
+    "gracias por resolverme la duda",
+    "te pasaste muchas gracias",
+    "muy amable gracias",
+    "órale gracias",
+    "gracias eso era todo",
+    "muchísimas gracias amigo",
+    "gracias por orientarme",
+    "te lo agradezco mucho cuervi",
+    "gracias me ayudaste mucho"
    ],
    "respuestas": [
     "¡Con gusto! Para eso estoy. Si necesitas algo más del Tec, aquí ando.",
@@ -293,7 +351,18 @@
     "adiós y gracias",
     "chao nos vemos luego",
     "hasta la próxima",
-    "nos vemos después"
+    "nos vemos después",
+    "órale nos vemos",
+    "va pues adiós",
+    "luego nos vemos",
+    "hasta la próxima cuervi",
+    "me retiro",
+    "gracias adiós",
+    "que tengas buen día",
+    "me voy a clases adiós",
+    "ya me tengo que ir a clase",
+    "bueno pues hasta luego",
+    "adiós cuervi nos vemos"
    ],
    "respuestas": [
     "¡Hasta pronto! Mucho éxito en tus trámites. 🪶",
@@ -318,7 +387,15 @@
     "así es",
     "órale",
     "simón",
-    "sí por favor"
+    "sí por favor",
+    "sí claro",
+    "sí gracias",
+    "obvio",
+    "aja",
+    "va que va",
+    "sí quiero",
+    "correcto",
+    "exacto"
    ],
    "respuestas": [
     "¡Perfecto! Cuéntame qué trámite necesitas.",
@@ -348,7 +425,13 @@
     "ya es todo gracias",
     "ya con eso quedo",
     "nada más gracias",
-    "por el momento es todo"
+    "por el momento es todo",
+    "no ya está bien",
+    "no por ahora gracias",
+    "neles",
+    "nope",
+    "todo bien ya no",
+    "no ocupo más"
    ],
    "respuestas": [
     "Listo, entonces. Aquí estaré si más adelante necesitas algo. ¡Mucho éxito!",
@@ -370,7 +453,13 @@
     "no era eso",
     "otra vez no entendiste",
     "eso no me sirve",
-    "no me estás entendiendo"
+    "no me estás entendiendo",
+    "no entendiste lo que te pregunté",
+    "eso no era lo que pregunté",
+    "no me sirve esa respuesta",
+    "esa no es mi duda",
+    "me respondiste mal",
+    "no me quedó claro lo que dijiste"
    ],
    "respuestas": [
     "Perdón, creo que no te entendí bien. ¿Me lo explicas con otras palabras? Por ejemplo: «quiero cambiarme de carrera» o «necesito mi constancia».",
@@ -400,7 +489,9 @@
     "qué gracioso",
     "me hiciste reír",
     "estuvo bueno jaja",
-    "me muero de risa"
+    "me muero de risa",
+    "jajajaja",
+    "jajaja buenísimo"
    ],
    "respuestas": [
     "😄 ¡Jaja! Me da gusto que estés de buenas. Cuando quieras, dime qué trámite necesitas.",
@@ -426,7 +517,9 @@
     "dame un chiste de escuela",
     "dime una broma",
     "cuéntame una broma",
-    "sabes algún chiste"
+    "sabes algún chiste",
+    "dime un chiste de ingenieros",
+    "un chiste de escuela"
    ],
    "respuestas": [
     "¿Por qué el estudiante llevó una escalera al Tec? Porque quería llegar a la educación superior. 😄",
@@ -477,7 +570,40 @@
     "quién ganó el clásico",
     "quién ganó el oscar",
     "quién ganó el partido de hoy",
-    "quién va ganando en la liga"
+    "quién va ganando en la liga",
+    "qué opinas de la inteligencia artificial",
+    "cuál es tu color favorito",
+    "me recomiendas un libro",
+    "cómo se dice hola en francés",
+    "cuánto es 15 por 3",
+    "dame un consejo de vida",
+    "cuál es el sentido de la vida",
+    "qué día cae navidad",
+    "cómo hago un sándwich",
+    "quién es el mejor cantante",
+    "cuántos años tiene la tierra",
+    "cuál es la capital de francia",
+    "me cuentas un cuento",
+    "qué piensas de los políticos",
+    "dónde puedo comprar tenis",
+    "qué carro me compro",
+    "cuánto cuesta un taco",
+    "qué es el amor",
+    "cuántos planetas hay",
+    "cómo se juega ajedrez",
+    "quién ganó el super bowl de este año",
+    "cuál es tu deporte preferido",
+    "dime la hora",
+    "cuánto mide la torre eiffel",
+    "cómo se llama el presidente de estados unidos",
+    "tienes hermanos",
+    "qué estudiaste",
+    "cuál es la mejor pizza",
+    "recomiéndame una canción",
+    "cómo se hacen los tamales",
+    "qué es un agujero negro",
+    "cuánto es 100 entre 5",
+    "qué opinas del fútbol"
    ],
    "respuestas": [
     "Eso se sale de mi especialidad 😅. Yo te ayudo con trámites del Tecnológico de Nuevo León: becas, constancias, servicio social, titulación y más. ¿Te ayudo con alguno?",
@@ -511,7 +637,15 @@
     "jomadais innovatec",
     "quién es el equipo ganador del innovatec",
     "innovatec 2024 ganadores",
-    "háblame del equipo jomadais"
+    "háblame del equipo jomadais",
+    "qué hicieron los jomadais",
+    "jomadais del tec",
+    "los campeones de innovatec",
+    "quién es max isma joel y luis",
+    "cuéntame de los ganadores del innovatec 2024",
+    "jomadais quiénes eran",
+    "quiénes ganaron el innovatec del tec",
+    "equipo ganador innovatec nuevo león"
    ],
    "respuestas": [
     "JOMADAIS es el equipo que ganó el Innovatec 2024. Lo forman Max, Isma, Joel y Luis. ¡Unos campeones! 🏆",
@@ -550,7 +684,38 @@
     "hay tienda en la escuela",
     "qué venden en la papelería",
     "dónde hay una tiendita",
-    "a qué hora abre la tiendita"
+    "a qué hora abre la tiendita",
+    "hay gimnasio en el tec",
+    "hay canchas de basket",
+    "dónde puedo jugar fútbol en la escuela",
+    "hay alberca",
+    "dónde cargo mi celular",
+    "hay lockers",
+    "hay microondas para calentar comida",
+    "dónde hay agua",
+    "hay bebederos",
+    "qué salón me toca",
+    "dónde queda el salón de cómputo",
+    "hay estacionamiento para bicis",
+    "a qué hora abren la escuela",
+    "hay comedor",
+    "qué hay de comer hoy",
+    "hay clubes de videojuegos",
+    "hay equipo de basket",
+    "hay cajero en la escuela",
+    "hay fotocopiadora",
+    "dónde imprimo mis trabajos",
+    "hay papelería",
+    "dónde está la enfermería",
+    "hay doctor en la escuela",
+    "qué tal está el internet en la escuela",
+    "hay café cerca del tec",
+    "dónde puedo comer cerca del tec",
+    "hay mucho tráfico para llegar al tec",
+    "hay wifi gratis en todo el campus",
+    "cuál es el mejor lugar para estudiar en el tec",
+    "dónde me puedo sentar a comer",
+    "hay sombra en el patio"
    ],
    "respuestas": [
     "Jaja, la verdad no lo sé 😅. Eso no viene en mi directorio. Lo que sí sé es dónde hacer trámites del Tec: becas, constancias, servicio social, pagos y más. ¿Te ayudo con alguno?",
@@ -581,7 +746,13 @@
     "los maestros más difíciles",
     "qué profe deja menos tarea",
     "profes que no dejan tarea",
-    "dime qué maestros son los más barcos"
+    "dime qué maestros son los más barcos",
+    "qué maestro es más barco",
+    "quién da buenas calificaciones",
+    "cuál profe es más fácil",
+    "qué profes son buena onda",
+    "con quién me conviene meterme",
+    "maestros que no reprueban"
    ],
    "respuestas": [
     "Jaja, de eso no sé y no chismeo de los profes 😅. Si quieres opinar de un maestro de forma oficial, escribe «evaluación docente» y te digo con quién.",
@@ -679,7 +850,24 @@
     "pinche puto bot",
     "eres un puto",
     "valiste verga",
-    "no mames qué mierda de bot"
+    "no mames qué mierda de bot",
+    "hijo de tu madre",
+    "pinche idiota",
+    "cállate bot pendejo",
+    "estás bien pinche inútil",
+    "vete al carajo",
+    "qué pinche bot tan malo",
+    "bot culero",
+    "eres un pinche mocoso",
+    "maldito idiota",
+    "chinga tu pinche madre",
+    "pinche bot pendejo",
+    "qué mamada de bot",
+    "pinche vato inútil",
+    "estúpido y pendejo",
+    "puta madre bot",
+    "eres una porquería de bot",
+    "pinche asistente de quinta"
    ],
    "respuestas": [
     "Ese tipo de lenguaje no es apropiado. Soy el asistente del Tecnológico de Nuevo León y espero respeto. Si necesitas un trámite, dime con respeto cuál.",
@@ -725,7 +913,13 @@
     "resumen del tec",
     "qué es el instituto tecnológico de nuevo león",
     "de qué es el tec",
-    "quiénes son el tecnl"
+    "quiénes son el tecnl",
+    "háblame un poco del tec",
+    "qué tipo de escuela es el tec",
+    "qué ofrece el tecnológico a sus alumnos",
+    "explícame qué es el tecnl",
+    "datos generales del instituto tecnológico de nuevo león",
+    "qué es el tec de guadalupe"
    ],
    "respuestas": [
     "El Instituto Tecnológico de Nuevo León (TecNL) es una institución pública de educación superior en Guadalupe, Nuevo León. Forma parte del Tecnológico Nacional de México (TecNM), se fundó el 1 de octubre de 1976 y ofrece ingenierías y posgrados. 🎓 Pregúntame por sus carreras, su dirección o su historia.",
@@ -757,7 +951,13 @@
     "cuál es el domicilio del tecnológico",
     "dirección del itnl",
     "dónde queda el tecnológico",
-    "a qué dirección voy al tec"
+    "a qué dirección voy al tec",
+    "me das la ubicación del tecnológico",
+    "en qué calle queda la escuela",
+    "dónde se ubica el tec de nuevo león",
+    "dirección exacta del instituto",
+    "por qué colonia queda el tec",
+    "cuál es el código postal del tecnológico"
    ],
    "respuestas": [
     "📍 El Tecnológico de Nuevo León está en Av. Eloy Cavazos #2001, Col. Tolteca, Guadalupe, Nuevo León, C.P. 67170. Esa dirección sale de fuentes públicas en línea; confírmala en el sitio oficial (nuevoleon.tecnm.mx) antes de ir. Dentro del campus, mi directorio sabe en qué edificio está cada oficina: pregúntame por el trámite.",
@@ -789,7 +989,15 @@
     "qué opciones de carrera hay",
     "hay gestión empresarial",
     "tienen medicina en el tec",
-    "qué ingenierías hay"
+    "qué ingenierías hay",
+    "qué ingenierías tienen",
+    "qué carreras hay para estudiar aquí",
+    "tienen alguna carrera de sistemas",
+    "hay ingeniería electrónica",
+    "cuántas ingenierías ofrece el tec",
+    "qué puedo estudiar en el itnl",
+    "lista de ingenierías del tecnológico",
+    "hay ingeniería civil en el tec"
    ],
    "respuestas": [
     "🎓 Según lo publicado en línea, el Tec ofrece estas ingenierías: Ambiental, Electromecánica, Electrónica, Gestión Empresarial, Industrial, Mecatrónica y Sistemas Computacionales. Ojo: el Congreso de Nuevo León habló en abril de 2026 de ocho ingenierías, así que confirma la lista completa en nuevoleon.tecnm.mx o en Servicios Escolares.",
@@ -819,7 +1027,13 @@
     "web del tecnológico de nuevo león",
     "teléfono general del tec",
     "cómo me comunico con el tecnológico",
-    "cuál es el sitio oficial"
+    "cuál es el sitio oficial",
+    "cuál es el teléfono para pedir informes",
+    "a qué número marco para información del tec",
+    "cómo me comunico con el tec por teléfono",
+    "dónde está la página web de la escuela",
+    "sitio oficial del itnl",
+    "me das el link del tecnológico"
    ],
    "respuestas": [
     "🌐 Sitio oficial: nuevoleon.tecnm.mx · ☎️ Teléfono general: (81) 8157 0500 (dato de fuentes públicas en línea). Los teléfonos y correos de cada área los tengo en mi directorio: dime qué trámite buscas. De redes sociales no tengo cuentas confirmadas; entra por el sitio oficial para evitar páginas falsas.",
@@ -846,7 +1060,12 @@
     "costos del tecnológico",
     "es gratis el tec",
     "cuánto hay que pagar para estudiar en el tecnológico",
-    "cuánto vale la inscripción"
+    "cuánto vale la inscripción",
+    "cuánto se paga en el tec",
+    "qué tan caro es estudiar en el tec",
+    "cuánto cuesta la inscripción de primer semestre",
+    "cuánto cobran por semestre",
+    "es muy cara la colegiatura"
    ],
    "respuestas": [
     "💵 El Tec es público: se paga una cuota por semestre, no una colegiatura privada. El monto cambia con el tiempo y lo que hay en línea no coincide, así que prefiero no darte una cifra equivocada. Pregúntalo en Servicios Escolares: se_nleon@tecnm.mx, tel. (81) 81570512 / 14.",
@@ -876,7 +1095,12 @@
     "es escuela federal",
     "tecnológico público o privado",
     "es el mismo tec que el de monterrey",
-    "este tec es del tec de monterrey"
+    "este tec es del tec de monterrey",
+    "este tec es privado",
+    "el tecnl es del gobierno",
+    "es lo mismo tec nuevo león que tec de monterrey",
+    "somos del tecnm",
+    "qué diferencia hay entre el tecnl y el itesm"
    ],
    "respuestas": [
     "No, son distintos. 🙂 El Tecnológico de Nuevo León (TecNL) es una institución pública y forma parte del Tecnológico Nacional de México (TecNM). El Tec de Monterrey es una universidad privada. Comparten la palabra «Tec», pero son instituciones diferentes.",
@@ -920,6 +1144,251 @@
    "respuestas": [
     "No logré entender ese mensaje 🤔. Escríbeme tu duda con palabras completas; por ejemplo: «necesito una constancia» o «quiero una beca».",
     "Eso me llegó como letras al azar, jaja. ¿Qué trámite o duda del Tec tienes?"
+   ]
+  },
+  {
+   "tag": "mascota_tec",
+   "tipo": "charla",
+   "patrones": [
+    "cuál es la mascota del tec",
+    "quién es la mascota del tecnológico",
+    "mascota del tec",
+    "cuál es el animal del tec",
+    "qué animal es el símbolo del tec",
+    "por qué te llamas cuervifriend",
+    "por qué un cuervo",
+    "el tec tiene mascota",
+    "cómo se llama la mascota",
+    "la mascota es un cuervo",
+    "somos los cuervos",
+    "qué significa el cuervo",
+    "por qué el cuervo es el símbolo del tec",
+    "qué mascota tiene el tecnológico",
+    "dime la mascota de la escuela",
+    "es un cuervo la mascota",
+    "los cuervos del tec",
+    "de dónde viene lo del cuervo",
+    "cuál es el animal de la escuela",
+    "tienen mascota los del tec",
+    "cuál es el animal del tecnológico de nuevo león",
+    "qué es un cuervi",
+    "por qué cuervifriend se llama así",
+    "qué animal es la mascota del tec",
+    "dime cuál es el cuervo del tec",
+    "la mascota del itnl es un cuervo",
+    "cuervo mascota del tecnológico"
+   ],
+   "respuestas": [
+    "¡El cuervo! 🪶 La mascota del Tecnológico de Nuevo León es un cuervo, y por eso me llamo CuerviFriend: soy el amigo cuervo de los alumnos.",
+    "Es un cuervo 🪶 ¡De ahí viene mi nombre! Soy CuerviFriend, el cuervo amigo que te ayuda con tus trámites.",
+    "La mascota del Tec es el cuervo. 🪶 Por eso soy CuerviFriend: un cuervo con muy buena onda y mucha memoria para los trámites."
+   ]
+  },
+  {
+   "tag": "eres_ia",
+   "tipo": "charla",
+   "patrones": [
+    "eres una ia",
+    "eres inteligencia artificial",
+    "eres un chatbot",
+    "eres un bot",
+    "eres chatgpt",
+    "eres real",
+    "hablo con una persona o un bot",
+    "eres una persona real",
+    "eres un robot",
+    "eres una inteligencia artificial",
+    "en serio eres una ia",
+    "eres ia",
+    "tú eres una ia",
+    "eres artificial",
+    "eres una máquina",
+    "hay alguien detrás de ti",
+    "eres un programa",
+    "eres una red neuronal",
+    "me contesta un humano",
+    "eres un asistente virtual",
+    "ya me di cuenta que eres una ia",
+    "eres gemini",
+    "eres copilot",
+    "estoy hablando con una máquina",
+    "eres una persona o una máquina",
+    "eres humano",
+    "con quién hablo",
+    "eres alexa",
+    "eres siri",
+    "eres un humano o una ia",
+    "eres una inteligencia artificial de verdad",
+    "me estás contestando una ia",
+    "eres un asistente con ia",
+    "contesta en serio eres un robot",
+    "hablo con una ia"
+   ],
+   "respuestas": [
+    "Sí, soy una inteligencia artificial 🤖. Una red neuronal aprendió a entender lo que escribes y a identificar qué necesitas. No soy una persona: soy CuerviFriend, el asistente del Tecnológico de Nuevo León.",
+    "¡Sí! Soy una IA. Mi cerebro es una red neuronal entrenada con muchos ejemplos de frases, y las respuestas sobre trámites salen del directorio del Tec. No hay una persona escribiéndote del otro lado. 🪶",
+    "Así es, soy una inteligencia artificial: CuerviFriend, el asistente del Tec. No soy ChatGPT, Alexa ni nada parecido; soy una red neuronal hecha para ayudarte con tus trámites."
+   ]
+  },
+  {
+   "tag": "animo_estres",
+   "tipo": "charla",
+   "patrones": [
+    "estoy estresado",
+    "tengo mucho estrés",
+    "me siento muy presionado en la escuela",
+    "tengo muchísima tarea",
+    "no puedo con tanta tarea",
+    "estoy cansado de la escuela",
+    "me siento agotado",
+    "me va mal en la escuela",
+    "reprobé una materia",
+    "reprobé el examen",
+    "no entiendo nada de mis clases",
+    "siento que no sirvo para la escuela",
+    "ya no aguanto la escuela",
+    "tengo ansiedad por los exámenes",
+    "me siento triste",
+    "me siento mal",
+    "estoy muy cansado",
+    "tengo miedo de reprobar",
+    "no tengo ganas de nada",
+    "estoy agobiado",
+    "me siento solo",
+    "vengo muy atrasado en la carrera",
+    "me bloqueo en los exámenes",
+    "qué hago si repruebo",
+    "estoy muy estresado con los proyectos",
+    "tengo mucha presión con la escuela",
+    "me siento desmotivado con la carrera",
+    "no me alcanza el tiempo para tanta tarea",
+    "siento que me ahogo con los proyectos",
+    "estoy agotado de tantos exámenes"
+   ],
+   "respuestas": [
+    "Siento que estés pasando por eso. Estudiar a veces se siente muy pesado. Platica con tu tutor o con alguien de confianza: en el Tec puedes pedir Tutorías y, si lo tuyo es académico, el Comité Académico revisa solicitudes. Si esto se siente más grande que el estrés escolar, habla con alguien de confianza o con un profesional de salud. 💛",
+    "Qué difícil, gracias por contármelo. No tienes que cargar con todo tú solo: habla con un tutor, un maestro o alguien de confianza. Yo puedo decirte cómo contactar Tutorías o el Comité Académico si lo necesitas. Y si sientes que es más que estrés, busca también a un profesional de salud. 💛"
+   ]
+  },
+  {
+   "tag": "crisis",
+   "tipo": "charla",
+   "patrones": [
+    "me quiero morir",
+    "ya no quiero vivir",
+    "quiero quitarme la vida",
+    "pienso en el suicidio",
+    "quiero desaparecer para siempre",
+    "quiero hacerme daño",
+    "no vale la pena vivir",
+    "a veces pienso en matarme",
+    "estoy pensando en suicidarme",
+    "ya no le encuentro sentido a vivir",
+    "quiero acabar con todo",
+    "me quiero matar",
+    "siento que todos estarían mejor sin mí",
+    "quiero dejar de existir",
+    "no quiero seguir viviendo",
+    "me quiero lastimar"
+   ],
+   "respuestas": [
+    "Lamento mucho que estés pasando por algo tan doloroso. Tu vida importa y no tienes que estar solo en esto. Por favor, habla ahora mismo con alguien de confianza (familia, amigos, un maestro o tutor). En México puedes llamar a la Línea de la Vida: 800 911 2000, gratuita y disponible las 24 horas. Si estás en peligro inmediato, llama al 911. Yo soy un asistente de trámites y no puedo darte la ayuda que necesitas, pero ellos sí. 💛"
+   ]
+  },
+  {
+   "tag": "calendario_escolar",
+   "tipo": "charla",
+   "patrones": [
+    "cuándo empiezan las clases",
+    "cuándo son las vacaciones",
+    "calendario escolar",
+    "cuándo son los exámenes finales",
+    "qué días no hay clases",
+    "hay clases mañana",
+    "cuándo regresamos a clases",
+    "cuándo termina el semestre",
+    "cuándo inicia el siguiente semestre",
+    "fecha de inicio de clases",
+    "cuándo son las vacaciones de diciembre",
+    "hay suspensión de clases",
+    "cuándo son los parciales",
+    "cuándo es el puente",
+    "agenda escolar",
+    "fechas importantes del semestre",
+    "cuándo es la reinscripción",
+    "cuándo es el periodo de exámenes",
+    "qué día es el último día de clases",
+    "hay clases en semana santa",
+    "cuándo hay descanso",
+    "cuándo me toca reinscribirme",
+    "cuándo acaban las clases",
+    "cuándo son los exámenes ordinarios",
+    "qué fecha empieza el semestre",
+    "cuándo vuelvo a clases después de vacaciones"
+   ],
+   "respuestas": [
+    "📅 Las fechas del semestre (inicio de clases, vacaciones, reinscripciones, exámenes) están en la agenda escolar del Tec, y yo no tengo el calendario de este semestre. Consúltala en nuevoleon.tecnm.mx o pregunta en Servicios Escolares: se_nleon@tecnm.mx, (81) 81570512 / 14.",
+    "Esa fecha depende del calendario escolar del semestre y no la tengo para no darte un dato equivocado. 📅 Revisa la agenda escolar en nuevoleon.tecnm.mx o escríbele a Servicios Escolares (se_nleon@tecnm.mx)."
+   ]
+  },
+  {
+   "tag": "cumplidos",
+   "tipo": "charla",
+   "patrones": [
+    "te quiero",
+    "te amo",
+    "eres guapo",
+    "eres el mejor",
+    "me caes bien",
+    "eres muy inteligente",
+    "eres genial",
+    "qué buen bot",
+    "eres muy amable",
+    "me gustas",
+    "estás bien chido",
+    "eres lo máximo",
+    "eres un crack",
+    "qué crack eres",
+    "cuervifriend eres el mejor",
+    "me encantas",
+    "eres un buen amigo",
+    "te adoro",
+    "qué lindo eres",
+    "eres bien buena onda",
+    "eres muy listo",
+    "qué padre eres",
+    "eres muy buena onda cuervifriend",
+    "me caes de maravilla",
+    "qué simpático eres",
+    "eres un excelente amigo"
+   ],
+   "respuestas": [
+    "¡Gracias! 🪶 Me alegra caerte bien. Yo estoy aquí para ayudarte con tus trámites del Tec.",
+    "Jaja, qué lindo 😄 Soy una IA, así que lo mío son los trámites bien hechos y la buena onda. ¿Te ayudo con algo del Tec?",
+    "¡Eso me da mucho gusto! Tú también eres buen estudiante por venir a preguntar. ¿Necesitas algún trámite?"
+   ]
+  },
+  {
+   "tag": "tiro_basket",
+   "tipo": "charla",
+   "patrones": [
+    "un tiro",
+    "echamos un tiro",
+    "vamos por un tiro",
+    "quieres un tiro",
+    "un tirito",
+    "échate un tiro",
+    "vamos a echarnos un tiro",
+    "te echas un tiro",
+    "unos tiros",
+    "tiro",
+    "vamos a echarnos unos tiros",
+    "un tiro rápido",
+    "tiramos unos tiros"
+   ],
+   "respuestas": [
+    "¡Dale! 🏀 Vamos a las canchas de basket. Pero primero dime si necesitas algún trámite, jaja.",
+    "¡Va! A las canchas de basket 🏀. Yo pongo la buena vibra y tú los tiros."
    ]
   },
   {
@@ -1006,7 +1475,13 @@
     "qué días atienden",
     "a qué hora abre",
     "hasta qué hora están",
-    "en qué horario los encuentro"
+    "en qué horario los encuentro",
+    "a qué hora abren esa oficina",
+    "hasta qué hora atienden",
+    "cuál es su horario de atención",
+    "qué horario tiene esa área",
+    "a qué hora cierran ahí",
+    "en qué horario puedo ir"
    ]
   },
   {
@@ -1025,7 +1500,10 @@
     "tengo bajas calificaciones y quiero tutorías",
     "dónde pido tutorías",
     "quiero cambiar de tutor",
-    "dónde pido una tutoría"
+    "dónde pido una tutoría",
+    "necesito un tutor",
+    "cómo se llama mi tutor",
+    "asesoría para mis materias"
    ]
   },
   {
@@ -1047,7 +1525,9 @@
     "fecha del egel",
     "inscripción al egel",
     "el egel sirve para titularme",
-    "resultados del egel"
+    "resultados del egel",
+    "qué es el egel",
+    "cuándo presento el egel"
    ]
   },
   {
@@ -1065,7 +1545,10 @@
     "examen para nuevo alumno",
     "guía para el examen de admisión",
     "resultados del examen de admisión",
-    "examen de admision"
+    "examen de admision",
+    "cuándo es el examen para entrar",
+    "dónde me registro para el examen exani",
+    "fechas del examen de selección"
    ],
    "nota": "Según información pública en línea, el examen de selección es el EXANI-II de CENEVAL. Las fechas y el registro cambian cada año: confírmalos con la oficina."
   },
@@ -1082,7 +1565,9 @@
     "dónde entrego mis constancias de actividades",
     "me faltan créditos de actividades",
     "liberación de actividades complementarias",
-    "actividad cultural o deportiva para crédito"
+    "actividad cultural o deportiva para crédito",
+    "cómo cumplo mis actividades complementarias",
+    "dónde registro mis créditos"
    ]
   },
   {
@@ -1102,7 +1587,9 @@
     "evaluación de maestros del semestre",
     "calificar a mis profesores en el sistema",
     "cuándo abren la encuesta de docentes",
-    "tengo que evaluar a mis profesores para ver mis calificaciones"
+    "tengo que evaluar a mis profesores para ver mis calificaciones",
+    "quiero calificar a mis maestros",
+    "cuándo se evalúa a los profesores"
    ]
   },
   {
@@ -1118,7 +1605,9 @@
     "dónde doy de alta mi residencia",
     "carga de residencia en el sistema",
     "subir mi proyecto de residencia",
-    "cuándo puedo cargar la residencia"
+    "cuándo puedo cargar la residencia",
+    "cómo registro mi residencia",
+    "dónde inscribo mi residencia profesional"
    ]
   },
   {
@@ -1139,7 +1628,10 @@
     "necesito cambiar de grupo por mi trabajo",
     "quiero un horario diferente",
     "puedo pasarme a otro turno",
-    "dónde hago el cambio de horario"
+    "dónde hago el cambio de horario",
+    "quiero cambiar de turno",
+    "se me empalman las materias",
+    "necesito mover mi horario"
    ]
   },
   {
@@ -1162,7 +1654,8 @@
     "quiero irme a otra ingeniería",
     "cambiarme a la carrera de sistemas computacionales",
     "ya no me gusta mi carrera y quiero otra",
-    "quiero estudiar otra ingeniería en lugar de la mía"
+    "quiero estudiar otra ingeniería en lugar de la mía",
+    "puedo cambiarme a otra ingeniería"
    ]
   },
   {
@@ -1178,7 +1671,9 @@
     "quiero estudiar en línea en vez de presencial",
     "cambio de presencial a en línea",
     "pasarme a la modalidad presencial",
-    "de modalidad a distancia a presencial"
+    "de modalidad a distancia a presencial",
+    "quiero cambiar a presencial",
+    "puedo pasarme a virtual"
    ]
   },
   {
@@ -1194,7 +1689,8 @@
     "cómo se asignan las materias",
     "carga académica de coordinadores",
     "asignar materias a docentes",
-    "reportar carga académica"
+    "reportar carga académica",
+    "quién me asigna materias"
    ]
   },
   {
@@ -1211,7 +1707,10 @@
     "me quiero dar de baja por un semestre",
     "trámite de baja temporal",
     "no podré estudiar este semestre",
-    "congelar semestre"
+    "congelar semestre",
+    "quiero dejar la escuela un semestre",
+    "cómo suspendo mis estudios un tiempo",
+    "pedir baja temporal este semestre"
    ]
   },
   {
@@ -1229,7 +1728,10 @@
     "mi usuario de mindbox no funciona",
     "recuperar clave de mindbox",
     "solicito contraseña mindbox",
-    "mindbox"
+    "mindbox",
+    "no puedo entrar al mindbox",
+    "mi mindbox no abre",
+    "dónde recupero mi contraseña de mindbox"
    ]
   },
   {
@@ -1245,7 +1747,9 @@
     "qué especialidades hay",
     "trámite de especialidad",
     "información sobre la especialidad de mi carrera",
-    "inscribirme a una especialidad"
+    "inscribirme a una especialidad",
+    "qué especialidades hay en mi carrera",
+    "cuándo elijo mi especialidad"
    ]
   },
   {
@@ -1261,7 +1765,9 @@
     "solicitud de excepción académica",
     "pedir una revisión de mi caso",
     "dónde mando una solicitud al comité",
-    "quiero apelar una decisión académica"
+    "quiero apelar una decisión académica",
+    "necesito pasar un caso al comité",
+    "quiero una excepción del comité académico"
    ]
   },
   {
@@ -1278,7 +1784,8 @@
     "titulación integral",
     "cómo inicio mi titulación",
     "quiero titularme por residencia",
-    "cuál opción me conviene para titularme"
+    "cuál opción me conviene para titularme",
+    "me puedo titular con tesis"
    ]
   },
   {
@@ -1302,7 +1809,9 @@
     "dónde está el maestro de programación",
     "necesito contactar a mi docente",
     "cómo le escribo a mi profesor",
-    "quién es el maestro de matemáticas"
+    "quién es el maestro de matemáticas",
+    "quién da la materia de programación",
+    "quiero saber quién es mi profesor"
    ]
   },
   {
@@ -1318,7 +1827,9 @@
     "cómo funciona la modalidad virtual",
     "estudiar en línea en el tecnológico",
     "carrera virtual",
-    "clases virtuales información"
+    "clases virtuales información",
+    "hay carreras en línea en el tec",
+    "cómo es estudiar virtual en el tec"
    ],
    "nota": "Según información pública en línea, hay carreras en modalidad virtual (por ejemplo Ingeniería en Sistemas Computacionales; algunas fuentes mencionan también Industrial y Gestión Empresarial). Confirma cuáles están abiertas con la oficina."
   },
@@ -1336,7 +1847,9 @@
     "cómo me inscribo al posgrado",
     "quiero hacer un posgrado en el tec",
     "estudios de posgrado",
-    "maestría"
+    "maestría",
+    "qué maestrías hay",
+    "hay doctorado en el tec"
    ],
    "nota": "Según información pública en línea, hay maestrías como Ingeniería Mecatrónica e Ingeniería Administrativa, y el Congreso de Nuevo León (abril de 2026) habla de dos maestrías y un doctorado. Confirma el catálogo vigente con la oficina de Posgrado."
   },
@@ -1360,7 +1873,13 @@
     "sufro acoso en la escuela",
     "quiero levantar una queja contra un docente",
     "un maestro no da clases y quiero reportarlo",
-    "maltrato de un profesor"
+    "maltrato de un profesor",
+    "quiero quejarme de algo",
+    "tengo una sugerencia para la escuela",
+    "dónde reporto un problema",
+    "un maestro me faltó al respeto",
+    "quiero levantar una queja formal",
+    "me trataron mal en una oficina"
    ]
   },
   {
@@ -1386,7 +1905,11 @@
     "quiero informes sobre becas",
     "qué apoyos de beca tienen",
     "información general de becas del tec",
-    "dónde solicito becas"
+    "dónde solicito becas",
+    "ando buscando una beca",
+    "me interesa una beca para pagar la escuela",
+    "qué becas hay para estudiantes",
+    "cómo aplico a una beca"
    ]
   },
   {
@@ -1402,7 +1925,9 @@
     "inscribirme a la beca benito juárez",
     "me dieron la beca benito juárez",
     "beca de benito juarez para universitarios",
-    "registro beca benito juarez"
+    "registro beca benito juarez",
+    "cómo me inscribo a la beca benito juarez",
+    "ya tengo mi beca benito juárez y no me han pagado"
    ]
   },
   {
@@ -1418,7 +1943,9 @@
     "cómo pido la beca de alimentación",
     "beca para comer en la escuela",
     "requisitos de la beca alimenticia",
-    "quiero el apoyo alimenticio"
+    "quiero el apoyo alimenticio",
+    "apoyo para comida en la escuela",
+    "cómo pido la beca de alimentos"
    ]
   },
   {
@@ -1440,7 +1967,10 @@
     "beca por mi alto promedio",
     "premio a los mejores alumnos",
     "beca a estudiantes con calificaciones altas",
-    "tengo promedio de 95 qué beca hay"
+    "tengo promedio de 95 qué beca hay",
+    "tengo buen promedio y quiero beca",
+    "beca por mi promedio alto",
+    "cómo aplico a la beca de excelencia"
    ]
   },
   {
@@ -1458,7 +1988,9 @@
     "beca de manutención",
     "beca de transporte",
     "apoyos del gobierno federal para estudiantes",
-    "dinero del gobierno para mi carrera"
+    "dinero del gobierno para mi carrera",
+    "becas federales para alumnos",
+    "cómo sé si califico a una beca del gobierno"
    ]
   },
   {
@@ -1480,7 +2012,13 @@
     "kardex",
     "dónde saco mi kardex",
     "dónde pido una constancia de estudios",
-    "dónde me dan mi historial de calificaciones"
+    "dónde me dan mi historial de calificaciones",
+    "ocupo una constancia",
+    "dónde me dan mi kardex",
+    "necesito mi historial de calificaciones",
+    "me piden una constancia de estudios en mi trabajo",
+    "quiero papeles que digan que soy alumno",
+    "cómo saco una constancia con promedio"
    ]
   },
   {
@@ -1498,7 +2036,9 @@
     "documentos de inscripción",
     "cuándo entrego mi documentación",
     "dejar mis papeles en servicios escolares",
-    "dónde entrego mi acta de nacimiento"
+    "dónde entrego mi acta de nacimiento",
+    "me faltan documentos",
+    "dónde llevo mis papeles"
    ]
   },
   {
@@ -1515,7 +2055,10 @@
     "pasos para alumnos de nuevo ingreso",
     "ya pasé el examen y quiero inscribirme",
     "qué necesito para inscribirme a primer semestre",
-    "quiero hacer mi inscripción nueva"
+    "quiero hacer mi inscripción nueva",
+    "me quedé en el tec qué hago",
+    "cómo me inscribo siendo de nuevo ingreso",
+    "qué hago después de que me aceptan"
    ],
    "nota": "Según información pública en línea, suelen pedir: CURP, fotografías, certificado de bachillerato legalizado, acta de nacimiento reciente, comprobante de domicilio y número de seguro social. Las fechas y la lista vigente cambian: confírmalas con Servicios Escolares."
   },
@@ -1536,7 +2079,9 @@
     "tramitar credencial nueva",
     "credencial",
     "dónde tramito mi credencial",
-    "dónde me toman la foto para la credencial"
+    "dónde me toman la foto para la credencial",
+    "cómo reemplazo mi credencial del tec",
+    "necesito credencial nueva"
    ]
   },
   {
@@ -1555,7 +2100,10 @@
     "afiliación al imss",
     "dónde tramito el seguro facultativo",
     "dónde me afilio al imss",
-    "dónde saco mi seguro"
+    "dónde saco mi seguro",
+    "necesito mi seguro del imss",
+    "cómo saco mi número de seguro social",
+    "mi seguro facultativo no aparece"
    ]
   },
   {
@@ -1576,7 +2124,9 @@
     "ya terminó mi baja y quiero regresar",
     "quiero volver a la escuela después de mi baja",
     "cómo me reincorporo tras la baja",
-    "regresar a clases después de baja temporal"
+    "regresar a clases después de baja temporal",
+    "quiero regresar después de mi baja",
+    "cómo me reincorporo al tec"
    ]
   },
   {
@@ -1593,7 +2143,10 @@
     "cómo ingreso al tecnológico de nuevo león",
     "quiero entrar a la universidad en el tec",
     "pasos para ser alumno",
-    "cuándo abren inscripciones para aspirantes"
+    "cuándo abren inscripciones para aspirantes",
+    "quiero entrar al tec",
+    "cómo puedo ser alumno del tecnológico",
+    "requisitos para ingresar"
    ],
    "nota": "Según información pública en línea, el proceso incluye pre-inscripción, examen de selección EXANI-II (CENEVAL), curso de nivelación y plática inductiva. Documentos que suelen pedir: CURP, fotografías, certificado de bachillerato legalizado, acta de nacimiento reciente, comprobante de domicilio y número de seguro social. Las fechas y la lista vigente cambian: confírmalas con Servicios Escolares."
   },
@@ -1612,7 +2165,10 @@
     "trámite del título profesional",
     "solicitar mi título",
     "título",
-    "dónde recojo mi título profesional"
+    "dónde recojo mi título profesional",
+    "ya terminé la carrera cómo me titulo",
+    "cuándo me entregan mi título",
+    "quiero mi título profesional ya terminé"
    ]
   },
   {
@@ -1632,7 +2188,11 @@
     "toefl",
     "dónde me inscribo a inglés",
     "dónde aprendo inglés en el tec",
-    "dónde tomo clases de inglés"
+    "dónde tomo clases de inglés",
+    "cuándo hay cursos de inglés",
+    "necesito acreditar inglés",
+    "dónde me inscribo al inglés",
+    "examen de inglés para titularme"
    ]
   },
   {
@@ -1648,7 +2208,10 @@
     "dónde hay actividades culturales",
     "clubes del tec",
     "quiero unirme a un taller de música",
-    "deporte en la escuela"
+    "deporte en la escuela",
+    "hay deportes en el tec",
+    "quiero entrar a un equipo deportivo",
+    "actividades culturales"
    ]
   },
   {
@@ -1667,7 +2230,10 @@
     "consultar libros digitales",
     "tengo un libro atrasado",
     "dónde está la biblioteca",
-    "dónde presto un libro"
+    "dónde presto un libro",
+    "dónde pido prestado un libro",
+    "horario de la biblioteca",
+    "quiero usar el centro de información"
    ]
   },
   {
@@ -1686,7 +2252,11 @@
     "constancia de liberación del servicio social",
     "registro de servicio social",
     "dónde registro mi servicio social",
-    "dónde libero el servicio social"
+    "dónde libero el servicio social",
+    "cuándo puedo empezar mi servicio social",
+    "cuántas horas es el servicio social",
+    "liberar servicio social carta",
+    "necesito mi carta de término de servicio"
    ]
   },
   {
@@ -1704,7 +2274,10 @@
     "empresas para hacer prácticas",
     "necesito hacer mis prácticas en una empresa",
     "requisitos de prácticas profesionales",
-    "prácticas"
+    "prácticas",
+    "necesito hacer prácticas",
+    "dónde consigo prácticas",
+    "cómo hago mis prácticas profesionales"
    ]
   },
   {
@@ -1720,7 +2293,9 @@
     "empresas que ofrecen residencia",
     "lista de proyectos para mi residencia",
     "cómo encuentro empresa para residencias",
-    "quiero ver el banco de proyectos"
+    "quiero ver el banco de proyectos",
+    "qué proyectos de residencia hay",
+    "dónde veo las empresas para residencia"
    ]
   },
   {
@@ -1737,7 +2312,9 @@
     "quiero que mi empresa se vincule con el tec",
     "encuesta para egresados",
     "empleo para egresados",
-    "contacto con empresas"
+    "contacto con empresas",
+    "soy egresado quiero bolsa de trabajo",
+    "dónde hay vacantes para egresados"
    ]
   },
   {
@@ -1753,7 +2330,9 @@
     "educación dual con empresas",
     "estudiar y trabajar al mismo tiempo en una empresa",
     "requisitos de educación dual",
-    "información del programa dual"
+    "información del programa dual",
+    "qué es la modalidad dual",
+    "quiero estudiar y trabajar a la vez"
    ]
   },
   {
@@ -1775,7 +2354,8 @@
     "informes de diplomados",
     "quiero inscribirme a un diplomado",
     "diplomados y cursos para el público",
-    "cursos y diplomados del tec"
+    "cursos y diplomados del tec",
+    "talleres y diplomados del tec"
    ]
   },
   {
@@ -1791,7 +2371,9 @@
     "tengo una idea de negocio",
     "registro en la incubadora",
     "asesoría para crear mi empresa",
-    "quiero iniciar mi propia empresa"
+    "quiero iniciar mi propia empresa",
+    "quiero abrir mi empresa",
+    "apoyo para emprendedores"
    ]
   },
   {
@@ -1808,7 +2390,8 @@
     "registrar un proyecto innovador",
     "hackathon",
     "premio nacional de emprendedores",
-    "talleres de innovación"
+    "talleres de innovación",
+    "quiero participar en el innovatec"
    ]
   },
   {
@@ -1824,7 +2407,8 @@
     "créditos por experiencia laboral",
     "validar mi empleo como créditos",
     "quiero créditos complementarios por trabajar",
-    "entregar mi constancia de trabajo para créditos"
+    "entregar mi constancia de trabajo para créditos",
+    "mi trabajo me cuenta como créditos"
    ]
   },
   {
@@ -1840,7 +2424,9 @@
     "cómo se tramita un convenio",
     "convenio para prácticas con una empresa",
     "quiero que mi empresa firme un convenio",
-    "colaboración con otras instituciones"
+    "colaboración con otras instituciones",
+    "quiero firmar convenio con el tec",
+    "mi empresa quiere colaborar con el tecnológico"
    ]
   },
   {
@@ -1860,7 +2446,9 @@
     "necesito una beca porque no tengo dinero",
     "urge beca no tengo para pagar",
     "no tengo recursos para estudiar hay apoyo",
-    "me urge ayuda económica para la colegiatura"
+    "me urge ayuda económica para la colegiatura",
+    "no tengo dinero para estudiar hay beca",
+    "mi familia tiene pocos recursos qué beca hay"
    ]
   },
   {
@@ -1893,7 +2481,10 @@
     "puedo pagar después mi inscripción",
     "prórroga para pago de inscripción",
     "me dan más días para pagar",
-    "no me alcanza para reinscribirme todavía"
+    "no me alcanza para reinscribirme todavía",
+    "no me alcanza para pagar la inscripción",
+    "puedo pagar después mi reinscripción",
+    "pedir más tiempo para pagar"
    ]
   },
   {
@@ -1911,7 +2502,9 @@
     "quiero mi cfdi",
     "dónde pido facturas",
     "error en mi factura",
-    "factura"
+    "factura",
+    "dónde pido mi factura",
+    "cómo facturo mi pago"
    ]
   },
   {
@@ -1936,7 +2529,9 @@
     "tengo deuda con el tec",
     "cuánto es mi adeudo",
     "no puedo reinscribirme porque debo",
-    "dónde aclaro un adeudo"
+    "dónde aclaro un adeudo",
+    "dice que debo dinero",
+    "cómo reviso si tengo adeudos"
    ]
   },
   {
@@ -1953,7 +2548,10 @@
     "mi pago no fue aceptado",
     "pagué en el banco y no me lo reconocen",
     "problema con mi pago de inscripción",
-    "no puedo pagar en línea"
+    "no puedo pagar en línea",
+    "pagué y no se refleja",
+    "mi pago no aparece en el sistema",
+    "me cobraron doble"
    ]
   },
   {
@@ -1970,7 +2568,9 @@
     "mi correo institucional no funciona",
     "recuperar mi cuenta institucional",
     "activar mi correo del tecnológico",
-    "me bloquearon el correo institucional"
+    "me bloquearon el correo institucional",
+    "no me llega mi correo del tec",
+    "cómo creo mi correo institucional"
    ]
   }
  ]
