@@ -1,0 +1,109 @@
+CUERVIFRIEND · Asistente inteligente del Tecnológico de Nuevo León
+=====================================================================
+
+CÓMO CORRERLO (Windows, PowerShell abierto dentro de esta carpeta)
+------------------------------------------------------------------
+1) Instalar las librerías (si "pip" no se reconoce, usa "py -m pip"):
+
+     py -m pip install flask numpy SpeechRecognition pyttsx3 pywhatkit
+
+2) Instalar PyAudio (es el driver del micrófono; si falla, la página
+   funciona igual escribiendo, solo no funcionará el botón 🎤):
+
+     py -m pip install PyAudio
+
+3) Iniciar el programa:
+
+     py app.py
+
+4) Abrir en el navegador:   http://localhost:5000
+   (no cierres la ventana de PowerShell mientras lo uses; Ctrl + C lo apaga)
+
+QUÉ ES "localhost:5000"
+----------------------
+  "localhost" significa "esta misma computadora" y 5000 es la puerta que usa el programa. Por eso ese link
+  solo lo abres tú. Para que otras personas la prueben necesitas una de estas dos opciones:
+
+PUBLICARLO CON UN LINK PARA QUE OTROS LO PRUEBEN
+------------------------------------------------
+  OPCIÓN A · Link temporal desde tu computadora (la más rápida, sin cuenta)
+     1. Instala cloudflared. En PowerShell normalmente basta:   winget install --id Cloudflare.cloudflared
+        (si no funciona, descárgalo de la página oficial de descargas de Cloudflare)
+     2. Deja corriendo  py app.py  en una ventana de PowerShell.
+     3. Abre OTRA ventana de PowerShell y escribe:   cloudflared tunnel --url http://localhost:5000
+     4. Te muestra un link que termina en  trycloudflare.com  . Ese link lo puede abrir cualquier persona.
+     Ojo: el link solo funciona mientras tu computadora esté encendida con las dos ventanas abiertas,
+     cambia cada vez que lo vuelves a crear y Cloudflare indica que no garantiza disponibilidad.
+     Ideal para la presentación de mañana.
+
+  OPCIÓN B · Link permanente en Render (gratis, sin tener tu PC encendida)
+     1. Sube la carpeta del proyecto a un repositorio de GitHub (el archivo .gitignore ya viene listo).
+     2. En render.com: New > Web Service, conecta ese repositorio y escribe:
+          Language:        Python 3
+          Build Command:   pip install -r requirements.txt
+          Start Command:   gunicorn app:app
+     3. Cuando termine, Render te da un link  xxxx.onrender.com.
+     Ojo: en el plan gratis el servicio se duerme tras 15 minutos sin visitas y tarda cerca de 1 minuto
+     en despertar la primera vez; además Render indica que los servicios gratis son para pruebas y proyectos
+     personales. Ábrelo tú unos minutos antes de presentar para que ya esté despierto.
+
+  MICRÓFONO EN EL LINK PÚBLICO
+     El micrófono de Python (SpeechRecognition + PyAudio) escucha la computadora donde corre el programa,
+     así que solo se usa cuando abres  localhost. En un link público el botón 🎤 usa automáticamente el
+     dictado del navegador de cada visitante (funciona en Chrome y Edge, con internet y con permiso de
+     micrófono). Un visitante NUNCA puede activar el micrófono de tu PC: el servidor lo bloquea.
+     Escribiendo funciona en cualquier navegador.
+
+OTROS COMANDOS ÚTILES (para mostrar al maestro)
+-----------------------------------------------
+  py probar_red.py                       Prueba la red desde la terminal y muestra las probabilidades.
+  py entrenar.py                         Vuelve a entrenar la red neuronal (tarda ~1 minuto) y regenera modelo.json.
+  py evaluar.py pruebas_ciegas.json      Mide la precisión con frases que la red nunca vio.
+
+QUÉ HACE CADA ARCHIVO
+---------------------
+  app.py              Servidor web (Flask). Recibe el texto o el audio y devuelve la respuesta.
+  cerebro.py          Une red neuronal + intents.json + directorio.json y arma la respuesta.
+  red_neuronal.py     La red neuronal hecha desde cero con NumPy (capas, ReLU, Softmax, backpropagation, Adam).
+  procesamiento.py    Convierte una frase en números (palabras, pares de palabras y fragmentos de letras).
+  entrenar.py         Entrena la red con intents.json y guarda modelo.json.
+  intents.json        DATOS DE ENTRENAMIENTO: intenciones y frases de ejemplo (español coloquial incluido).
+  modelo.json         LA RED NEURONAL ENTRENADA (pesos, vocabulario y clases). Se carga al iniciar app.py.
+  directorio.json     Directorio de trámites del TecNL (áreas, responsables, correos, teléfonos).
+  pruebas*.json       Frases nuevas para medir si la red de verdad entiende.
+  evidencias/         Registro del entrenamiento, curva de aprendizaje y resultados de las pruebas.
+  templates/ static/  La página web (color vino) y el logo (reemplaza static/logo.svg por el oficial).
+  requirements.txt    Lo mínimo para publicarlo en internet (flask, numpy, gunicorn).
+  requirements-local.txt  Lo mismo + las librerías de voz para usar en tu computadora.
+  Procfile            Comando de arranque para hosting (gunicorn app:app).
+
+CÓMO FUNCIONA (resumen para explicarlo)
+---------------------------------------
+  1. La persona escribe (o habla: SpeechRecognition + PyAudio convierten la voz en texto).
+  2. procesamiento.py convierte la frase en un vector de 0 y 1.
+  3. La red neuronal (perceptrón multicapa 2 capas ocultas) calcula una probabilidad para cada intención
+     (saludo, beca, constancia, pago...). Usa fragmentos de letras, por eso tolera faltas de ortografía.
+  4. Si la seguridad es alta, cerebro.py responde con la información del directorio. Si es baja,
+     ofrece opciones en botones en lugar de adivinar.
+  5. Recuerda el último trámite: después de "necesito una constancia" puedes preguntar "¿dónde queda?",
+     "¿su correo?" o "¿quién me atiende?".
+
+RESULTADOS REALES DE LA RED (ver carpeta evidencias/)
+-----------------------------------------------------
+  Pruebas ciegas (40 frases escritas después de entrenar, sin ajustar nada con ellas):  92.5 %
+  Pruebas finales (71 frases nuevas):                                                   94.4 %
+  La red no es perfecta: a veces se confunde con frases muy parecidas entre trámites
+  (por ejemplo "cursos de inglés" vs "cursos de educación continua"). Para mejorarla, agrega frases a
+  intents.json y ejecuta  py entrenar.py.
+
+INTERRUPTORES EN app.py
+-----------------------
+  VOZ_RESPUESTA = False   El asistente responde SOLO con texto. Cambia a True si algún día quieres que
+                          además lea la respuesta en voz alta con pyttsx3.
+  USAR_WHATSAPP = False   Apagado por ahora (pywhatkit).
+
+NOTA SOBRE EL DIRECTORIO
+------------------------
+  Las ubicaciones, teléfonos y correos vienen del documento oficial. Donde el documento no trae un dato
+  (por ejemplo horarios), el asistente lo dice y manda a la subdirección correspondiente en lugar de
+  inventarlo. Revisa en el documento el correo de prácticas: en la foto se lee con acento.

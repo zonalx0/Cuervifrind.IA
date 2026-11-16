@@ -1,0 +1,204 @@
+{
+  "fuente": "Directorio para trámites principales en el TecNL (documento oficial)",
+  "subdirecciones": {
+    "academica": {
+      "nombre": "Subdirección Académica",
+      "responsable": "Jorge Eduardo Ortega López (Subdirector Académico)",
+      "ubicacion": "Edificio 1, planta alta",
+      "correo": "acad_nleon@tecnm.mx",
+      "telefono": "(81) 81570502"
+    },
+    "planeacion": {
+      "nombre": "Subdirección de Planeación y Vinculación",
+      "responsable": "Rodolfo Abdiel Cerón Delgado (Subdirector)",
+      "ubicacion": "Edificio 1, planta alta",
+      "correo": "plan_nleon@tecnm.mx",
+      "telefono": "(81) 81570506"
+    },
+    "administrativa": {
+      "nombre": "Subdirección Administrativa",
+      "responsable": "María Pascuala Carrillo Torres (Subdirectora Administrativa)",
+      "ubicacion": "Edificio 1, planta alta",
+      "correo": "admon_nleon@tecnm.mx",
+      "telefono": "(81) 81570506"
+    }
+  },
+  "oficinas": {
+    "desarrollo_academico": {
+      "area": "Desarrollo Académico",
+      "responsable": "Laura Daniela González Piña (Jefa del Departamento)",
+      "ubicacion": "Edificio 14",
+      "correo": "desacad_nleon@tecnm.mx",
+      "telefono": "(81) 81570516",
+      "subdireccion": "academica"
+    },
+    "division_estudios": {
+      "area": "División de Estudios",
+      "responsable": null,
+      "ubicacion": "Edificio 1",
+      "correo": "dep@nuevoleon.tecnm.mx · coordinaciones: coord.cea@, coord.isc@, coord.iee@, coord.ii@ (todos @nuevoleon.tecnm.mx)",
+      "telefono": "(81) 81570510",
+      "subdireccion": "academica"
+    },
+    "comite_academico": {
+      "area": "Comité Académico",
+      "responsable": null,
+      "ubicacion": null,
+      "correo": "comite.academico@nuevoleon.tecnm.mx",
+      "telefono": null,
+      "subdireccion": "academica"
+    },
+    "coord_titulacion": {
+      "area": "Coordinación de Titulación",
+      "responsable": null,
+      "ubicacion": null,
+      "correo": "coord.tit@nuevoleon.tecnm.mx",
+      "telefono": null,
+      "subdireccion": "academica"
+    },
+    "info_docentes": {
+      "area": "Coordinaciones de carrera (información de docentes)",
+      "responsable": null,
+      "ubicacion": null,
+      "correo": "ii@ (II, IA) · iee@ (IM, IEM, IE) · cbas@ · syc@ · cea@ (todos @nuevoleon.tecnm.mx)",
+      "telefono": null,
+      "subdireccion": "academica"
+    },
+    "educacion_distancia": {
+      "area": "Educación a Distancia",
+      "responsable": null,
+      "ubicacion": null,
+      "correo": "virtual@nuevoleon.tecnm.mx",
+      "telefono": null,
+      "subdireccion": "academica"
+    },
+    "posgrado": {
+      "area": "Posgrado",
+      "responsable": null,
+      "ubicacion": null,
+      "correo": "depi_nleon@tecnm.mx",
+      "telefono": null,
+      "subdireccion": "academica"
+    },
+    "quejas": {
+      "area": "Quejas y Sugerencias",
+      "responsable": null,
+      "ubicacion": null,
+      "correo": "quejas.sujerencias@nuevoleon.tecnm.mx",
+      "telefono": null,
+      "subdireccion": "academica"
+    },
+    "becas": {
+      "area": "Becas",
+      "responsable": "Ofelia Vásquez Blanco (Encargada de Becas)",
+      "ubicacion": "Edificio 1 (planta baja)",
+      "correo": "se.becas@nuevoleon.tecnm.mx",
+      "telefono": "(81) 81570512",
+      "subdireccion": "planeacion"
+    },
+    "servicios_escolares": {
+      "area": "Departamento de Servicios Escolares",
+      "responsable": "Laura Edith Baltazar Estrada (Jefa del Departamento)",
+      "ubicacion": "Edificio 1",
+      "correo": "se_nleon@tecnm.mx",
+      "telefono": "(81) 81570512 / 14",
+      "subdireccion": "planeacion"
+    },
+    "titulacion_se": {
+      "area": "Titulación y Títulos",
+      "responsable": null,
+      "ubicacion": null,
+      "correo": "se.titulacion@nuevoleon.tecnm.mx",
+      "telefono": null,
+      "subdireccion": "planeacion"
+    },
+    "lengua_extranjera": {
+      "area": "Coordinación de Lengua Extranjera",
+      "responsable": null,
+      "ubicacion": null,
+      "correo": "cle@nuevoleon.tecnm.mx",
+      "telefono": null,
+      "subdireccion": "planeacion"
+    },
+    "formacion_integral": {
+      "area": "Formación Integral",
+      "responsable": null,
+      "ubicacion": null,
+      "correo": "f.integral@nuevoleon.tecnm.mx",
+      "telefono": null,
+      "subdireccion": "planeacion"
+    },
+    "biblioteca": {
+      "area": "Centro de Información (Biblioteca)",
+      "responsable": null,
+      "ubicacion": null,
+      "correo": "ci_nleon@tecnm.mx",
+      "telefono": null,
+      "subdireccion": "planeacion"
+    },
+    "servicio_social": {
+      "area": "Servicio Social",
+      "responsable": null,
+      "ubicacion": null,
+      "correo": "servicio.social@nuevoleon.tecnm.mx",
+      "telefono": null,
+      "subdireccion": "planeacion"
+    },
+    "practicas": {
+      "area": "Gestión Tecnológica y Vinculación (Prácticas)",
+      "responsable": "Monserrat Gómez de la Cruz (Encargada de Prácticas)",
+      "ubicacion": "Edificio 19",
+      "correo": "practicas@nuevoleon.tecnm.mx",
+      "telefono": "(81) 81570531",
+      "subdireccion": "planeacion"
+    },
+    "servicio_externo": {
+      "area": "Gestión Tecnológica y Vinculación (Servicio Externo)",
+      "responsable": "Ericka Jazmín Villarreal Sánchez (Encargada de Servicio Externo)",
+      "ubicacion": "Edificio 19",
+      "correo": "servicio.externo@nuevoleon.tecnm.mx",
+      "telefono": "(81) 81570532",
+      "subdireccion": "planeacion"
+    },
+    "vinculacion": {
+      "area": "Gestión Tecnológica y Vinculación",
+      "responsable": "Lesily Treviño Reyna (Jefa de Departamento)",
+      "ubicacion": "Edificio 19",
+      "correo": "vin_nleon@tecnm.mx",
+      "telefono": "(81) 81570513 / 23",
+      "subdireccion": "planeacion"
+    },
+    "administrativa": {
+      "area": "Subdirección Administrativa",
+      "responsable": null,
+      "ubicacion": "Edificio 1 (planta alta)",
+      "correo": "admon_nleon@tecnm.mx",
+      "telefono": "(81) 81570504",
+      "subdireccion": "administrativa"
+    },
+    "rf_facturas": {
+      "area": "Recursos Financieros (Facturas)",
+      "responsable": null,
+      "ubicacion": null,
+      "correo": "rf.facturas@nuevoleon.tecnm.mx",
+      "telefono": null,
+      "subdireccion": "administrativa"
+    },
+    "rf_pagos": {
+      "area": "Recursos Financieros (Pagos y adeudos)",
+      "responsable": null,
+      "ubicacion": null,
+      "correo": "rf.pagos@nuevoleon.tecnm.mx",
+      "telefono": "(81) 81570507",
+      "subdireccion": "administrativa"
+    },
+    "soporte": {
+      "area": "Soporte (Correo Institucional)",
+      "responsable": null,
+      "ubicacion": null,
+      "correo": "rsoporte@nuevoleon.tecnm.mx",
+      "telefono": null,
+      "subdireccion": "administrativa"
+    }
+  }
+}

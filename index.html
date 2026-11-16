@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ nombre }} · {{ escuela }}</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;800&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--vino:#5b0f26;--vino2:#7a1a38;--oscuro:#2e0713;--crema:#f6ece0;--oro:#e8c9a0;--tinta:#2a1a1f;--borde:#e3cfc0}
+*{box-sizing:border-box}
+body{margin:0;font-family:Nunito,system-ui,sans-serif;background:var(--oscuro);color:var(--tinta);min-height:100vh;display:flex;justify-content:center}
+.app{width:100%;max-width:860px;display:flex;flex-direction:column;height:100vh;background:var(--crema)}
+header{background:var(--vino);color:var(--crema);padding:14px 22px;display:flex;align-items:center;gap:14px;border-bottom:4px solid var(--oro)}
+header img{width:54px;height:54px;flex:none}
+header h1{font:800 1.6rem Fraunces,Georgia,serif;margin:0;line-height:1.1}
+header p{margin:3px 0 0;font-size:.92rem;opacity:.85}
+.ver{margin-left:auto;display:flex;align-items:center;gap:8px;font-size:.88rem;cursor:pointer;text-align:right}
+.ver input{accent-color:var(--oro);width:17px;height:17px}
+#red{display:none;background:#f0dfd0;border-bottom:1px solid var(--borde);padding:8px 22px;font-size:.85rem;color:var(--vino)}
+body.ver-red #red{display:block}
+#msgs{flex:1;overflow-y:auto;padding:22px;display:flex;flex-direction:column;gap:12px}
+.m{max-width:82%;padding:12px 16px;border-radius:14px;line-height:1.5;white-space:pre-wrap;font-size:1rem;overflow-wrap:anywhere}
+.bot{background:#fff;border:1px solid var(--borde);align-self:flex-start;border-top-left-radius:2px}
+.yo{background:var(--vino2);color:var(--crema);align-self:flex-end;border-bottom-right-radius:2px}
+.pensando{color:#8a6f6a;font-style:italic}
+.op{display:block;margin-top:8px;background:var(--crema);border:1px solid var(--vino);color:var(--vino);padding:7px 12px;border-radius:8px;cursor:pointer;font:inherit}
+.op:hover,.op:focus-visible{background:var(--vino);color:var(--crema)}
+.analisis{display:none;margin-top:10px;padding-top:8px;border-top:1px dashed var(--borde);font-size:.8rem;white-space:normal}
+body.ver-red .analisis{display:block}
+.fila{display:grid;grid-template-columns:150px 1fr 46px;gap:8px;align-items:center;margin-top:3px}
+.fila span:first-child{color:#6b4a50;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.barra{height:8px;background:#efe3da;border-radius:4px;overflow:hidden}
+.barra i{display:block;height:100%;background:var(--vino2)}
+.fila b{text-align:right;color:var(--vino)}
+.sug{display:flex;flex-wrap:wrap;gap:8px;padding:0 22px 10px}
+.sug button{background:transparent;border:1px solid var(--vino);color:var(--vino);border-radius:999px;padding:6px 14px;cursor:pointer;font:inherit;font-size:.9rem}
+.sug button:hover,.sug button:focus-visible{background:var(--vino);color:var(--crema)}
+form{display:flex;gap:10px;padding:14px 22px;background:var(--vino)}
+input[type=text]{flex:1;min-width:0;border:0;border-radius:999px;padding:13px 18px;font:inherit;font-size:1rem}
+form button{border:0;border-radius:999px;padding:0 20px;font:700 1rem Nunito,sans-serif;cursor:pointer;background:var(--oro);color:var(--vino);white-space:nowrap}
+form button:hover{filter:brightness(1.06)}
+#mic.on{background:#b3261e;color:#fff}
+:focus-visible{outline:3px solid var(--oro);outline-offset:2px}
+@media(max-width:600px){.m{max-width:94%}header p{display:none}.fila{grid-template-columns:110px 1fr 42px}.ver{font-size:.78rem}}
+@media(prefers-reduced-motion:no-preference){.m{animation:in .25s ease}@keyframes in{from{opacity:0;transform:translateY(6px)}}}
+</style>
+</head>
+<body>
+<div class="app">
+  <header>
+    <img src="{{ url_for('static', filename='logo.svg') }}" alt="Logo de {{ nombre }}">
+    <div><h1>{{ nombre }}</h1><p>{{ escuela }}</p></div>
+    <label class="ver"><input type="checkbox" id="ver"> Ver cómo piensa la red neuronal</label>
+  </header>
+  <div id="red">Red neuronal cargada desde modelo.json: <b>{{ info.capas }}</b> · {{ "{:,}".format(info.parametros) }} parámetros · {{ info.intenciones }} intenciones · precisión en pruebas: {{ info.precision }} %</div>
+  <div id="msgs" aria-live="polite"></div>
+  <div class="sug" id="sug"></div>
+  <form id="f">
+    <button type="button" id="mic" title="Hablar por el micrófono">🎤 Hablar</button>
+    <input type="text" id="txt" placeholder="Escribe tu duda o trámite…" autocomplete="off" autofocus>
+    <button type="submit">Enviar</button>
+  </form>
+</div>
+<script>
+const $ = s => document.querySelector(s), msgs = $('#msgs');
+let contexto = null;          // último trámite del que se habló (para preguntas como "¿dónde queda?")
+let ocupado = false;
+
+function nombreIntencion(tag){ return tag.replace(/_/g, ' '); }
+
+function agregar(texto, clase, extra){
+  const d = document.createElement('div');
+  d.className = 'm ' + clase;
+  d.textContent = texto;
+  (extra && extra.opciones || []).forEach(o => {
+    const b = document.createElement('button');
+    b.className = 'op'; b.type = 'button'; b.textContent = o.texto;
+    b.onclick = () => enviar({tag: o.tag, visible: o.texto});
+    d.appendChild(b);
+  });
+  if (extra && extra.analisis && extra.analisis.length){
+    const a = document.createElement('div'); a.className = 'analisis';
+    extra.analisis.forEach(x => {
+      const f = document.createElement('div'); f.className = 'fila';
+      const n = document.createElement('span'); n.textContent = nombreIntencion(x.tag);
+      const bar = document.createElement('span'); bar.className = 'barra';
+      const i = document.createElement('i'); i.style.width = Math.min(100, x.prob) + '%'; bar.appendChild(i);
+      const p = document.createElement('b'); p.textContent = x.prob.toFixed(1) + '%';
+      f.append(n, bar, p); a.appendChild(f);
+    });
+    d.appendChild(a);
+  }
+  msgs.appendChild(d); msgs.scrollTop = msgs.scrollHeight;
+  return d;
+}
+
+async function enviar(entrada){
+  if (ocupado) return;
+  const esTag = typeof entrada === 'object';
+  const texto = esTag ? entrada.visible : String(entrada || '').trim();
+  if (!texto) return;
+  ocupado = true;
+  agregar(texto, 'yo'); $('#txt').value = '';
+  const espera = agregar('Pensando…', 'bot pensando');
+  try {
+    const r = await fetch('/api/chat', {
+      method: 'POST', headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(esTag ? {tag: entrada.tag, contexto} : {mensaje: texto, contexto})
+    });
+    const j = await r.json();
+    espera.remove();
+    contexto = j.contexto || null;
+    agregar(j.respuesta, 'bot', j);
+  } catch (e) {
+    espera.remove();
+    agregar('No pude conectar con el servidor. ¿Sigue corriendo app.py en la terminal?', 'bot');
+  }
+  ocupado = false;
+}
+
+$('#f').onsubmit = e => { e.preventDefault(); enviar($('#txt').value); };
+
+// Micrófono: en localhost usa Python (SpeechRecognition + PyAudio); en un link público usa el dictado del navegador.
+let modoMic = 'navegador';
+fetch('/api/config').then(r => r.json()).then(c => { modoMic = c.microfono; }).catch(() => {});
+
+function botonMic(escuchando){
+  const b = $('#mic');
+  b.classList.toggle('on', escuchando);
+  b.textContent = escuchando ? '🎙️ Escuchando…' : '🎤 Hablar';
+}
+
+async function dictadoServidor(){
+  botonMic(true);
+  try {
+    const j = await (await fetch('/api/escuchar', {method: 'POST'})).json();
+    botonMic(false);
+    if (j.ok) enviar(j.texto); else agregar(j.error, 'bot');
+  } catch (e) {
+    botonMic(false);
+    agregar('Error con el micrófono. Revisa que app.py siga corriendo.', 'bot');
+  }
+}
+
+function dictadoNavegador(){
+  const Reconocimiento = window.SpeechRecognition || window.webkitSpeechRecognition;
+  if (!Reconocimiento){
+    agregar('Este navegador no permite dictado por voz. Usa Chrome o Edge, o escribe tu duda.', 'bot');
+    return;
+  }
+  const rec = new Reconocimiento();
+  rec.lang = 'es-MX'; rec.interimResults = false; rec.maxAlternatives = 1;
+  let hubo = false;
+  rec.onstart = () => botonMic(true);
+  rec.onresult = e => { hubo = true; enviar(e.results[0][0].transcript); };
+  rec.onerror = e => {
+    hubo = true;
+    const mensajes = {
+      'not-allowed': 'Permite el uso del micrófono en tu navegador (el candado junto a la dirección) e inténtalo de nuevo.',
+      'service-not-allowed': 'Permite el uso del micrófono en tu navegador e inténtalo de nuevo.',
+      'no-speech': 'No te escuché, intenta de nuevo.',
+      'audio-capture': 'No encontré un micrófono conectado.',
+      'network': 'No pude conectarme al servicio de voz. Revisa tu internet.'
+    };
+    agregar(mensajes[e.error] || 'No pude usar el micrófono. Escribe tu duda.', 'bot');
+  };
+  rec.onend = () => { botonMic(false); if (!hubo) agregar('No te escuché, intenta de nuevo.', 'bot'); };
+  try { rec.start(); } catch (_) { botonMic(false); }
+}
+
+$('#mic').onclick = () => {
+  if (ocupado) return;
+  if (modoMic === 'servidor') dictadoServidor(); else dictadoNavegador();
+};
+
+$('#ver').onchange = e => {
+  document.body.classList.toggle('ver-red', e.target.checked);
+  try { localStorage.setItem('verRed', e.target.checked ? '1' : '0'); } catch (_) {}
+};
+try { if (localStorage.getItem('verRed') === '1'){ $('#ver').checked = true; document.body.classList.add('ver-red'); } } catch (_) {}
+
+agregar('¡Hola! Soy tu amigo CuerviFriend, estoy listo para apoyarte con tus trámites del Tecnológico de Nuevo León. Escríbeme tu duda con tus palabras o usa el micrófono.', 'bot');
+['Necesito una constancia', 'Quiero una beca', 'Cómo libero mi servicio social', 'Qué onda'].forEach(t => {
+  const b = document.createElement('button'); b.type = 'button'; b.textContent = t;
+  b.onclick = () => enviar(t); $('#sug').appendChild(b);
+});
+</script>
+</body>
+</html>
